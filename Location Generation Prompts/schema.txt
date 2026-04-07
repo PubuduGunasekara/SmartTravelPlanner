@@ -1,0 +1,143 @@
+{
+  "type": "object",
+  "required": [
+    "id", "name", "type", "must_visit", "rating",
+    "start_location", "end_location",
+    "arrive_after", "leave_before", "optimal_duration", "minimum_duration", "event_start_times",
+    "food", "estimated_cost_usd", "exclusions",
+    "description", "considerations"
+  ],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Sequential identifier. Starts at 1, increments by 1 for each activity."
+    },
+    "name": {
+      "type": "string",
+      "description": "The commonly used name of the activity or venue."
+    },
+    "type": {
+      "type": "string",
+      "enum": ["museum", "park", "landmark", "restaurant", "event", "boat_tour", "observation", "market", "neighborhood", "amusement", "hike", "tour", "nightlife", "shopping", "wellness", "beach", "sports"],
+      "description": "Category of activity. Used by the scheduler to ensure variety — avoid clustering too many of the same type in sequence."
+    },
+    "must_visit": {
+      "type": "boolean",
+      "description": "Only true if the user explicitly says this activity must be included in their trip. Default false."
+    },
+    "rating": {
+      "type": "number",
+      "minimum": 1.0,
+      "maximum": 5.0,
+      "description": "Aggregate rating from internet reviews (e.g. Google, Yelp, TripAdvisor). Use one decimal place. Aim for a realistic spread — not everything is 4.5+."
+    },
+    "start_location": {
+      "type": "string",
+      "description": "Street address of the starting point or entrance."
+    },
+    "end_location": {
+      "type": ["string", "null"],
+      "description": "Street address where the activity ends, if different from start_location. Null when start and end are the same."
+    },
+    "arrive_after": {
+      "type": ["object", "null"],
+      "description": "Earliest arrival time per day of week (when the venue opens). Null if no constraint (e.g. outdoor landmarks). A null value for a specific day means closed that day.",
+      "properties": {
+        "mon": { "type": ["string", "null"], "pattern": "^\\d{2}:\\d{2}$" },
+        "tue": { "type": ["string", "null"], "pattern": "^\\d{2}:\\d{2}$" },
+        "wed": { "type": ["string", "null"], "pattern": "^\\d{2}:\\d{2}$" },
+        "thu": { "type": ["string", "null"], "pattern": "^\\d{2}:\\d{2}$" },
+        "fri": { "type": ["string", "null"], "pattern": "^\\d{2}:\\d{2}$" },
+        "sat": { "type": ["string", "null"], "pattern": "^\\d{2}:\\d{2}$" },
+        "sun": { "type": ["string", "null"], "pattern": "^\\d{2}:\\d{2}$" }
+      }
+    },
+    "leave_before": {
+      "type": ["object", "null"],
+      "description": "Latest departure time per day of week (when the venue closes). Null if no constraint.",
+      "properties": {
+        "mon": { "type": ["string", "null"], "pattern": "^\\d{2}:\\d{2}$" },
+        "tue": { "type": ["string", "null"], "pattern": "^\\d{2}:\\d{2}$" },
+        "wed": { "type": ["string", "null"], "pattern": "^\\d{2}:\\d{2}$" },
+        "thu": { "type": ["string", "null"], "pattern": "^\\d{2}:\\d{2}$" },
+        "fri": { "type": ["string", "null"], "pattern": "^\\d{2}:\\d{2}$" },
+        "sat": { "type": ["string", "null"], "pattern": "^\\d{2}:\\d{2}$" },
+        "sun": { "type": ["string", "null"], "pattern": "^\\d{2}:\\d{2}$" }
+      }
+    },
+    "optimal_duration": {
+      "type": ["integer", "null"],
+      "minimum": 1,
+      "description": "Ideal visit length in minutes. A museum might be 180, a hot dog stand might be 10. Fill whenever a reasonable estimate is possible."
+    },
+    "minimum_duration": {
+      "type": ["integer", "null"],
+      "minimum": 1,
+      "description": "Shortest time in minutes that makes the visit worthwhile. REQUIRED when event_start_times is populated — set to the event's full runtime. For flexible venues, set to the minimum needed for any value (e.g. 30 min for a large museum). Null only for activities with no meaningful minimum."
+    },
+    "event_start_times": {
+      "type": ["object", "null"],
+      "description": "For fixed-schedule activities only (shows, tours, ferries, cruises). Lists all available start times per day as HH:MM strings. Null for flexible venues like museums, parks, restaurants. When this field is populated, minimum_duration MUST also be set so the algorithm can compute end times as start_time + minimum_duration.",
+      "properties": {
+        "mon": { "type": ["array", "null"], "items": { "type": "string", "pattern": "^\\d{2}:\\d{2}$" } },
+        "tue": { "type": ["array", "null"], "items": { "type": "string", "pattern": "^\\d{2}:\\d{2}$" } },
+        "wed": { "type": ["array", "null"], "items": { "type": "string", "pattern": "^\\d{2}:\\d{2}$" } },
+        "thu": { "type": ["array", "null"], "items": { "type": "string", "pattern": "^\\d{2}:\\d{2}$" } },
+        "fri": { "type": ["array", "null"], "items": { "type": "string", "pattern": "^\\d{2}:\\d{2}$" } },
+        "sat": { "type": ["array", "null"], "items": { "type": "string", "pattern": "^\\d{2}:\\d{2}$" } },
+        "sun": { "type": ["array", "null"], "items": { "type": "string", "pattern": "^\\d{2}:\\d{2}$" } }
+      }
+    },
+    "food": {
+      "type": ["object", "null"],
+      "description": "Null if the venue does not serve food. If food is available, indicate which meal types are served and their serving hours per day of week. For venues that serve food all day with no distinct meal periods, mark them as serving breakfast, lunch, and dinner with the appropriate time windows rather than using snacks as a catch-all.",
+      "properties": {
+        "breakfast": {
+          "type": ["object", "null"],
+          "description": "Null if breakfast is not served.",
+          "properties": {
+            "mon": { "type": ["object", "null"], "properties": { "start": { "type": "string", "pattern": "^\\d{2}:\\d{2}$" }, "end": { "type": "string", "pattern": "^\\d{2}:\\d{2}$" } }, "required": ["start", "end"] },
+            "tue": { "type": ["object", "null"], "properties": { "start": { "type": "string", "pattern": "^\\d{2}:\\d{2}$" }, "end": { "type": "string", "pattern": "^\\d{2}:\\d{2}$" } }, "required": ["start", "end"] },
+            "wed": { "type": ["object", "null"], "properties": { "start": { "type": "string", "pattern": "^\\d{2}:\\d{2}$" }, "end": { "type": "string", "pattern": "^\\d{2}:\\d{2}$" } }, "required": ["start", "end"] },
+            "thu": { "type": ["object", "null"], "properties": { "start": { "type": "string", "pattern": "^\\d{2}:\\d{2}$" }, "end": { "type": "string", "pattern": "^\\d{2}:\\d{2}$" } }, "required": ["start", "end"] },
+            "fri": { "type": ["object", "null"], "properties": { "start": { "type": "string", "pattern": "^\\d{2}:\\d{2}$" }, "end": { "type": "string", "pattern": "^\\d{2}:\\d{2}$" } }, "required": ["start", "end"] },
+            "sat": { "type": ["object", "null"], "properties": { "start": { "type": "string", "pattern": "^\\d{2}:\\d{2}$" }, "end": { "type": "string", "pattern": "^\\d{2}:\\d{2}$" } }, "required": ["start", "end"] },
+            "sun": { "type": ["object", "null"], "properties": { "start": { "type": "string", "pattern": "^\\d{2}:\\d{2}$" }, "end": { "type": "string", "pattern": "^\\d{2}:\\d{2}$" } }, "required": ["start", "end"] }
+          }
+        },
+        "lunch": {
+          "type": ["object", "null"],
+          "description": "Null if lunch is not served. Same day-of-week structure as breakfast."
+        },
+        "dinner": {
+          "type": ["object", "null"],
+          "description": "Null if dinner is not served. Same day-of-week structure as breakfast."
+        },
+        "snacks": {
+          "type": ["object", "null"],
+          "description": "Null if snacks/treats are not served. Only use for venues that serve light bites outside of or in addition to meal periods. Same day-of-week structure as breakfast."
+        }
+      }
+    },
+    "estimated_cost_usd": {
+      "type": ["number", "null"],
+      "minimum": 0,
+      "description": "Estimated total cost per person in US dollars. Includes admission, typical food spend at restaurants, or ticket price. 0 for free activities. Convert to USD if the destination is abroad. Null only if cost is truly unknown."
+    },
+    "exclusions": {
+      "type": "array",
+      "items": { "type": "integer", "minimum": 1 },
+      "description": "List of activity IDs that become not worth visiting if this activity is already in the plan. Fill this field LAST after all activities have been assigned IDs. Use for activities that fulfill the same goal — e.g. competing harbor tours, multiple observation decks, similar spa experiences. Exclusions are mutual: if A excludes B, B should also exclude A. Empty array if no exclusions."
+    },
+    "description": {
+      "type": ["string", "null"],
+      "description": "Brief description of the activity — what it is, why it's worth visiting. A few sentences at most. Null if unknown."
+    },
+    "considerations": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Practical tips the visitor should know before going. Examples: 'Book tickets in advance', 'Bring a swimsuit', 'Wear comfortable walking shoes', 'Cash only', 'No late seating after curtain'. Empty array if none."
+    }
+  }
+}

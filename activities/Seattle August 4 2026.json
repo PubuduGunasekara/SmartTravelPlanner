@@ -1,0 +1,1715 @@
+[
+  {
+    "id": 1,
+    "name": "Pike Place Market",
+    "type": "market",
+    "must_visit": false,
+    "rating": 4.7,
+    "start_location": "85 Pike St, Seattle, WA 98101",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "09:00",
+      "tue": "09:00",
+      "wed": "09:00",
+      "thu": "09:00",
+      "fri": "09:00",
+      "sat": "09:00",
+      "sun": "09:00"
+    },
+    "leave_before": {
+      "mon": "18:00",
+      "tue": "18:00",
+      "wed": "18:00",
+      "thu": "18:00",
+      "fri": "18:00",
+      "sat": "18:00",
+      "sun": "18:00"
+    },
+    "optimal_duration": 120,
+    "minimum_duration": 45,
+    "event_start_times": null,
+    "food": {
+      "breakfast": {
+        "mon": {
+          "start": "09:00",
+          "end": "11:00"
+        },
+        "tue": {
+          "start": "09:00",
+          "end": "11:00"
+        },
+        "wed": {
+          "start": "09:00",
+          "end": "11:00"
+        },
+        "thu": {
+          "start": "09:00",
+          "end": "11:00"
+        },
+        "fri": {
+          "start": "09:00",
+          "end": "11:00"
+        },
+        "sat": {
+          "start": "09:00",
+          "end": "11:00"
+        },
+        "sun": {
+          "start": "09:00",
+          "end": "11:00"
+        }
+      },
+      "lunch": {
+        "mon": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "tue": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "wed": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "thu": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "fri": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "sat": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "sun": {
+          "start": "11:00",
+          "end": "15:00"
+        }
+      },
+      "dinner": null,
+      "snacks": {
+        "mon": {
+          "start": "09:00",
+          "end": "18:00"
+        },
+        "tue": {
+          "start": "09:00",
+          "end": "18:00"
+        },
+        "wed": {
+          "start": "09:00",
+          "end": "18:00"
+        },
+        "thu": {
+          "start": "09:00",
+          "end": "18:00"
+        },
+        "fri": {
+          "start": "09:00",
+          "end": "18:00"
+        },
+        "sat": {
+          "start": "09:00",
+          "end": "18:00"
+        },
+        "sun": {
+          "start": "09:00",
+          "end": "18:00"
+        }
+      }
+    },
+    "estimated_cost_usd": 0,
+    "exclusions": [],
+    "description": "Seattle's iconic public market overlooking Elliott Bay, home to over 200 local artisans, farmers, and small businesses. Famous for the fish-throwing fishmongers, the original Starbucks, the Gum Wall, and award-winning clam chowder. One of the oldest continuously operated public farmers' markets in the US.",
+    "considerations": [
+      "Arrive early (before 10am) to beat the crowds and get the best produce",
+      "The market is busiest on weekends \u2014 weekday mornings are much calmer",
+      "Watch for the fish toss at Pike Place Fish Market",
+      "The Gum Wall is a short walk down Post Alley \u2014 worth a quick stop",
+      "Many vendors are cash-preferred"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Space Needle",
+    "type": "observation",
+    "must_visit": false,
+    "rating": 4.5,
+    "start_location": "400 Broad St, Seattle, WA 98109",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "10:00",
+      "tue": "10:00",
+      "wed": "10:00",
+      "thu": "10:00",
+      "fri": "10:00",
+      "sat": "09:00",
+      "sun": "09:00"
+    },
+    "leave_before": {
+      "mon": "21:00",
+      "tue": "21:00",
+      "wed": "21:00",
+      "thu": "21:00",
+      "fri": "22:00",
+      "sat": "22:00",
+      "sun": "21:00"
+    },
+    "optimal_duration": 90,
+    "minimum_duration": 45,
+    "event_start_times": null,
+    "food": {
+      "breakfast": null,
+      "lunch": {
+        "mon": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "tue": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "wed": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "thu": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "fri": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "sat": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "sun": {
+          "start": "11:00",
+          "end": "15:00"
+        }
+      },
+      "dinner": {
+        "mon": {
+          "start": "17:00",
+          "end": "21:00"
+        },
+        "tue": {
+          "start": "17:00",
+          "end": "21:00"
+        },
+        "wed": {
+          "start": "17:00",
+          "end": "21:00"
+        },
+        "thu": {
+          "start": "17:00",
+          "end": "21:00"
+        },
+        "fri": {
+          "start": "17:00",
+          "end": "22:00"
+        },
+        "sat": {
+          "start": "17:00",
+          "end": "22:00"
+        },
+        "sun": {
+          "start": "17:00",
+          "end": "21:00"
+        }
+      },
+      "snacks": null
+    },
+    "estimated_cost_usd": 38,
+    "exclusions": [
+      3
+    ],
+    "description": "Seattle's most iconic landmark, standing 605 feet tall with two observation levels offering 360-degree views of the city skyline, Mount Rainier, Elliott Bay, and the Olympic and Cascade mountain ranges. Features a unique rotating glass floor called The Loupe. The on-site restaurant, Atmos, rotates with panoramic views.",
+    "considerations": [
+      "Book tickets online in advance \u2014 walk-up lines can be very long in August",
+      "Sunset visits (around 8:30pm in August) offer spectacular lighting",
+      "Dining at the restaurant includes complimentary observation deck access",
+      "The glass floor on the observation deck can be unsettling for those with a fear of heights"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Columbia Center Sky View Observatory",
+    "type": "observation",
+    "must_visit": false,
+    "rating": 4.3,
+    "start_location": "700 4th Ave, Seattle, WA 98104",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "10:00",
+      "tue": "10:00",
+      "wed": "10:00",
+      "thu": "10:00",
+      "fri": "10:00",
+      "sat": "10:00",
+      "sun": "10:00"
+    },
+    "leave_before": {
+      "mon": "21:00",
+      "tue": "21:00",
+      "wed": "21:00",
+      "thu": "21:00",
+      "fri": "21:00",
+      "sat": "21:00",
+      "sun": "21:00"
+    },
+    "optimal_duration": 60,
+    "minimum_duration": 30,
+    "event_start_times": null,
+    "food": null,
+    "estimated_cost_usd": 25,
+    "exclusions": [
+      2
+    ],
+    "description": "The tallest public observatory in the Pacific Northwest, located on the 73rd floor of the Columbia Center skyscraper. Offers sweeping 360-degree views of Seattle, Puget Sound, and the surrounding mountains \u2014 often less crowded and cheaper than the Space Needle, with arguably better views of the Space Needle itself.",
+    "considerations": [
+      "A great budget-friendly alternative to the Space Needle",
+      "The elevator ride to the 73rd floor takes only 70 seconds",
+      "Evening visits offer stunning city light views",
+      "Located in the Financial District \u2014 easy to combine with Pioneer Square"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Chihuly Garden and Glass",
+    "type": "museum",
+    "must_visit": false,
+    "rating": 4.7,
+    "start_location": "305 Harrison St, Seattle, WA 98109",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "10:00",
+      "tue": "10:00",
+      "wed": "10:00",
+      "thu": "10:00",
+      "fri": "10:00",
+      "sat": "09:00",
+      "sun": "09:00"
+    },
+    "leave_before": {
+      "mon": "20:00",
+      "tue": "20:00",
+      "wed": "20:00",
+      "thu": "20:00",
+      "fri": "21:00",
+      "sat": "21:00",
+      "sun": "20:00"
+    },
+    "optimal_duration": 90,
+    "minimum_duration": 60,
+    "event_start_times": null,
+    "food": {
+      "breakfast": null,
+      "lunch": {
+        "mon": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "tue": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "wed": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "thu": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "fri": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "sat": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "sun": {
+          "start": "11:00",
+          "end": "15:00"
+        }
+      },
+      "dinner": {
+        "mon": {
+          "start": "17:00",
+          "end": "20:00"
+        },
+        "tue": {
+          "start": "17:00",
+          "end": "20:00"
+        },
+        "wed": {
+          "start": "17:00",
+          "end": "20:00"
+        },
+        "thu": {
+          "start": "17:00",
+          "end": "20:00"
+        },
+        "fri": {
+          "start": "17:00",
+          "end": "21:00"
+        },
+        "sat": {
+          "start": "17:00",
+          "end": "21:00"
+        },
+        "sun": {
+          "start": "17:00",
+          "end": "20:00"
+        }
+      },
+      "snacks": null
+    },
+    "estimated_cost_usd": 32,
+    "exclusions": [],
+    "description": "A stunning exhibition of Dale Chihuly's monumental glass sculptures set in an indoor gallery and outdoor garden at Seattle Center, right next to the Space Needle. The glasshouse, garden, and eight interior galleries showcase some of the most breathtaking glass art in the world. Particularly magical at dusk when the sculptures are illuminated.",
+    "considerations": [
+      "Book tickets in advance \u2014 sells out frequently in summer",
+      "Combine with the Space Needle for a discounted bundle ticket",
+      "The outdoor garden is especially beautiful in the evening light",
+      "Photography is encouraged throughout"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Museum of Pop Culture (MoPOP)",
+    "type": "museum",
+    "must_visit": false,
+    "rating": 4.4,
+    "start_location": "325 5th Ave N, Seattle, WA 98109",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "10:00",
+      "tue": "10:00",
+      "wed": "10:00",
+      "thu": "10:00",
+      "fri": "10:00",
+      "sat": "10:00",
+      "sun": "10:00"
+    },
+    "leave_before": {
+      "mon": "17:00",
+      "tue": "17:00",
+      "wed": "17:00",
+      "thu": "17:00",
+      "fri": "17:00",
+      "sat": "17:00",
+      "sun": "17:00"
+    },
+    "optimal_duration": 150,
+    "minimum_duration": 90,
+    "event_start_times": null,
+    "food": {
+      "breakfast": null,
+      "lunch": {
+        "mon": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "tue": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "wed": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "thu": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "fri": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "sat": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "sun": {
+          "start": "11:00",
+          "end": "15:00"
+        }
+      },
+      "dinner": null,
+      "snacks": null
+    },
+    "estimated_cost_usd": 30,
+    "exclusions": [],
+    "description": "A Frank Gehry-designed museum at Seattle Center dedicated to pop culture, music, science fiction, and fantasy. Permanent exhibits celebrate Seattle's grunge music heritage, Jimi Hendrix, and iconic sci-fi/fantasy franchises. Rotating special exhibitions keep the experience fresh for repeat visitors.",
+    "considerations": [
+      "Allow at least 2\u20133 hours to see the main exhibits",
+      "The guitar gallery and sound lab are highlights for music fans",
+      "Located steps from the Space Needle \u2014 easy to combine both in one visit",
+      "Check the website for any special summer exhibitions"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Capitol Hill Block Party 2026",
+    "type": "event",
+    "must_visit": false,
+    "rating": 4.5,
+    "start_location": "12th Ave & E Pike St, Seattle, WA 98122",
+    "end_location": null,
+    "arrive_after": {
+      "mon": null,
+      "tue": null,
+      "wed": null,
+      "thu": null,
+      "fri": "14:00",
+      "sat": "12:00",
+      "sun": "12:00"
+    },
+    "leave_before": {
+      "mon": null,
+      "tue": null,
+      "wed": null,
+      "thu": null,
+      "fri": "02:00",
+      "sat": "02:00",
+      "sun": "23:00"
+    },
+    "optimal_duration": 360,
+    "minimum_duration": 180,
+    "event_start_times": {
+      "mon": null,
+      "tue": null,
+      "wed": null,
+      "thu": null,
+      "fri": [
+        "14:00"
+      ],
+      "sat": [
+        "12:00"
+      ],
+      "sun": [
+        "12:00"
+      ]
+    },
+    "food": {
+      "breakfast": null,
+      "lunch": {
+        "fri": null,
+        "sat": {
+          "start": "12:00",
+          "end": "15:00"
+        },
+        "sun": {
+          "start": "12:00",
+          "end": "15:00"
+        }
+      },
+      "dinner": {
+        "fri": {
+          "start": "17:00",
+          "end": "23:00"
+        },
+        "sat": {
+          "start": "17:00",
+          "end": "23:00"
+        },
+        "sun": {
+          "start": "17:00",
+          "end": "22:00"
+        }
+      },
+      "snacks": {
+        "fri": {
+          "start": "14:00",
+          "end": "02:00"
+        },
+        "sat": {
+          "start": "12:00",
+          "end": "02:00"
+        },
+        "sun": {
+          "start": "12:00",
+          "end": "23:00"
+        }
+      }
+    },
+    "estimated_cost_usd": 85,
+    "exclusions": [],
+    "description": "The 28th annual Capitol Hill Block Party runs August 7\u20139, 2026, in Seattle's vibrant Pike/Pine corridor. This three-day music and arts festival features 100+ performances across indoor and outdoor stages including headliners MUNA, Wet Leg, and Disco Lines, plus Magdalena Bay, Parcels, Tinashe DJ Set, and many more. More than half the lineup is Seattle-based artists.",
+    "considerations": [
+      "Event is 21+ \u2014 valid government-issued ID required for entry",
+      "August 4 is before the festival (Aug 7\u20139) \u2014 plan accordingly if visiting for multiple days",
+      "Three-day passes and single-day passes available; book in advance",
+      "Stages span multiple indoor venues including Neumos and Barboza",
+      "Expect large crowds and limited parking \u2014 use public transit or rideshare",
+      "Surge pricing on rideshares during peak hours"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Argosy Harbor Cruise",
+    "type": "boat_tour",
+    "must_visit": false,
+    "rating": 4.4,
+    "start_location": "1101 Alaskan Way, Pier 55, Seattle, WA 98101",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "10:00",
+      "tue": "10:00",
+      "wed": "10:00",
+      "thu": "10:00",
+      "fri": "10:00",
+      "sat": "10:00",
+      "sun": "10:00"
+    },
+    "leave_before": {
+      "mon": "17:00",
+      "tue": "17:00",
+      "wed": "17:00",
+      "thu": "17:00",
+      "fri": "17:00",
+      "sat": "17:00",
+      "sun": "17:00"
+    },
+    "optimal_duration": 60,
+    "minimum_duration": 60,
+    "event_start_times": {
+      "mon": [
+        "10:30",
+        "12:30",
+        "14:30"
+      ],
+      "tue": [
+        "10:30",
+        "12:30",
+        "14:30"
+      ],
+      "wed": [
+        "10:30",
+        "12:30",
+        "14:30"
+      ],
+      "thu": [
+        "10:30",
+        "12:30",
+        "14:30"
+      ],
+      "fri": [
+        "10:30",
+        "12:30",
+        "14:30"
+      ],
+      "sat": [
+        "10:00",
+        "11:30",
+        "13:00",
+        "14:30",
+        "16:00"
+      ],
+      "sun": [
+        "10:00",
+        "11:30",
+        "13:00",
+        "14:30",
+        "16:00"
+      ]
+    },
+    "food": {
+      "breakfast": null,
+      "lunch": null,
+      "dinner": null,
+      "snacks": {
+        "mon": {
+          "start": "10:00",
+          "end": "17:00"
+        },
+        "tue": {
+          "start": "10:00",
+          "end": "17:00"
+        },
+        "wed": {
+          "start": "10:00",
+          "end": "17:00"
+        },
+        "thu": {
+          "start": "10:00",
+          "end": "17:00"
+        },
+        "fri": {
+          "start": "10:00",
+          "end": "17:00"
+        },
+        "sat": {
+          "start": "10:00",
+          "end": "17:00"
+        },
+        "sun": {
+          "start": "10:00",
+          "end": "17:00"
+        }
+      }
+    },
+    "estimated_cost_usd": 45,
+    "exclusions": [],
+    "description": "Seattle's original narrated harbor cruise, operating since 1949. This one-hour tour of Elliott Bay offers panoramic views of the Seattle skyline, Space Needle, Olympic Mountains, Mount Rainier, and one of the West Coast's busiest shipping ports. A full-service bar with cocktails, local wine, beer, and snacks is available on board.",
+    "considerations": [
+      "Book tickets online in advance to save money and guarantee a spot",
+      "Sit on the port side (left facing forward) for the best skyline and Space Needle views",
+      "The upper deck offers better photos but no window glare protection",
+      "Arrive at least 20\u201330 minutes before departure for boarding",
+      "Harbor porpoises are commonly spotted May\u2013August",
+      "A CityPASS bundle can save significantly if combining with other attractions"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Kerry Park",
+    "type": "park",
+    "must_visit": false,
+    "rating": 4.6,
+    "start_location": "211 W Highland Dr, Seattle, WA 98119",
+    "end_location": null,
+    "arrive_after": null,
+    "leave_before": null,
+    "optimal_duration": 30,
+    "minimum_duration": 15,
+    "event_start_times": null,
+    "food": null,
+    "estimated_cost_usd": 0,
+    "exclusions": [],
+    "description": "A small hilltop park on Queen Anne Hill offering what is widely considered the best view of the Seattle skyline, with the Space Needle, downtown skyscrapers, Elliott Bay, and Mount Rainier all visible in a single frame. Extremely popular with photographers, especially at sunset and golden hour.",
+    "considerations": [
+      "Best visited at sunset for golden-hour photography \u2014 sunset in early August is around 8:30pm",
+      "The park is small and can get crowded; arrive early for a good spot",
+      "Street parking is limited \u2014 consider walking from Seattle Center (about 15 minutes)",
+      "Bring a jacket as it can be breezy even in August"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Seattle Underground Tour",
+    "type": "tour",
+    "must_visit": false,
+    "rating": 4.3,
+    "start_location": "614 1st Ave, Seattle, WA 98104",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "09:00",
+      "tue": "09:00",
+      "wed": "09:00",
+      "thu": "09:00",
+      "fri": "09:00",
+      "sat": "09:00",
+      "sun": "09:00"
+    },
+    "leave_before": {
+      "mon": "19:00",
+      "tue": "19:00",
+      "wed": "19:00",
+      "thu": "19:00",
+      "fri": "19:00",
+      "sat": "19:00",
+      "sun": "19:00"
+    },
+    "optimal_duration": 90,
+    "minimum_duration": 75,
+    "event_start_times": {
+      "mon": [
+        "09:00",
+        "10:00",
+        "11:00",
+        "12:00",
+        "13:00",
+        "14:00",
+        "15:00",
+        "16:00",
+        "17:00",
+        "18:00"
+      ],
+      "tue": [
+        "09:00",
+        "10:00",
+        "11:00",
+        "12:00",
+        "13:00",
+        "14:00",
+        "15:00",
+        "16:00",
+        "17:00",
+        "18:00"
+      ],
+      "wed": [
+        "09:00",
+        "10:00",
+        "11:00",
+        "12:00",
+        "13:00",
+        "14:00",
+        "15:00",
+        "16:00",
+        "17:00",
+        "18:00"
+      ],
+      "thu": [
+        "09:00",
+        "10:00",
+        "11:00",
+        "12:00",
+        "13:00",
+        "14:00",
+        "15:00",
+        "16:00",
+        "17:00",
+        "18:00"
+      ],
+      "fri": [
+        "09:00",
+        "10:00",
+        "11:00",
+        "12:00",
+        "13:00",
+        "14:00",
+        "15:00",
+        "16:00",
+        "17:00",
+        "18:00"
+      ],
+      "sat": [
+        "09:00",
+        "10:00",
+        "11:00",
+        "12:00",
+        "13:00",
+        "14:00",
+        "15:00",
+        "16:00",
+        "17:00",
+        "18:00"
+      ],
+      "sun": [
+        "09:00",
+        "10:00",
+        "11:00",
+        "12:00",
+        "13:00",
+        "14:00",
+        "15:00",
+        "16:00",
+        "17:00",
+        "18:00"
+      ]
+    },
+    "food": null,
+    "estimated_cost_usd": 22,
+    "exclusions": [],
+    "description": "A guided walking tour through the historic underground passageways beneath Pioneer Square, dating back to the 1890s. After the Great Seattle Fire of 1889, the city was rebuilt one story higher, leaving the original street level intact underground. The tour is humorous and historically rich, covering Seattle's colorful early history.",
+    "considerations": [
+      "Book tickets in advance \u2014 tours fill up quickly in summer",
+      "The tour involves walking on uneven surfaces; wear comfortable, closed-toe shoes",
+      "Not recommended for those with claustrophobia or mobility issues",
+      "Tours depart from Doc Maynard's Public House in Pioneer Square",
+      "The humor is adult-oriented \u2014 may not be suitable for young children"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Olympic Sculpture Park",
+    "type": "park",
+    "must_visit": false,
+    "rating": 4.4,
+    "start_location": "2901 Western Ave, Seattle, WA 98121",
+    "end_location": null,
+    "arrive_after": null,
+    "leave_before": null,
+    "optimal_duration": 60,
+    "minimum_duration": 20,
+    "event_start_times": null,
+    "food": null,
+    "estimated_cost_usd": 0,
+    "exclusions": [],
+    "description": "A free, nine-acre outdoor sculpture park operated by the Seattle Art Museum, located on the waterfront one mile north of downtown. Features monumental sculptures set against sweeping views of Elliott Bay, the Olympic Mountains, and the city skyline. A peaceful and photogenic stop between downtown and Seattle Center.",
+    "considerations": [
+      "Free and open year-round, dawn to dusk",
+      "The Z-shaped path winds from the street level down to the waterfront beach",
+      "Easily walkable from Pike Place Market or the Seattle Waterfront",
+      "Great spot for a short break between larger attractions"
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Alki Beach",
+    "type": "beach",
+    "must_visit": false,
+    "rating": 4.4,
+    "start_location": "1702 Alki Ave SW, Seattle, WA 98116",
+    "end_location": null,
+    "arrive_after": null,
+    "leave_before": null,
+    "optimal_duration": 150,
+    "minimum_duration": 60,
+    "event_start_times": null,
+    "food": {
+      "breakfast": null,
+      "lunch": {
+        "mon": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "tue": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "wed": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "thu": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "fri": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "sat": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "sun": {
+          "start": "11:00",
+          "end": "15:00"
+        }
+      },
+      "dinner": {
+        "mon": {
+          "start": "17:00",
+          "end": "21:00"
+        },
+        "tue": {
+          "start": "17:00",
+          "end": "21:00"
+        },
+        "wed": {
+          "start": "17:00",
+          "end": "21:00"
+        },
+        "thu": {
+          "start": "17:00",
+          "end": "21:00"
+        },
+        "fri": {
+          "start": "17:00",
+          "end": "22:00"
+        },
+        "sat": {
+          "start": "17:00",
+          "end": "22:00"
+        },
+        "sun": {
+          "start": "17:00",
+          "end": "21:00"
+        }
+      },
+      "snacks": null
+    },
+    "estimated_cost_usd": 0,
+    "exclusions": [],
+    "description": "Seattle's most popular urban beach in West Seattle, stretching along Alki Avenue SW with views of the downtown skyline and Elliott Bay. August is peak season with warm temperatures, beach volleyball, and a lively boardwalk lined with restaurants and ice cream shops. The beach where Seattle's first settlers landed in 1851.",
+    "considerations": [
+      "August is peak season \u2014 arrive early on weekends to find parking",
+      "Water temperatures are cold even in summer (around 55\u201360\u00b0F) \u2014 most people don't swim",
+      "The 2.5-mile beachfront path is great for walking, cycling, and rollerblading",
+      "Numerous restaurants and food stands line the beachfront",
+      "Take the Water Taxi from downtown for a scenic and parking-free option"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Canlis",
+    "type": "restaurant",
+    "must_visit": false,
+    "rating": 4.7,
+    "start_location": "2576 Aurora Ave N, Seattle, WA 98109",
+    "end_location": null,
+    "arrive_after": {
+      "mon": null,
+      "tue": "17:30",
+      "wed": "17:30",
+      "thu": "17:30",
+      "fri": "17:30",
+      "sat": "17:30",
+      "sun": null
+    },
+    "leave_before": {
+      "mon": null,
+      "tue": "22:00",
+      "wed": "22:00",
+      "thu": "22:00",
+      "fri": "22:30",
+      "sat": "22:30",
+      "sun": null
+    },
+    "optimal_duration": 150,
+    "minimum_duration": 120,
+    "event_start_times": null,
+    "food": {
+      "breakfast": null,
+      "lunch": null,
+      "dinner": {
+        "tue": {
+          "start": "17:30",
+          "end": "22:00"
+        },
+        "wed": {
+          "start": "17:30",
+          "end": "22:00"
+        },
+        "thu": {
+          "start": "17:30",
+          "end": "22:00"
+        },
+        "fri": {
+          "start": "17:30",
+          "end": "22:30"
+        },
+        "sat": {
+          "start": "17:30",
+          "end": "22:30"
+        }
+      },
+      "snacks": null
+    },
+    "estimated_cost_usd": 175,
+    "exclusions": [],
+    "description": "Seattle's most celebrated fine dining institution, perched above Lake Union with stunning views. Chef Brady Williams crafts an elegant Pacific Northwest tasting menu that has earned national acclaim. A landmark for special occasions, offering impeccable service and an extensive wine list focused on Washington State and Pacific Northwest producers.",
+    "considerations": [
+      "Reservations are essential \u2014 book weeks or months in advance",
+      "Smart casual to formal dress code",
+      "Closed Sunday and Monday",
+      "Valet parking available",
+      "One of the most expensive restaurants in Seattle \u2014 budget accordingly"
+    ]
+  },
+  {
+    "id": 13,
+    "name": "The Walrus and the Carpenter",
+    "type": "restaurant",
+    "must_visit": false,
+    "rating": 4.5,
+    "start_location": "4743 Ballard Ave NW, Seattle, WA 98107",
+    "end_location": null,
+    "arrive_after": {
+      "mon": null,
+      "tue": "16:00",
+      "wed": "16:00",
+      "thu": "16:00",
+      "fri": "16:00",
+      "sat": "16:00",
+      "sun": "16:00"
+    },
+    "leave_before": {
+      "mon": null,
+      "tue": "22:00",
+      "wed": "22:00",
+      "thu": "22:00",
+      "fri": "23:00",
+      "sat": "23:00",
+      "sun": "22:00"
+    },
+    "optimal_duration": 90,
+    "minimum_duration": 60,
+    "event_start_times": null,
+    "food": {
+      "breakfast": null,
+      "lunch": null,
+      "dinner": {
+        "tue": {
+          "start": "16:00",
+          "end": "22:00"
+        },
+        "wed": {
+          "start": "16:00",
+          "end": "22:00"
+        },
+        "thu": {
+          "start": "16:00",
+          "end": "22:00"
+        },
+        "fri": {
+          "start": "16:00",
+          "end": "23:00"
+        },
+        "sat": {
+          "start": "16:00",
+          "end": "23:00"
+        },
+        "sun": {
+          "start": "16:00",
+          "end": "22:00"
+        }
+      },
+      "snacks": null
+    },
+    "estimated_cost_usd": 65,
+    "exclusions": [],
+    "description": "A beloved Ballard oyster bar and seafood restaurant from chef Renee Erickson, consistently ranked among Seattle's best. Famous for its pristine Pacific Northwest oysters, small plates, and natural wine list. The intimate, dimly lit space has a convivial atmosphere that perfectly captures Seattle's seafood culture.",
+    "considerations": [
+      "Does not take reservations \u2014 expect a wait, especially on weekends",
+      "Arrive right at opening (4pm) to minimize wait time",
+      "Located in the Ballard neighborhood \u2014 pair with a walk along Ballard Ave",
+      "Closed Mondays",
+      "The oyster selection changes daily based on availability"
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Spinasse",
+    "type": "restaurant",
+    "must_visit": false,
+    "rating": 4.5,
+    "start_location": "1531 14th Ave, Seattle, WA 98122",
+    "end_location": null,
+    "arrive_after": {
+      "mon": null,
+      "tue": "17:00",
+      "wed": "17:00",
+      "thu": "17:00",
+      "fri": "17:00",
+      "sat": "17:00",
+      "sun": "17:00"
+    },
+    "leave_before": {
+      "mon": null,
+      "tue": "22:00",
+      "wed": "22:00",
+      "thu": "22:00",
+      "fri": "22:30",
+      "sat": "22:30",
+      "sun": "22:00"
+    },
+    "optimal_duration": 120,
+    "minimum_duration": 90,
+    "event_start_times": null,
+    "food": {
+      "breakfast": null,
+      "lunch": null,
+      "dinner": {
+        "tue": {
+          "start": "17:00",
+          "end": "22:00"
+        },
+        "wed": {
+          "start": "17:00",
+          "end": "22:00"
+        },
+        "thu": {
+          "start": "17:00",
+          "end": "22:00"
+        },
+        "fri": {
+          "start": "17:00",
+          "end": "22:30"
+        },
+        "sat": {
+          "start": "17:00",
+          "end": "22:30"
+        },
+        "sun": {
+          "start": "17:00",
+          "end": "22:00"
+        }
+      },
+      "snacks": null
+    },
+    "estimated_cost_usd": 70,
+    "exclusions": [],
+    "description": "A Capitol Hill gem specializing in the handmade pastas of Piedmont, Italy. The iconic tajarin al burro e salvia \u2014 golden hand-cut egg yolk pasta in brown butter and sage \u2014 is one of Seattle's most celebrated dishes. The warm, rustic space with an open kitchen and wood-beamed ceilings transports diners to Northern Italy.",
+    "considerations": [
+      "Reservations strongly recommended, especially on weekends",
+      "Closed Mondays",
+      "The tajarin pasta is a must-order",
+      "Located on Capitol Hill \u2014 convenient if attending Capitol Hill Block Party (Aug 7\u20139)"
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Lark",
+    "type": "restaurant",
+    "must_visit": false,
+    "rating": 4.4,
+    "start_location": "952 E Seneca St, Seattle, WA 98122",
+    "end_location": null,
+    "arrive_after": {
+      "mon": null,
+      "tue": null,
+      "wed": "17:00",
+      "thu": "17:00",
+      "fri": "17:00",
+      "sat": "17:00",
+      "sun": "17:00"
+    },
+    "leave_before": {
+      "mon": null,
+      "tue": null,
+      "wed": "22:00",
+      "thu": "22:00",
+      "fri": "23:00",
+      "sat": "23:00",
+      "sun": "22:00"
+    },
+    "optimal_duration": 120,
+    "minimum_duration": 90,
+    "event_start_times": null,
+    "food": {
+      "breakfast": null,
+      "lunch": null,
+      "dinner": {
+        "wed": {
+          "start": "17:00",
+          "end": "22:00"
+        },
+        "thu": {
+          "start": "17:00",
+          "end": "22:00"
+        },
+        "fri": {
+          "start": "17:00",
+          "end": "23:00"
+        },
+        "sat": {
+          "start": "17:00",
+          "end": "23:00"
+        },
+        "sun": {
+          "start": "17:00",
+          "end": "22:00"
+        }
+      },
+      "snacks": null
+    },
+    "estimated_cost_usd": 75,
+    "exclusions": [],
+    "description": "A Capitol Hill staple from Chef John Sundstrom, serving New American cuisine grounded in Pacific Northwest ingredients. The intimate dining room with twinkling overhead bulbs and deep-blue banquettes balances upscale polish with rustic warmth. Known for dishes like hamachi crudo with preserved lemon and hand-rolled pasta with bottarga.",
+    "considerations": [
+      "Reservations recommended",
+      "Closed Monday and Tuesday",
+      "A great choice for a special dinner without the full formality of Canlis",
+      "The charcuterie and cheese selections are excellent starters"
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Ivar's Acres of Clams",
+    "type": "restaurant",
+    "must_visit": false,
+    "rating": 4.1,
+    "start_location": "1001 Alaskan Way, Pier 54, Seattle, WA 98104",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "11:00",
+      "tue": "11:00",
+      "wed": "11:00",
+      "thu": "11:00",
+      "fri": "11:00",
+      "sat": "11:00",
+      "sun": "11:00"
+    },
+    "leave_before": {
+      "mon": "22:00",
+      "tue": "22:00",
+      "wed": "22:00",
+      "thu": "22:00",
+      "fri": "23:00",
+      "sat": "23:00",
+      "sun": "22:00"
+    },
+    "optimal_duration": 75,
+    "minimum_duration": 45,
+    "event_start_times": null,
+    "food": {
+      "breakfast": null,
+      "lunch": {
+        "mon": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "tue": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "wed": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "thu": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "fri": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "sat": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "sun": {
+          "start": "11:00",
+          "end": "15:00"
+        }
+      },
+      "dinner": {
+        "mon": {
+          "start": "17:00",
+          "end": "22:00"
+        },
+        "tue": {
+          "start": "17:00",
+          "end": "22:00"
+        },
+        "wed": {
+          "start": "17:00",
+          "end": "22:00"
+        },
+        "thu": {
+          "start": "17:00",
+          "end": "22:00"
+        },
+        "fri": {
+          "start": "17:00",
+          "end": "23:00"
+        },
+        "sat": {
+          "start": "17:00",
+          "end": "23:00"
+        },
+        "sun": {
+          "start": "17:00",
+          "end": "22:00"
+        }
+      },
+      "snacks": null
+    },
+    "estimated_cost_usd": 35,
+    "exclusions": [],
+    "description": "A Seattle waterfront institution since 1938, located on Pier 54 with views of Elliott Bay. Famous for its clam chowder, fish and chips, and fresh Pacific Northwest seafood. The outdoor fish bar is a classic casual option; the sit-down restaurant offers a more complete dining experience. A quintessential Seattle seafood stop.",
+    "considerations": [
+      "The outdoor fish bar is a great quick and affordable option",
+      "Seagulls are aggressive \u2014 guard your food at the outdoor tables",
+      "Conveniently located near the Argosy Cruises pier",
+      "Can get very busy at peak lunch and dinner hours in summer"
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Dick's Drive-In (Capitol Hill)",
+    "type": "restaurant",
+    "must_visit": false,
+    "rating": 4.2,
+    "start_location": "115 Broadway E, Seattle, WA 98102",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "10:30",
+      "tue": "10:30",
+      "wed": "10:30",
+      "thu": "10:30",
+      "fri": "10:30",
+      "sat": "10:30",
+      "sun": "10:30"
+    },
+    "leave_before": {
+      "mon": "02:00",
+      "tue": "02:00",
+      "wed": "02:00",
+      "thu": "02:00",
+      "fri": "02:00",
+      "sat": "02:00",
+      "sun": "02:00"
+    },
+    "optimal_duration": 20,
+    "minimum_duration": 10,
+    "event_start_times": null,
+    "food": {
+      "breakfast": null,
+      "lunch": {
+        "mon": {
+          "start": "10:30",
+          "end": "15:00"
+        },
+        "tue": {
+          "start": "10:30",
+          "end": "15:00"
+        },
+        "wed": {
+          "start": "10:30",
+          "end": "15:00"
+        },
+        "thu": {
+          "start": "10:30",
+          "end": "15:00"
+        },
+        "fri": {
+          "start": "10:30",
+          "end": "15:00"
+        },
+        "sat": {
+          "start": "10:30",
+          "end": "15:00"
+        },
+        "sun": {
+          "start": "10:30",
+          "end": "15:00"
+        }
+      },
+      "dinner": {
+        "mon": {
+          "start": "17:00",
+          "end": "02:00"
+        },
+        "tue": {
+          "start": "17:00",
+          "end": "02:00"
+        },
+        "wed": {
+          "start": "17:00",
+          "end": "02:00"
+        },
+        "thu": {
+          "start": "17:00",
+          "end": "02:00"
+        },
+        "fri": {
+          "start": "17:00",
+          "end": "02:00"
+        },
+        "sat": {
+          "start": "17:00",
+          "end": "02:00"
+        },
+        "sun": {
+          "start": "17:00",
+          "end": "02:00"
+        }
+      },
+      "snacks": null
+    },
+    "estimated_cost_usd": 10,
+    "exclusions": [],
+    "description": "A beloved Seattle fast-food institution since 1954, with a cult following among locals. Known for its simple, affordable burgers, hand-dipped milkshakes, and fresh-cut fries. The Capitol Hill location is open late, making it a perfect post-concert or late-night stop. A true piece of Seattle culture.",
+    "considerations": [
+      "Cash only \u2014 no credit cards accepted",
+      "Menu is intentionally simple: burgers, fries, shakes, and not much else",
+      "A Seattle rite of passage \u2014 locals love it",
+      "Great late-night option after Capitol Hill Block Party or a night out"
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Maximilien",
+    "type": "restaurant",
+    "must_visit": false,
+    "rating": 4.3,
+    "start_location": "81B Pike St, Seattle, WA 98101",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "09:00",
+      "tue": "09:00",
+      "wed": "09:00",
+      "thu": "09:00",
+      "fri": "09:00",
+      "sat": "09:00",
+      "sun": "09:00"
+    },
+    "leave_before": {
+      "mon": "22:00",
+      "tue": "22:00",
+      "wed": "22:00",
+      "thu": "22:00",
+      "fri": "23:00",
+      "sat": "23:00",
+      "sun": "22:00"
+    },
+    "optimal_duration": 90,
+    "minimum_duration": 60,
+    "event_start_times": null,
+    "food": {
+      "breakfast": {
+        "mon": {
+          "start": "09:00",
+          "end": "11:30"
+        },
+        "tue": {
+          "start": "09:00",
+          "end": "11:30"
+        },
+        "wed": {
+          "start": "09:00",
+          "end": "11:30"
+        },
+        "thu": {
+          "start": "09:00",
+          "end": "11:30"
+        },
+        "fri": {
+          "start": "09:00",
+          "end": "11:30"
+        },
+        "sat": {
+          "start": "09:00",
+          "end": "11:30"
+        },
+        "sun": {
+          "start": "09:00",
+          "end": "11:30"
+        }
+      },
+      "lunch": {
+        "mon": {
+          "start": "11:30",
+          "end": "15:00"
+        },
+        "tue": {
+          "start": "11:30",
+          "end": "15:00"
+        },
+        "wed": {
+          "start": "11:30",
+          "end": "15:00"
+        },
+        "thu": {
+          "start": "11:30",
+          "end": "15:00"
+        },
+        "fri": {
+          "start": "11:30",
+          "end": "15:00"
+        },
+        "sat": {
+          "start": "11:30",
+          "end": "15:00"
+        },
+        "sun": {
+          "start": "11:30",
+          "end": "15:00"
+        }
+      },
+      "dinner": {
+        "mon": {
+          "start": "17:00",
+          "end": "22:00"
+        },
+        "tue": {
+          "start": "17:00",
+          "end": "22:00"
+        },
+        "wed": {
+          "start": "17:00",
+          "end": "22:00"
+        },
+        "thu": {
+          "start": "17:00",
+          "end": "22:00"
+        },
+        "fri": {
+          "start": "17:00",
+          "end": "23:00"
+        },
+        "sat": {
+          "start": "17:00",
+          "end": "23:00"
+        },
+        "sun": {
+          "start": "17:00",
+          "end": "22:00"
+        }
+      },
+      "snacks": null
+    },
+    "estimated_cost_usd": 55,
+    "exclusions": [],
+    "description": "A classic French bistro perched above Pike Place Market with postcard views of Elliott Bay and the Olympic Mountains. Serves French-inspired cuisine using Pacific Northwest ingredients, from a generous plateau de fruits de mer to steak frites. One of the most scenic dining rooms in Seattle, especially at dusk.",
+    "considerations": [
+      "Request a window table when making reservations for the best views",
+      "Reservations recommended, especially for dinner",
+      "Conveniently located inside Pike Place Market \u2014 easy to combine with a market visit",
+      "The brunch is a great option for a leisurely morning meal with a view"
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Tavern Law",
+    "type": "nightlife",
+    "must_visit": false,
+    "rating": 4.3,
+    "start_location": "1406 12th Ave, Seattle, WA 98122",
+    "end_location": null,
+    "arrive_after": {
+      "mon": null,
+      "tue": null,
+      "wed": "17:00",
+      "thu": "17:00",
+      "fri": "17:00",
+      "sat": "17:00",
+      "sun": "17:00"
+    },
+    "leave_before": {
+      "mon": null,
+      "tue": null,
+      "wed": "02:00",
+      "thu": "02:00",
+      "fri": "02:00",
+      "sat": "02:00",
+      "sun": "02:00"
+    },
+    "optimal_duration": 90,
+    "minimum_duration": 45,
+    "event_start_times": null,
+    "food": {
+      "breakfast": null,
+      "lunch": null,
+      "dinner": {
+        "wed": {
+          "start": "17:00",
+          "end": "23:00"
+        },
+        "thu": {
+          "start": "17:00",
+          "end": "23:00"
+        },
+        "fri": {
+          "start": "17:00",
+          "end": "23:00"
+        },
+        "sat": {
+          "start": "17:00",
+          "end": "23:00"
+        },
+        "sun": {
+          "start": "17:00",
+          "end": "23:00"
+        }
+      },
+      "snacks": null
+    },
+    "estimated_cost_usd": 40,
+    "exclusions": [],
+    "description": "An award-winning cocktail bar and restaurant in Capitol Hill, housed in a historic building with Prohibition-era charm. Features dark wood, vintage books, and antique finishes. Behind a discreet bank vault door lies Needle & Thread, an intimate speakeasy accessible by reservation only. One of Seattle's premier craft cocktail destinations.",
+    "considerations": [
+      "The speakeasy (Needle & Thread) requires a separate reservation",
+      "Closed Monday and Tuesday",
+      "Located on Capitol Hill \u2014 great for a pre- or post-dinner drink",
+      "The cocktail menu changes seasonally"
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Serious Pie (Downtown)",
+    "type": "restaurant",
+    "must_visit": false,
+    "rating": 4.2,
+    "start_location": "316 Virginia St, Seattle, WA 98101",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "11:00",
+      "tue": "11:00",
+      "wed": "11:00",
+      "thu": "11:00",
+      "fri": "11:00",
+      "sat": "11:00",
+      "sun": "11:00"
+    },
+    "leave_before": {
+      "mon": "22:00",
+      "tue": "22:00",
+      "wed": "22:00",
+      "thu": "22:00",
+      "fri": "23:00",
+      "sat": "23:00",
+      "sun": "22:00"
+    },
+    "optimal_duration": 60,
+    "minimum_duration": 45,
+    "event_start_times": null,
+    "food": {
+      "breakfast": null,
+      "lunch": {
+        "mon": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "tue": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "wed": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "thu": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "fri": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "sat": {
+          "start": "11:00",
+          "end": "15:00"
+        },
+        "sun": {
+          "start": "11:00",
+          "end": "15:00"
+        }
+      },
+      "dinner": {
+        "mon": {
+          "start": "17:00",
+          "end": "22:00"
+        },
+        "tue": {
+          "start": "17:00",
+          "end": "22:00"
+        },
+        "wed": {
+          "start": "17:00",
+          "end": "22:00"
+        },
+        "thu": {
+          "start": "17:00",
+          "end": "22:00"
+        },
+        "fri": {
+          "start": "17:00",
+          "end": "23:00"
+        },
+        "sat": {
+          "start": "17:00",
+          "end": "23:00"
+        },
+        "sun": {
+          "start": "17:00",
+          "end": "22:00"
+        }
+      },
+      "snacks": null
+    },
+    "estimated_cost_usd": 28,
+    "exclusions": [],
+    "description": "Tom Douglas's beloved wood-fired pizza restaurant near Pike Place Market, known for creative, seasonal toppings and a perfectly charred crust. A casual but quality option for lunch or dinner in the heart of downtown Seattle. Popular with both locals and visitors for its approachable price point and consistently excellent pies.",
+    "considerations": [
+      "No reservations \u2014 walk-in only; waits can be long at peak hours",
+      "The truffle and egg pizza is a signature dish",
+      "A great quick lunch option between Pike Place Market and Seattle Center",
+      "Conveniently located near the Monorail station"
+    ]
+  }
+]

@@ -1,0 +1,1268 @@
+[
+  {
+    "id": 1,
+    "name": "Stanford University Campus Walk",
+    "type": "landmark",
+    "must_visit": false,
+    "rating": 4.8,
+    "start_location": "450 Serra Mall, Stanford, CA 94305",
+    "end_location": null,
+    "arrive_after": null,
+    "leave_before": null,
+    "optimal_duration": 150,
+    "minimum_duration": 45,
+    "event_start_times": null,
+    "food": null,
+    "estimated_cost_usd": 0,
+    "exclusions": [],
+    "description": "One of the most beautiful university campuses in the world, Stanford's grounds feature the iconic Main Quad, palm-lined Oval, sandstone Romanesque architecture, and sweeping open spaces. Visitors can freely roam the campus, admire the architecture, and soak in the Silicon Valley academic atmosphere.",
+    "considerations": [
+      "Campus is open to the public year-round",
+      "Wear comfortable walking shoes — the campus is very large",
+      "Free Marguerite shuttle runs around campus and to Caltrain",
+      "Parking requires the ParkMobile app on weekdays"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Cantor Arts Center",
+    "type": "museum",
+    "must_visit": false,
+    "rating": 4.6,
+    "start_location": "328 Lomita Dr, Stanford, CA 94305",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "11:00",
+      "tue": null,
+      "wed": null,
+      "thu": "11:00",
+      "fri": "11:00",
+      "sat": "10:00",
+      "sun": "10:00"
+    },
+    "leave_before": {
+      "mon": "18:00",
+      "tue": null,
+      "wed": null,
+      "thu": "20:00",
+      "fri": "18:00",
+      "sat": "17:00",
+      "sun": "17:00"
+    },
+    "optimal_duration": 150,
+    "minimum_duration": 60,
+    "event_start_times": null,
+    "food": {
+      "breakfast": null,
+      "lunch": {
+        "mon": { "start": "11:00", "end": "15:00" },
+        "tue": null,
+        "wed": null,
+        "thu": { "start": "11:00", "end": "15:00" },
+        "fri": { "start": "11:00", "end": "15:00" },
+        "sat": { "start": "11:00", "end": "15:00" },
+        "sun": { "start": "11:00", "end": "15:00" }
+      },
+      "dinner": {
+        "mon": null,
+        "tue": null,
+        "wed": null,
+        "thu": { "start": "17:15", "end": "20:00" },
+        "fri": null,
+        "sat": null,
+        "sun": null
+      },
+      "snacks": {
+        "mon": { "start": "15:00", "end": "17:00" },
+        "tue": null,
+        "wed": null,
+        "thu": { "start": "15:00", "end": "17:00" },
+        "fri": { "start": "15:00", "end": "17:00" },
+        "sat": { "start": "15:00", "end": "17:00" },
+        "sun": { "start": "15:00", "end": "17:00" }
+      }
+    },
+    "estimated_cost_usd": 0,
+    "exclusions": [],
+    "description": "A premier free art museum on the Stanford campus featuring 24 galleries and over 38,000 works spanning 5,000 years of history. The outdoor Rodin Sculpture Garden is a highlight, with major bronze works including The Gates of Hell. Tootsie's café on-site serves lunch and tea.",
+    "considerations": [
+      "Closed Tuesdays and Wednesdays — plan accordingly",
+      "Admission is always free; no reservation required",
+      "Parking is paid via ParkMobile app on weekdays",
+      "Docent-led tours are free and highly recommended"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Stanford Memorial Church",
+    "type": "landmark",
+    "must_visit": false,
+    "rating": 4.7,
+    "start_location": "450 Serra Mall, Stanford, CA 94305",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "08:00",
+      "tue": "08:00",
+      "wed": "08:00",
+      "thu": "08:00",
+      "fri": "08:00",
+      "sat": "08:00",
+      "sun": "08:00"
+    },
+    "leave_before": {
+      "mon": "17:00",
+      "tue": "17:00",
+      "wed": "17:00",
+      "thu": "17:00",
+      "fri": "17:00",
+      "sat": "17:00",
+      "sun": "17:00"
+    },
+    "optimal_duration": 30,
+    "minimum_duration": 15,
+    "event_start_times": null,
+    "food": null,
+    "estimated_cost_usd": 0,
+    "exclusions": [],
+    "description": "A stunning non-denominational church at the heart of Stanford's Main Quad, featuring ornate mosaic facades, a magnificent pipe organ, and beautiful stained glass windows. One of the most photographed buildings in the Bay Area.",
+    "considerations": [
+      "Interior may be closed during services or private events — check schedule",
+      "Photography is welcome outside; be respectful inside",
+      "Located steps from the Main Quad — easy to combine with a campus walk"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Hoover Tower Observation Deck",
+    "type": "observation",
+    "must_visit": false,
+    "rating": 4.3,
+    "start_location": "Serra St & Galvez St, Stanford, CA 94305",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "10:00",
+      "tue": "10:00",
+      "wed": "10:00",
+      "thu": "10:00",
+      "fri": "10:00",
+      "sat": "10:00",
+      "sun": "10:00"
+    },
+    "leave_before": {
+      "mon": "16:30",
+      "tue": "16:30",
+      "wed": "16:30",
+      "thu": "16:30",
+      "fri": "16:30",
+      "sat": "16:30",
+      "sun": "16:30"
+    },
+    "optimal_duration": 45,
+    "minimum_duration": 20,
+    "event_start_times": null,
+    "food": null,
+    "estimated_cost_usd": 5,
+    "exclusions": [],
+    "description": "A 285-foot landmark tower on the Stanford campus offering panoramic views of the Bay Area, the Santa Cruz Mountains, and the San Francisco skyline on clear days. The tower also houses the Hoover Institution's archives and exhibits.",
+    "considerations": [
+      "Small admission fee to access the observation deck",
+      "May close during university events — verify hours before visiting",
+      "Best views on clear days; August mornings are typically clear before afternoon fog rolls in"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "The Stanford Dish Hike",
+    "type": "hike",
+    "must_visit": false,
+    "rating": 4.6,
+    "start_location": "3700 Junipero Serra Blvd, Stanford, CA 94305",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "06:00",
+      "tue": "06:00",
+      "wed": "06:00",
+      "thu": "06:00",
+      "fri": "06:00",
+      "sat": "06:00",
+      "sun": "06:00"
+    },
+    "leave_before": {
+      "mon": "21:00",
+      "tue": "21:00",
+      "wed": "21:00",
+      "thu": "21:00",
+      "fri": "21:00",
+      "sat": "21:00",
+      "sun": "21:00"
+    },
+    "optimal_duration": 90,
+    "minimum_duration": 60,
+    "event_start_times": null,
+    "food": null,
+    "estimated_cost_usd": 0,
+    "exclusions": [],
+    "description": "A beloved 3.5-mile paved loop trail in the Stanford foothills, circling a large radio telescope dish. The trail offers sweeping views of the Bay, the campus, and surrounding hills. Popular with joggers, walkers, and cyclists.",
+    "considerations": [
+      "Go early in the morning to beat the heat — August afternoons can be warm",
+      "Bring water; no facilities on the trail",
+      "Dogs are not allowed on the trail",
+      "Free parking at the trailhead lot"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Hewlett-Packard Garage",
+    "type": "landmark",
+    "must_visit": false,
+    "rating": 4.0,
+    "start_location": "367 Addison Ave, Palo Alto, CA 94301",
+    "end_location": null,
+    "arrive_after": null,
+    "leave_before": null,
+    "optimal_duration": 15,
+    "minimum_duration": 10,
+    "event_start_times": null,
+    "food": null,
+    "estimated_cost_usd": 0,
+    "exclusions": [],
+    "description": "Known as the 'Birthplace of Silicon Valley,' this unassuming garage is where Bill Hewlett and Dave Packard developed their first product in 1938. A California Historical Landmark with an informational plaque. The property is private and cannot be entered, but is easily viewed from the street.",
+    "considerations": [
+      "Viewable from the street only — do not enter the property",
+      "Quick stop; best combined with a walk through the Old Palo Alto neighborhood",
+      "Great photo opportunity for tech history enthusiasts"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Palo Alto Baylands Nature Preserve",
+    "type": "park",
+    "must_visit": false,
+    "rating": 4.5,
+    "start_location": "2775 Embarcadero Rd, Palo Alto, CA 94303",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "08:00",
+      "tue": "08:00",
+      "wed": "08:00",
+      "thu": "08:00",
+      "fri": "08:00",
+      "sat": "08:00",
+      "sun": "08:00"
+    },
+    "leave_before": {
+      "mon": "20:00",
+      "tue": "20:00",
+      "wed": "20:00",
+      "thu": "20:00",
+      "fri": "20:00",
+      "sat": "20:00",
+      "sun": "20:00"
+    },
+    "optimal_duration": 120,
+    "minimum_duration": 45,
+    "event_start_times": null,
+    "food": null,
+    "estimated_cost_usd": 0,
+    "exclusions": [],
+    "description": "A 1,940-acre wetland preserve on the San Francisco Bay shoreline, ideal for birdwatching, walking, and cycling. Home to diverse shorebirds, egrets, and migratory species. Sunsets over the Bay from the boardwalk are spectacular.",
+    "considerations": [
+      "Bring binoculars for birdwatching",
+      "Mosquitoes can be present near the marsh — bring repellent",
+      "The Lucy Evans Baylands Nature Interpretive Center has exhibits and is free",
+      "Accessible by bike from downtown Palo Alto via the Bay Trail"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "University Avenue Stroll & Shopping",
+    "type": "neighborhood",
+    "must_visit": false,
+    "rating": 4.2,
+    "start_location": "University Ave & Alma St, Palo Alto, CA 94301",
+    "end_location": "University Ave & El Camino Real, Palo Alto, CA 94301",
+    "arrive_after": {
+      "mon": "10:00",
+      "tue": "10:00",
+      "wed": "10:00",
+      "thu": "10:00",
+      "fri": "10:00",
+      "sat": "10:00",
+      "sun": "11:00"
+    },
+    "leave_before": null,
+    "optimal_duration": 60,
+    "minimum_duration": 20,
+    "event_start_times": null,
+    "food": null,
+    "estimated_cost_usd": 0,
+    "exclusions": [],
+    "description": "The main commercial corridor of downtown Palo Alto, lined with boutique shops, cafés, restaurants, and bookstores. The street leads directly to the Stanford campus and is the heart of the city's social scene. Great for people-watching and window shopping.",
+    "considerations": [
+      "Street parking is metered and competitive; use a garage or walk from Caltrain",
+      "Many restaurants and cafés are clustered here — good for a spontaneous meal"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "California Avenue Neighborhood",
+    "type": "neighborhood",
+    "must_visit": false,
+    "rating": 4.3,
+    "start_location": "California Ave & El Camino Real, Palo Alto, CA 94306",
+    "end_location": null,
+    "arrive_after": null,
+    "leave_before": null,
+    "optimal_duration": 60,
+    "minimum_duration": 20,
+    "event_start_times": null,
+    "food": null,
+    "estimated_cost_usd": 0,
+    "exclusions": [],
+    "description": "A charming, walkable commercial strip south of downtown with a more laid-back, local feel than University Avenue. Home to some of Palo Alto's best restaurants, wine bars, and independent shops. The outdoor dining scene here is especially lively on warm summer evenings.",
+    "considerations": [
+      "Less touristy than University Ave — a favorite of locals",
+      "Caltrain California Ave station is right here for easy access"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Stanford Shopping Center",
+    "type": "shopping",
+    "must_visit": false,
+    "rating": 4.4,
+    "start_location": "660 Stanford Shopping Center, Palo Alto, CA 94304",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "10:00",
+      "tue": "10:00",
+      "wed": "10:00",
+      "thu": "10:00",
+      "fri": "10:00",
+      "sat": "10:00",
+      "sun": "11:00"
+    },
+    "leave_before": {
+      "mon": "21:00",
+      "tue": "21:00",
+      "wed": "21:00",
+      "thu": "21:00",
+      "fri": "21:00",
+      "sat": "21:00",
+      "sun": "19:00"
+    },
+    "optimal_duration": 90,
+    "minimum_duration": 30,
+    "event_start_times": null,
+    "food": null,
+    "estimated_cost_usd": 0,
+    "exclusions": [],
+    "description": "An upscale open-air shopping center adjacent to the Stanford campus, featuring luxury retailers like Tiffany & Co., Armani Exchange, and Stella McCartney alongside popular dining options. The landscaped outdoor setting makes it a pleasant place to browse even without shopping.",
+    "considerations": [
+      "Valet parking and EV charging stations available",
+      "The RH Rooftop Restaurant here is a popular dining destination",
+      "Easily walkable from the Stanford campus"
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Elizabeth F. Gamble Garden",
+    "type": "park",
+    "must_visit": false,
+    "rating": 4.5,
+    "start_location": "1431 Waverley St, Palo Alto, CA 94301",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "08:00",
+      "tue": "08:00",
+      "wed": "08:00",
+      "thu": "08:00",
+      "fri": "08:00",
+      "sat": "08:00",
+      "sun": "08:00"
+    },
+    "leave_before": {
+      "mon": "17:00",
+      "tue": "17:00",
+      "wed": "17:00",
+      "thu": "17:00",
+      "fri": "17:00",
+      "sat": "17:00",
+      "sun": "17:00"
+    },
+    "optimal_duration": 45,
+    "minimum_duration": 20,
+    "event_start_times": null,
+    "food": null,
+    "estimated_cost_usd": 0,
+    "exclusions": [],
+    "description": "A beautifully maintained 2.5-acre historic garden in a residential neighborhood, featuring a wisteria-draped pergola, rose garden, tea house, and seasonal plantings. A peaceful and photogenic escape in the heart of Palo Alto.",
+    "considerations": [
+      "Free admission; donations welcome",
+      "Best visited in the morning when it's cooler",
+      "The carriage house hosts occasional events and classes"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Palo Alto Art Center",
+    "type": "museum",
+    "must_visit": false,
+    "rating": 4.2,
+    "start_location": "1313 Newell Rd, Palo Alto, CA 94303",
+    "end_location": null,
+    "arrive_after": {
+      "mon": null,
+      "tue": "10:00",
+      "wed": "10:00",
+      "thu": "10:00",
+      "fri": "10:00",
+      "sat": "10:00",
+      "sun": "13:00"
+    },
+    "leave_before": {
+      "mon": null,
+      "tue": "17:00",
+      "wed": "17:00",
+      "thu": "17:00",
+      "fri": "17:00",
+      "sat": "17:00",
+      "sun": "17:00"
+    },
+    "optimal_duration": 75,
+    "minimum_duration": 30,
+    "event_start_times": null,
+    "food": null,
+    "estimated_cost_usd": 0,
+    "exclusions": [],
+    "description": "A community-focused art space offering rotating contemporary exhibitions, art classes, and programs for all ages. Supported by a non-profit organization, the center is a hub for local artists and art enthusiasts.",
+    "considerations": [
+      "Free admission; special exhibitions may have a fee",
+      "Check the website for current exhibitions before visiting",
+      "Located near Rinconada Park — good to combine both"
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Allied Arts Guild",
+    "type": "landmark",
+    "must_visit": false,
+    "rating": 4.4,
+    "start_location": "75 Arbor Rd, Menlo Park, CA 94025",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "10:00",
+      "tue": "10:00",
+      "wed": "10:00",
+      "thu": "10:00",
+      "fri": "10:00",
+      "sat": "10:00",
+      "sun": null
+    },
+    "leave_before": {
+      "mon": "17:00",
+      "tue": "17:00",
+      "wed": "17:00",
+      "thu": "17:00",
+      "fri": "17:00",
+      "sat": "17:00",
+      "sun": null
+    },
+    "optimal_duration": 60,
+    "minimum_duration": 30,
+    "event_start_times": null,
+    "food": null,
+    "estimated_cost_usd": 0,
+    "exclusions": [],
+    "description": "A historic 1920s Spanish Colonial Revival artists' guild in nearby Menlo Park, featuring picturesque gardens, working artist studios, and a charming courtyard. Visitors can browse studios, purchase handmade goods, and enjoy the tranquil grounds.",
+    "considerations": [
+      "Free to enter the gardens; some studios may charge for classes",
+      "A short drive or rideshare from downtown Palo Alto",
+      "Check for special events and art sales"
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Palo Alto Junior Museum & Zoo",
+    "type": "museum",
+    "must_visit": false,
+    "rating": 4.3,
+    "start_location": "1451 Middlefield Rd, Palo Alto, CA 94301",
+    "end_location": null,
+    "arrive_after": {
+      "mon": null,
+      "tue": "10:00",
+      "wed": "10:00",
+      "thu": "10:00",
+      "fri": "10:00",
+      "sat": "10:00",
+      "sun": "10:00"
+    },
+    "leave_before": {
+      "mon": null,
+      "tue": "17:00",
+      "wed": "17:00",
+      "thu": "17:00",
+      "fri": "17:00",
+      "sat": "17:00",
+      "sun": "17:00"
+    },
+    "optimal_duration": 90,
+    "minimum_duration": 45,
+    "event_start_times": null,
+    "food": null,
+    "estimated_cost_usd": 5,
+    "exclusions": [],
+    "description": "A family-friendly science and nature museum with hands-on exhibits and a small zoo featuring native California animals. Ideal for families with young children, with interactive displays covering ecology, technology, and natural history.",
+    "considerations": [
+      "Best suited for families with children",
+      "Small admission fee; check website for current pricing",
+      "Located next to Rinconada Park — great for a picnic after"
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Silicon Valley Tech Campus Tour",
+    "type": "tour",
+    "must_visit": false,
+    "rating": 4.4,
+    "start_location": "Various pickup points, Palo Alto, CA",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "09:00",
+      "tue": "09:00",
+      "wed": "09:00",
+      "thu": "09:00",
+      "fri": "09:00",
+      "sat": "09:00",
+      "sun": "09:00"
+    },
+    "leave_before": {
+      "mon": "18:00",
+      "tue": "18:00",
+      "wed": "18:00",
+      "thu": "18:00",
+      "fri": "18:00",
+      "sat": "18:00",
+      "sun": "18:00"
+    },
+    "optimal_duration": 240,
+    "minimum_duration": 180,
+    "event_start_times": {
+      "mon": ["09:00", "13:00"],
+      "tue": ["09:00", "13:00"],
+      "wed": ["09:00", "13:00"],
+      "thu": ["09:00", "13:00"],
+      "fri": ["09:00", "13:00"],
+      "sat": ["09:00", "13:00"],
+      "sun": ["09:00", "13:00"]
+    },
+    "food": null,
+    "estimated_cost_usd": 89,
+    "exclusions": [],
+    "description": "Guided bus tours visiting the campuses of major tech companies including Google, Meta (Facebook), Apple, and Oracle, plus the HP Garage. Guides share the history of Silicon Valley and the stories behind the world's most influential companies.",
+    "considerations": [
+      "Book in advance — tours sell out, especially in summer",
+      "Campuses are not open for interior tours; this is an exterior/grounds experience",
+      "Multiple tour operators available; compare reviews before booking"
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Filoli House & Garden",
+    "type": "park",
+    "must_visit": false,
+    "rating": 4.7,
+    "start_location": "86 Cañada Rd, Woodside, CA 94062",
+    "end_location": null,
+    "arrive_after": {
+      "mon": null,
+      "tue": "10:00",
+      "wed": "10:00",
+      "thu": "10:00",
+      "fri": "10:00",
+      "sat": "10:00",
+      "sun": "10:00"
+    },
+    "leave_before": {
+      "mon": null,
+      "tue": "17:00",
+      "wed": "17:00",
+      "thu": "17:00",
+      "fri": "17:00",
+      "sat": "17:00",
+      "sun": "17:00"
+    },
+    "optimal_duration": 150,
+    "minimum_duration": 90,
+    "event_start_times": null,
+    "food": null,
+    "estimated_cost_usd": 25,
+    "exclusions": [],
+    "description": "A stunning 654-acre historic estate near Woodside featuring a Georgian Revival mansion and 16 acres of formal English gardens. One of the finest country houses in the western United States, with seasonal blooms and manicured grounds.",
+    "considerations": [
+      "About a 20-minute drive from Palo Alto",
+      "Book tickets in advance online — timed entry required",
+      "Wear comfortable shoes for walking the extensive gardens",
+      "A café on-site serves light refreshments"
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Shoreline Amphitheatre",
+    "type": "event",
+    "must_visit": false,
+    "rating": 4.3,
+    "start_location": "1 Amphitheatre Pkwy, Mountain View, CA 94043",
+    "end_location": null,
+    "arrive_after": {
+      "mon": null,
+      "tue": null,
+      "wed": null,
+      "thu": null,
+      "fri": null,
+      "sat": null,
+      "sun": null
+    },
+    "leave_before": {
+      "mon": null,
+      "tue": null,
+      "wed": null,
+      "thu": null,
+      "fri": null,
+      "sat": null,
+      "sun": null
+    },
+    "optimal_duration": 180,
+    "minimum_duration": 120,
+    "event_start_times": null,
+    "food": {
+      "breakfast": null,
+      "lunch": null,
+      "dinner": null,
+      "snacks": {
+        "mon": null,
+        "tue": null,
+        "wed": null,
+        "thu": null,
+        "fri": null,
+        "sat": null,
+        "sun": null
+      }
+    },
+    "estimated_cost_usd": 75,
+    "exclusions": [],
+    "description": "A major 22,500-capacity open-air amphitheater in nearby Mountain View, one of the top concert venues in the Bay Area. Big-name artists perform here throughout the summer. Check the schedule for shows around August 4, 2026.",
+    "considerations": [
+      "Check the concert schedule and book tickets well in advance",
+      "About a 10-minute drive from downtown Palo Alto",
+      "Lawn seating is more affordable; bring a blanket",
+      "Traffic after shows can be heavy — plan your exit"
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Rooster T. Feathers Comedy Club",
+    "type": "nightlife",
+    "must_visit": false,
+    "rating": 4.1,
+    "start_location": "157 W El Camino Real, Sunnyvale, CA 94087",
+    "end_location": null,
+    "arrive_after": {
+      "mon": null,
+      "tue": null,
+      "wed": "19:00",
+      "thu": "19:00",
+      "fri": "19:00",
+      "sat": "19:00",
+      "sun": "18:00"
+    },
+    "leave_before": {
+      "mon": null,
+      "tue": null,
+      "wed": "23:00",
+      "thu": "23:00",
+      "fri": "23:59",
+      "sat": "23:59",
+      "sun": "22:00"
+    },
+    "optimal_duration": 120,
+    "minimum_duration": 90,
+    "event_start_times": {
+      "mon": null,
+      "tue": null,
+      "wed": ["20:00"],
+      "thu": ["20:00"],
+      "fri": ["20:00", "22:00"],
+      "sat": ["20:00", "22:00"],
+      "sun": ["19:00"]
+    },
+    "food": {
+      "breakfast": null,
+      "lunch": null,
+      "dinner": {
+        "mon": null,
+        "tue": null,
+        "wed": { "start": "19:00", "end": "23:00" },
+        "thu": { "start": "19:00", "end": "23:00" },
+        "fri": { "start": "19:00", "end": "23:59" },
+        "sat": { "start": "19:00", "end": "23:59" },
+        "sun": { "start": "18:00", "end": "22:00" }
+      },
+      "snacks": null
+    },
+    "estimated_cost_usd": 25,
+    "exclusions": [],
+    "description": "A well-known comedy club in nearby Sunnyvale featuring stand-up performances from local and touring comedians. A fun evening option for those looking for laughs after a day of sightseeing.",
+    "considerations": [
+      "About a 15-minute drive from Palo Alto",
+      "Two-drink minimum typically required",
+      "Book tickets in advance for weekend shows",
+      "Not open Mondays or Tuesdays"
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Wunderlich County Park",
+    "type": "hike",
+    "must_visit": false,
+    "rating": 4.6,
+    "start_location": "4040 Woodside Rd, Woodside, CA 94062",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "08:00",
+      "tue": "08:00",
+      "wed": "08:00",
+      "thu": "08:00",
+      "fri": "08:00",
+      "sat": "08:00",
+      "sun": "08:00"
+    },
+    "leave_before": {
+      "mon": "20:00",
+      "tue": "20:00",
+      "wed": "20:00",
+      "thu": "20:00",
+      "fri": "20:00",
+      "sat": "20:00",
+      "sun": "20:00"
+    },
+    "optimal_duration": 180,
+    "minimum_duration": 90,
+    "event_start_times": null,
+    "food": null,
+    "estimated_cost_usd": 0,
+    "exclusions": [],
+    "description": "A beautiful 942-acre county park in the Woodside hills, featuring trails through towering California redwoods, open meadows, and oak woodlands. Multiple trail options ranging from easy walks to strenuous climbs with Bay views.",
+    "considerations": [
+      "About a 20-minute drive from Palo Alto",
+      "Bring water and sunscreen — limited shade on upper trails",
+      "Dogs allowed on leash on some trails",
+      "Free parking at the trailhead"
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Palo Alto PAST Heritage Walking Tour",
+    "type": "tour",
+    "must_visit": false,
+    "rating": 4.3,
+    "start_location": "Various starting points, Palo Alto, CA 94301",
+    "end_location": null,
+    "arrive_after": {
+      "mon": null,
+      "tue": null,
+      "wed": null,
+      "thu": null,
+      "fri": null,
+      "sat": "10:00",
+      "sun": "10:00"
+    },
+    "leave_before": {
+      "mon": null,
+      "tue": null,
+      "wed": null,
+      "thu": null,
+      "fri": null,
+      "sat": "13:00",
+      "sun": "13:00"
+    },
+    "optimal_duration": 120,
+    "minimum_duration": 90,
+    "event_start_times": {
+      "mon": null,
+      "tue": null,
+      "wed": null,
+      "thu": null,
+      "fri": null,
+      "sat": ["10:00"],
+      "sun": ["10:00"]
+    },
+    "food": null,
+    "estimated_cost_usd": 0,
+    "exclusions": [],
+    "description": "Free guided walking tours of Palo Alto's oldest and most architecturally significant residential neighborhoods, offered by the Palo Alto Stanford Heritage (PAST) preservation group. Self-guided tour maps are also available on their website.",
+    "considerations": [
+      "Free guided tours typically run on weekends — check the PAST website for schedule",
+      "Self-guided tours available any time via downloadable maps",
+      "Wear comfortable walking shoes"
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Bol Park & Barron Park Donkeys",
+    "type": "park",
+    "must_visit": false,
+    "rating": 4.2,
+    "start_location": "3900 Bol Park Dr, Palo Alto, CA 94306",
+    "end_location": null,
+    "arrive_after": null,
+    "leave_before": null,
+    "optimal_duration": 30,
+    "minimum_duration": 15,
+    "event_start_times": null,
+    "food": null,
+    "estimated_cost_usd": 0,
+    "exclusions": [],
+    "description": "A small neighborhood park in the Barron Park area, famous for its resident donkeys — a beloved Palo Alto tradition. Volunteers walk the donkeys around the park in the mornings. A charming and quirky local attraction, especially fun for families.",
+    "considerations": [
+      "Donkeys are most visible in the morning when volunteers walk them",
+      "The park has play structures for children",
+      "A quick, casual stop — best combined with other nearby activities"
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Anderson Collection at Stanford",
+    "type": "museum",
+    "must_visit": false,
+    "rating": 4.5,
+    "start_location": "314 Lomita Dr, Stanford, CA 94305",
+    "end_location": null,
+    "arrive_after": {
+      "mon": null,
+      "tue": null,
+      "wed": "11:00",
+      "thu": "11:00",
+      "fri": "11:00",
+      "sat": "11:00",
+      "sun": "11:00"
+    },
+    "leave_before": {
+      "mon": null,
+      "tue": null,
+      "wed": "17:00",
+      "thu": "17:00",
+      "fri": "17:00",
+      "sat": "17:00",
+      "sun": "17:00"
+    },
+    "optimal_duration": 90,
+    "minimum_duration": 45,
+    "event_start_times": null,
+    "food": null,
+    "estimated_cost_usd": 0,
+    "exclusions": [],
+    "description": "A world-class collection of postwar and contemporary American art housed in a purpose-built building adjacent to the Cantor Arts Center. Features major works by Mark Rothko, Jackson Pollock, Willem de Kooning, and other giants of modern art.",
+    "considerations": [
+      "Free admission",
+      "Closed Mondays and Tuesdays",
+      "Located steps from the Cantor Arts Center — visit both in one trip",
+      "Parking via ParkMobile on weekdays"
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Mountain Winery Saratoga",
+    "type": "event",
+    "must_visit": false,
+    "rating": 4.4,
+    "start_location": "14831 Pierce Rd, Saratoga, CA 95070",
+    "end_location": null,
+    "arrive_after": {
+      "mon": null,
+      "tue": null,
+      "wed": null,
+      "thu": null,
+      "fri": "17:00",
+      "sat": "17:00",
+      "sun": "17:00"
+    },
+    "leave_before": {
+      "mon": null,
+      "tue": null,
+      "wed": null,
+      "thu": null,
+      "fri": "23:00",
+      "sat": "23:00",
+      "sun": "23:00"
+    },
+    "optimal_duration": 180,
+    "minimum_duration": 120,
+    "event_start_times": {
+      "mon": null,
+      "tue": null,
+      "wed": null,
+      "thu": null,
+      "fri": ["19:00"],
+      "sat": ["19:00"],
+      "sun": ["18:00"]
+    },
+    "food": {
+      "breakfast": null,
+      "lunch": null,
+      "dinner": {
+        "mon": null,
+        "tue": null,
+        "wed": null,
+        "thu": null,
+        "fri": { "start": "17:00", "end": "22:00" },
+        "sat": { "start": "17:00", "end": "22:00" },
+        "sun": { "start": "17:00", "end": "21:00" }
+      },
+      "snacks": null
+    },
+    "estimated_cost_usd": 85,
+    "exclusions": [],
+    "description": "A scenic mountainside winery in Saratoga with an outdoor amphitheater hosting concerts, live performances, and comedy acts throughout the summer. Enjoy wine tasting and food with panoramic views of Silicon Valley below.",
+    "considerations": [
+      "About a 30-minute drive from Palo Alto",
+      "Check the summer concert schedule and book tickets in advance",
+      "Rideshare recommended — parking and driving on mountain roads can be tricky at night",
+      "Bring a light jacket — evenings can be cool at elevation"
+    ]
+  },
+  {
+    "id": 24,
+    "name": "Rinconada Park & Pool",
+    "type": "park",
+    "must_visit": false,
+    "rating": 4.1,
+    "start_location": "777 Embarcadero Rd, Palo Alto, CA 94301",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "06:00",
+      "tue": "06:00",
+      "wed": "06:00",
+      "thu": "06:00",
+      "fri": "06:00",
+      "sat": "06:00",
+      "sun": "06:00"
+    },
+    "leave_before": {
+      "mon": "21:00",
+      "tue": "21:00",
+      "wed": "21:00",
+      "thu": "21:00",
+      "fri": "21:00",
+      "sat": "21:00",
+      "sun": "21:00"
+    },
+    "optimal_duration": 90,
+    "minimum_duration": 30,
+    "event_start_times": null,
+    "food": null,
+    "estimated_cost_usd": 5,
+    "exclusions": [],
+    "description": "A large community park in central Palo Alto with a public outdoor pool, tennis courts, a rose garden, and open lawns. The outdoor pool is a great way to cool off during a warm August day.",
+    "considerations": [
+      "Public pool admission is a small fee; check current pricing",
+      "Pool hours vary — confirm before visiting",
+      "Bring a picnic — the park has plenty of shaded areas"
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Evvia Estiatorio",
+    "type": "restaurant",
+    "must_visit": false,
+    "rating": 4.5,
+    "start_location": "420 Emerson St, Palo Alto, CA 94301",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "11:30",
+      "tue": "11:30",
+      "wed": "11:30",
+      "thu": "11:30",
+      "fri": "11:30",
+      "sat": "11:30",
+      "sun": "11:30"
+    },
+    "leave_before": {
+      "mon": "22:00",
+      "tue": "22:00",
+      "wed": "22:00",
+      "thu": "22:00",
+      "fri": "23:00",
+      "sat": "23:00",
+      "sun": "22:00"
+    },
+    "optimal_duration": 90,
+    "minimum_duration": 60,
+    "event_start_times": null,
+    "food": {
+      "breakfast": null,
+      "lunch": {
+        "mon": { "start": "11:30", "end": "14:30" },
+        "tue": { "start": "11:30", "end": "14:30" },
+        "wed": { "start": "11:30", "end": "14:30" },
+        "thu": { "start": "11:30", "end": "14:30" },
+        "fri": { "start": "11:30", "end": "14:30" },
+        "sat": { "start": "11:30", "end": "14:30" },
+        "sun": { "start": "11:30", "end": "14:30" }
+      },
+      "dinner": {
+        "mon": { "start": "17:30", "end": "22:00" },
+        "tue": { "start": "17:30", "end": "22:00" },
+        "wed": { "start": "17:30", "end": "22:00" },
+        "thu": { "start": "17:30", "end": "22:00" },
+        "fri": { "start": "17:30", "end": "23:00" },
+        "sat": { "start": "17:30", "end": "23:00" },
+        "sun": { "start": "17:30", "end": "22:00" }
+      },
+      "snacks": null
+    },
+    "estimated_cost_usd": 65,
+    "exclusions": [],
+    "description": "A beloved Palo Alto institution serving refined Greek cuisine in a warm, rustic setting. Known for its lamb chops, grilled octopus, fresh seafood, and hearth bread. A perennial local favorite for nearly three decades.",
+    "considerations": [
+      "Reservations strongly recommended — very popular",
+      "Valet parking available",
+      "Great for a special dinner out"
+    ]
+  },
+  {
+    "id": 26,
+    "name": "Tamarine Restaurant & Gallery",
+    "type": "restaurant",
+    "must_visit": false,
+    "rating": 4.4,
+    "start_location": "546 University Ave, Palo Alto, CA 94301",
+    "end_location": null,
+    "arrive_after": {
+      "mon": null,
+      "tue": "11:30",
+      "wed": "11:30",
+      "thu": "11:30",
+      "fri": "11:30",
+      "sat": "11:30",
+      "sun": "11:30"
+    },
+    "leave_before": {
+      "mon": null,
+      "tue": "22:00",
+      "wed": "22:00",
+      "thu": "22:00",
+      "fri": "23:00",
+      "sat": "23:00",
+      "sun": "22:00"
+    },
+    "optimal_duration": 90,
+    "minimum_duration": 60,
+    "event_start_times": null,
+    "food": {
+      "breakfast": null,
+      "lunch": {
+        "mon": null,
+        "tue": { "start": "11:30", "end": "14:30" },
+        "wed": { "start": "11:30", "end": "14:30" },
+        "thu": { "start": "11:30", "end": "14:30" },
+        "fri": { "start": "11:30", "end": "14:30" },
+        "sat": { "start": "11:30", "end": "14:30" },
+        "sun": { "start": "11:30", "end": "14:30" }
+      },
+      "dinner": {
+        "mon": null,
+        "tue": { "start": "17:30", "end": "22:00" },
+        "wed": { "start": "17:30", "end": "22:00" },
+        "thu": { "start": "17:30", "end": "22:00" },
+        "fri": { "start": "17:30", "end": "23:00" },
+        "sat": { "start": "17:30", "end": "23:00" },
+        "sun": { "start": "17:30", "end": "22:00" }
+      },
+      "snacks": null
+    },
+    "estimated_cost_usd": 60,
+    "exclusions": [],
+    "description": "A sophisticated Vietnamese restaurant on University Avenue that doubles as an art gallery showcasing emerging Vietnamese artists. Known for inventive dishes like blue crab nori tacos, lemongrass sea bass, and shaking beef. A top pick for business lunches and elegant dinners.",
+    "considerations": [
+      "Reservations recommended",
+      "Closed Mondays",
+      "The art gallery adds a unique cultural dimension to the dining experience"
+    ]
+  },
+  {
+    "id": 27,
+    "name": "Terún Pizza",
+    "type": "restaurant",
+    "must_visit": false,
+    "rating": 4.5,
+    "start_location": "448 California Ave, Palo Alto, CA 94306",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "17:00",
+      "tue": "11:30",
+      "wed": "11:30",
+      "thu": "11:30",
+      "fri": "11:30",
+      "sat": "11:30",
+      "sun": "11:30"
+    },
+    "leave_before": {
+      "mon": "22:00",
+      "tue": "22:00",
+      "wed": "22:00",
+      "thu": "22:00",
+      "fri": "23:00",
+      "sat": "23:00",
+      "sun": "22:00"
+    },
+    "optimal_duration": 75,
+    "minimum_duration": 45,
+    "event_start_times": null,
+    "food": {
+      "breakfast": null,
+      "lunch": {
+        "mon": null,
+        "tue": { "start": "11:30", "end": "14:30" },
+        "wed": { "start": "11:30", "end": "14:30" },
+        "thu": { "start": "11:30", "end": "14:30" },
+        "fri": { "start": "11:30", "end": "14:30" },
+        "sat": { "start": "11:30", "end": "14:30" },
+        "sun": { "start": "11:30", "end": "14:30" }
+      },
+      "dinner": {
+        "mon": { "start": "17:00", "end": "22:00" },
+        "tue": { "start": "17:00", "end": "22:00" },
+        "wed": { "start": "17:00", "end": "22:00" },
+        "thu": { "start": "17:00", "end": "22:00" },
+        "fri": { "start": "17:00", "end": "23:00" },
+        "sat": { "start": "17:00", "end": "23:00" },
+        "sun": { "start": "17:00", "end": "22:00" }
+      },
+      "snacks": null
+    },
+    "estimated_cost_usd": 30,
+    "exclusions": [],
+    "description": "A beloved Neapolitan-style pizzeria on California Avenue, voted best Italian restaurant by Palo Alto Weekly readers. Wood-fired pies with creative toppings like burrata, zucchini, and pears, plus homemade pasta and southern Italian dishes. A lively outdoor patio.",
+    "considerations": [
+      "Live music on Monday evenings",
+      "Outdoor patio is great in summer",
+      "Takeout available",
+      "Can get busy — arrive early or make a reservation"
+    ]
+  },
+  {
+    "id": 28,
+    "name": "Zareen's",
+    "type": "restaurant",
+    "must_visit": false,
+    "rating": 4.4,
+    "start_location": "365 S California Ave, Palo Alto, CA 94306",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "11:00",
+      "tue": "11:00",
+      "wed": "11:00",
+      "thu": "11:00",
+      "fri": "11:00",
+      "sat": "11:00",
+      "sun": "11:00"
+    },
+    "leave_before": {
+      "mon": "21:00",
+      "tue": "21:00",
+      "wed": "21:00",
+      "thu": "21:00",
+      "fri": "21:30",
+      "sat": "21:30",
+      "sun": "21:00"
+    },
+    "optimal_duration": 60,
+    "minimum_duration": 30,
+    "event_start_times": null,
+    "food": {
+      "breakfast": null,
+      "lunch": {
+        "mon": { "start": "11:00", "end": "15:00" },
+        "tue": { "start": "11:00", "end": "15:00" },
+        "wed": { "start": "11:00", "end": "15:00" },
+        "thu": { "start": "11:00", "end": "15:00" },
+        "fri": { "start": "11:00", "end": "15:00" },
+        "sat": { "start": "11:00", "end": "15:00" },
+        "sun": { "start": "11:00", "end": "15:00" }
+      },
+      "dinner": {
+        "mon": { "start": "17:00", "end": "21:00" },
+        "tue": { "start": "17:00", "end": "21:00" },
+        "wed": { "start": "17:00", "end": "21:00" },
+        "thu": { "start": "17:00", "end": "21:00" },
+        "fri": { "start": "17:00", "end": "21:30" },
+        "sat": { "start": "17:00", "end": "21:30" },
+        "sun": { "start": "17:00", "end": "21:00" }
+      },
+      "snacks": null
+    },
+    "estimated_cost_usd": 20,
+    "exclusions": [],
+    "description": "A Michelin Guide-listed Pakistani and Indian restaurant on California Avenue, known for its samosas, kebabs, and a Punjabi chicken burger with spicy fries. Casual, flavorful, and affordable — a local favorite.",
+    "considerations": [
+      "Can get busy at lunch — arrive early or expect a short wait",
+      "Great value for the quality",
+      "Vegetarian and vegan options available"
+    ]
+  },
+  {
+    "id": 29,
+    "name": "Protégé",
+    "type": "restaurant",
+    "must_visit": false,
+    "rating": 4.6,
+    "start_location": "250 California Ave, Palo Alto, CA 94306",
+    "end_location": null,
+    "arrive_after": {
+      "mon": null,
+      "tue": "17:30",
+      "wed": "17:30",
+      "thu": "17:30",
+      "fri": "17:30",
+      "sat": "17:30",
+      "sun": "17:30"
+    },
+    "leave_before": {
+      "mon": null,
+      "tue": "22:00",
+      "wed": "22:00",
+      "thu": "22:00",
+      "fri": "23:00",
+      "sat": "23:00",
+      "sun": "22:00"
+    },
+    "optimal_duration": 120,
+    "minimum_duration": 90,
+    "event_start_times": null,
+    "food": {
+      "breakfast": null,
+      "lunch": null,
+      "dinner": {
+        "mon": null,
+        "tue": { "start": "17:30", "end": "22:00" },
+        "wed": { "start": "17:30", "end": "22:00" },
+        "thu": { "start": "17:30", "end": "22:00" },
+        "fri": { "start": "17:30", "end": "23:00" },
+        "sat": { "start": "17:30", "end": "23:00" },
+        "sun": { "start": "17:30", "end": "22:00" }
+      },
+      "snacks": null
+    },
+    "estimated_cost_usd": 120,
+    "exclusions": [],
+    "description": "A Michelin-starred restaurant on California Avenue offering refined American cuisine with French-inspired touches. Known for creative dishes like Wagyu ribeye and Dungeness crab chawanmushi. Intimate, cozy atmosphere perfect for a special occasion.",
+    "considerations": [
+      "Reservations essential — book well in advance",
+      "Closed Mondays",
+      "Tasting menu available for the full experience",
+      "Dress smart-casual"
+    ]
+  },
+]

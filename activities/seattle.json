@@ -1,0 +1,1632 @@
+[
+  {
+    "id": 1,
+    "name": "Pike Place Market",
+    "type": "market",
+    "must_visit": false,
+    "rating": 4.7,
+    "start_location": "85 Pike St, Seattle, WA 98101",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "09:00",
+      "tue": "09:00",
+      "wed": "09:00",
+      "thu": "09:00",
+      "fri": "09:00",
+      "sat": "09:00",
+      "sun": "09:00"
+    },
+    "leave_before": {
+      "mon": "18:00",
+      "tue": "18:00",
+      "wed": "18:00",
+      "thu": "18:00",
+      "fri": "18:00",
+      "sat": "18:00",
+      "sun": "18:00"
+    },
+    "optimal_duration": 120,
+    "minimum_duration": 30,
+    "event_start_times": null,
+    "food": {
+      "breakfast": {
+        "mon": {"start": "09:00", "end": "11:00"},
+        "tue": {"start": "09:00", "end": "11:00"},
+        "wed": {"start": "09:00", "end": "11:00"},
+        "thu": {"start": "09:00", "end": "11:00"},
+        "fri": {"start": "09:00", "end": "11:00"},
+        "sat": {"start": "09:00", "end": "11:00"},
+        "sun": {"start": "09:00", "end": "11:00"}
+      },
+      "lunch": {
+        "mon": {"start": "11:00", "end": "15:00"},
+        "tue": {"start": "11:00", "end": "15:00"},
+        "wed": {"start": "11:00", "end": "15:00"},
+        "thu": {"start": "11:00", "end": "15:00"},
+        "fri": {"start": "11:00", "end": "15:00"},
+        "sat": {"start": "11:00", "end": "15:00"},
+        "sun": {"start": "11:00", "end": "15:00"}
+      },
+      "dinner": null,
+      "snacks": {
+        "mon": {"start": "09:00", "end": "18:00"},
+        "tue": {"start": "09:00", "end": "18:00"},
+        "wed": {"start": "09:00", "end": "18:00"},
+        "thu": {"start": "09:00", "end": "18:00"},
+        "fri": {"start": "09:00", "end": "18:00"},
+        "sat": {"start": "09:00", "end": "18:00"},
+        "sun": {"start": "09:00", "end": "18:00"}
+      }
+    },
+    "estimated_cost_usd": 15,
+    "exclusions": [],
+    "description": "One of the oldest continuously operated public markets in the US, Pike Place has been a Seattle cornerstone since 1907. Watch fishmongers toss salmon, browse over 200 vendors selling fresh produce, flowers, seafood, and handmade crafts, and grab a bite from dozens of food stalls. Don't miss the original Starbucks just steps away.",
+    "considerations": [
+      "Extremely crowded on weekends and summer mornings — arrive early for the best experience",
+      "The famous fish toss happens throughout the day at Pike Place Fish Market",
+      "Many vendors are cash-preferred",
+      "Free to enter; spending depends on purchases"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Space Needle",
+    "type": "observation",
+    "must_visit": false,
+    "rating": 4.5,
+    "start_location": "400 Broad St, Seattle, WA 98109",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "10:00",
+      "tue": "10:00",
+      "wed": "10:00",
+      "thu": "10:00",
+      "fri": "10:00",
+      "sat": "09:00",
+      "sun": "09:00"
+    },
+    "leave_before": {
+      "mon": "21:30",
+      "tue": "21:30",
+      "wed": "21:30",
+      "thu": "21:30",
+      "fri": "22:30",
+      "sat": "22:30",
+      "sun": "21:30"
+    },
+    "optimal_duration": 90,
+    "minimum_duration": 45,
+    "event_start_times": null,
+    "food": null,
+    "estimated_cost_usd": 37,
+    "exclusions": [],
+    "description": "Seattle's most iconic landmark, built for the 1962 World's Fair, stands 605 feet tall. A 43-second elevator ride whisks you to the observation deck for 360-degree views of the city skyline, Elliott Bay, Mount Rainier, and the Olympic Mountains. Features the world's only revolving glass floor (The Loupe) and an indoor lounge.",
+    "considerations": [
+      "Book tickets online in advance to avoid long queues, especially in summer",
+      "Combo tickets with Chihuly Garden and Glass offer significant savings",
+      "Clear days offer views of Mount Rainier — mornings tend to be clearer",
+      "Last entry is typically 30 minutes before closing"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Chihuly Garden and Glass",
+    "type": "museum",
+    "must_visit": false,
+    "rating": 4.7,
+    "start_location": "305 Harrison St, Seattle, WA 98109",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "10:00",
+      "tue": "10:00",
+      "wed": "10:00",
+      "thu": "10:00",
+      "fri": "10:00",
+      "sat": "09:00",
+      "sun": "09:00"
+    },
+    "leave_before": {
+      "mon": "20:00",
+      "tue": "20:00",
+      "wed": "20:00",
+      "thu": "20:00",
+      "fri": "21:00",
+      "sat": "21:00",
+      "sun": "20:00"
+    },
+    "optimal_duration": 90,
+    "minimum_duration": 60,
+    "event_start_times": null,
+    "food": {
+      "breakfast": null,
+      "lunch": {
+        "mon": {"start": "11:00", "end": "15:00"},
+        "tue": {"start": "11:00", "end": "15:00"},
+        "wed": {"start": "11:00", "end": "15:00"},
+        "thu": {"start": "11:00", "end": "15:00"},
+        "fri": {"start": "11:00", "end": "15:00"},
+        "sat": {"start": "11:00", "end": "15:00"},
+        "sun": {"start": "11:00", "end": "15:00"}
+      },
+      "dinner": null,
+      "snacks": null
+    },
+    "estimated_cost_usd": 32,
+    "exclusions": [],
+    "description": "A stunning exhibition showcasing the work of Dale Chihuly, one of America's most celebrated glass artists. The indoor galleries and outdoor garden feature massive, colorful glass sculptures that are breathtaking in natural light. Located at Seattle Center, steps from the Space Needle.",
+    "considerations": [
+      "Combo ticket with the Space Needle saves money",
+      "The garden is especially beautiful in late afternoon light",
+      "Photography is encouraged throughout",
+      "Allow extra time — most visitors stay longer than expected"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Museum of Pop Culture (MoPOP)",
+    "type": "museum",
+    "must_visit": false,
+    "rating": 4.4,
+    "start_location": "325 5th Ave N, Seattle, WA 98109",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "10:00",
+      "tue": "10:00",
+      "wed": "10:00",
+      "thu": "10:00",
+      "fri": "10:00",
+      "sat": "10:00",
+      "sun": "10:00"
+    },
+    "leave_before": {
+      "mon": "17:00",
+      "tue": "17:00",
+      "wed": "17:00",
+      "thu": "17:00",
+      "fri": "17:00",
+      "sat": "17:00",
+      "sun": "17:00"
+    },
+    "optimal_duration": 180,
+    "minimum_duration": 90,
+    "event_start_times": null,
+    "food": {
+      "breakfast": null,
+      "lunch": {
+        "mon": {"start": "11:00", "end": "15:00"},
+        "tue": {"start": "11:00", "end": "15:00"},
+        "wed": {"start": "11:00", "end": "15:00"},
+        "thu": {"start": "11:00", "end": "15:00"},
+        "fri": {"start": "11:00", "end": "15:00"},
+        "sat": {"start": "11:00", "end": "15:00"},
+        "sun": {"start": "11:00", "end": "15:00"}
+      },
+      "dinner": null,
+      "snacks": null
+    },
+    "estimated_cost_usd": 30,
+    "exclusions": [],
+    "description": "Set in a striking Frank Gehry-designed building at Seattle Center, MoPOP celebrates rock music, science fiction, and pop culture. Highlights include exhibits on Nirvana, Jimi Hendrix, the Guitar Gallery, and a Science Fiction and Fantasy Hall of Fame with props from iconic films. Highly interactive and engaging for all ages.",
+    "considerations": [
+      "Allow at least 2–3 hours to do it justice",
+      "The Sound Lab lets you play instruments — great for music fans",
+      "Located steps from the Space Needle and Chihuly — easy to combine"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Seattle Aquarium — Ocean Pavilion",
+    "type": "museum",
+    "must_visit": false,
+    "rating": 4.4,
+    "start_location": "1483 Alaskan Way, Seattle, WA 98101",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "09:30",
+      "tue": "09:30",
+      "wed": "09:30",
+      "thu": "09:30",
+      "fri": "09:30",
+      "sat": "09:30",
+      "sun": "09:30"
+    },
+    "leave_before": {
+      "mon": "18:00",
+      "tue": "18:00",
+      "wed": "18:00",
+      "thu": "18:00",
+      "fri": "18:00",
+      "sat": "18:00",
+      "sun": "18:00"
+    },
+    "optimal_duration": 150,
+    "minimum_duration": 90,
+    "event_start_times": null,
+    "food": {
+      "breakfast": null,
+      "lunch": {
+        "mon": {"start": "11:00", "end": "15:00"},
+        "tue": {"start": "11:00", "end": "15:00"},
+        "wed": {"start": "11:00", "end": "15:00"},
+        "thu": {"start": "11:00", "end": "15:00"},
+        "fri": {"start": "11:00", "end": "15:00"},
+        "sat": {"start": "11:00", "end": "15:00"},
+        "sun": {"start": "11:00", "end": "15:00"}
+      },
+      "dinner": null,
+      "snacks": null
+    },
+    "estimated_cost_usd": 35,
+    "exclusions": [],
+    "description": "The beloved Seattle Aquarium expanded in 2024 with a spectacular new Ocean Pavilion wing devoted to the Indo-Pacific's Coral Sea. The existing buildings feature salmon, sea otters, and Pacific Northwest marine life. Located on the revitalized downtown waterfront, it's a great stop for families and ocean enthusiasts.",
+    "considerations": [
+      "The new Ocean Pavilion is a must-see addition",
+      "Animal keeper talks happen daily — check the schedule at the entrance",
+      "Book tickets online to skip the box office line",
+      "Combine with a walk along the waterfront promenade"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Bill Speidel's Underground Tour",
+    "type": "tour",
+    "must_visit": true,
+    "rating": 4.5,
+    "start_location": "614 1st Ave, Seattle, WA 98104",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "09:00",
+      "tue": "09:00",
+      "wed": "09:00",
+      "thu": "09:00",
+      "fri": "09:00",
+      "sat": "09:00",
+      "sun": "09:00"
+    },
+    "leave_before": {
+      "mon": "19:00",
+      "tue": "19:00",
+      "wed": "19:00",
+      "thu": "19:00",
+      "fri": "19:00",
+      "sat": "19:00",
+      "sun": "19:00"
+    },
+    "optimal_duration": 90,
+    "minimum_duration": 75,
+    "event_start_times": {
+      "mon": ["09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30"],
+      "tue": ["09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30"],
+      "wed": ["09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30"],
+      "thu": ["09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30"],
+      "fri": ["09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30"],
+      "sat": ["09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30"],
+      "sun": ["09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30"]
+    },
+    "food": null,
+    "estimated_cost_usd": 22,
+    "exclusions": [7],
+    "description": "The original Seattle underground tour, founded in 1965, takes you through the buried Victorian-era streets beneath Pioneer Square. Guides share the colorful history of the 1889 Great Fire, the city's rebuilding, and the quirky characters of early Seattle. Tours last about 75 minutes and cover roughly three city blocks underground.",
+    "considerations": [
+      "Book at least 1 week in advance for summer weekend slots — they sell out",
+      "Wear comfortable, closed-toe shoes — terrain is uneven with stairs",
+      "Not recommended for those with mobility limitations",
+      "Extra half-hour tours are sold at the box office only during summer"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Beneath the Streets Underground History Tour",
+    "type": "tour",
+    "must_visit": false,
+    "rating": 4.6,
+    "start_location": "102 Cherry St, Seattle, WA 98104",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "10:00",
+      "tue": "10:00",
+      "wed": "10:00",
+      "thu": "10:00",
+      "fri": "10:00",
+      "sat": "10:00",
+      "sun": "10:00"
+    },
+    "leave_before": {
+      "mon": "19:00",
+      "tue": "19:00",
+      "wed": "19:00",
+      "thu": "19:00",
+      "fri": "19:00",
+      "sat": "19:00",
+      "sun": "19:00"
+    },
+    "optimal_duration": 60,
+    "minimum_duration": 60,
+    "event_start_times": {
+      "mon": ["10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"],
+      "tue": ["10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"],
+      "wed": ["10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"],
+      "thu": ["10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"],
+      "fri": ["10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"],
+      "sat": ["10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"],
+      "sun": ["10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"]
+    },
+    "food": null,
+    "estimated_cost_usd": 20,
+    "exclusions": [6],
+    "description": "A boutique alternative to the original underground tour, Beneath the Streets offers unscripted, one-hour guided walks through Pioneer Square's historic underground passageways. Each tour is unique. Also offers an adults-only 'Red Lights' tour covering Seattle's vice history, and a Sunday Queer Underground History Tour.",
+    "considerations": [
+      "Look for the black awning on the sidewalk at 1st Ave & Cherry St",
+      "Tours require a minimum of 2 people to run",
+      "Wear good walking shoes — involves stairs and uneven terrain",
+      "Book 24–48 hours in advance; summer weekends sell out"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Olympic Sculpture Park",
+    "type": "park",
+    "must_visit": false,
+    "rating": 4.4,
+    "start_location": "2901 Western Ave, Seattle, WA 98121",
+    "end_location": null,
+    "arrive_after": null,
+    "leave_before": null,
+    "optimal_duration": 60,
+    "minimum_duration": 20,
+    "event_start_times": null,
+    "food": null,
+    "estimated_cost_usd": 0,
+    "exclusions": [],
+    "description": "A free, 9-acre outdoor sculpture park on the Elliott Bay waterfront, affiliated with the Seattle Art Museum. Features works by Louise Bourgeois, Alexander Calder, and other renowned sculptors. Offers sweeping views of Elliott Bay and the Olympic Mountains. Open year-round, dawn to dusk.",
+    "considerations": [
+      "Completely free to visit",
+      "Great for a short stroll between other downtown attractions",
+      "Stunning views of Elliott Bay and the Olympic Mountains",
+      "About a 1-mile walk north from Pike Place Market along the waterfront"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Kerry Park Viewpoint",
+    "type": "landmark",
+    "must_visit": false,
+    "rating": 4.7,
+    "start_location": "211 W Highland Dr, Seattle, WA 98119",
+    "end_location": null,
+    "arrive_after": null,
+    "leave_before": null,
+    "optimal_duration": 30,
+    "minimum_duration": 10,
+    "event_start_times": null,
+    "food": null,
+    "estimated_cost_usd": 0,
+    "exclusions": [],
+    "description": "A small hilltop park on Queen Anne Hill widely considered the best viewpoint in Seattle. Offers a classic postcard view of the downtown skyline, Space Needle, Elliott Bay, and Mount Rainier on clear days. Especially popular at sunset and golden hour. Free and open at all hours.",
+    "considerations": [
+      "Best visited at sunset for golden-hour photos",
+      "Can be crowded — arrive early or on weekdays",
+      "A short rideshare or uphill walk from Seattle Center",
+      "Mount Rainier is visible on clear days — August is typically excellent"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Museum of History & Industry (MOHAI)",
+    "type": "museum",
+    "must_visit": false,
+    "rating": 4.5,
+    "start_location": "860 Terry Ave N, Seattle, WA 98109",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "10:00",
+      "tue": "10:00",
+      "wed": "10:00",
+      "thu": "10:00",
+      "fri": "10:00",
+      "sat": "10:00",
+      "sun": "10:00"
+    },
+    "leave_before": {
+      "mon": "17:00",
+      "tue": "17:00",
+      "wed": "17:00",
+      "thu": "20:00",
+      "fri": "17:00",
+      "sat": "17:00",
+      "sun": "17:00"
+    },
+    "optimal_duration": 120,
+    "minimum_duration": 60,
+    "event_start_times": null,
+    "food": {
+      "breakfast": null,
+      "lunch": {
+        "mon": {"start": "11:00", "end": "14:00"},
+        "tue": {"start": "11:00", "end": "14:00"},
+        "wed": {"start": "11:00", "end": "14:00"},
+        "thu": {"start": "11:00", "end": "14:00"},
+        "fri": {"start": "11:00", "end": "14:00"},
+        "sat": {"start": "11:00", "end": "14:00"},
+        "sun": {"start": "11:00", "end": "14:00"}
+      },
+      "dinner": null,
+      "snacks": null
+    },
+    "estimated_cost_usd": 22,
+    "exclusions": [],
+    "description": "The largest private heritage organization in the Pacific Northwest, MOHAI houses over 4 million artifacts documenting the history of the Puget Sound region. Located on the south shore of Lake Union in South Lake Union, it's free to visit on the first Thursday of every month.",
+    "considerations": [
+      "Free admission on the first Thursday of each month (open until 8 PM)",
+      "The nearby Center for Wooden Boats offers free vintage boat rides on Sundays",
+      "Located in South Lake Union — easy to combine with a waterfront walk"
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Washington State Ferry to Bainbridge Island",
+    "type": "boat_tour",
+    "must_visit": false,
+    "rating": 4.6,
+    "start_location": "801 Alaskan Way, Seattle, WA 98104",
+    "end_location": "270 Olympic Dr NE, Bainbridge Island, WA 98110",
+    "arrive_after": {
+      "mon": "05:30",
+      "tue": "05:30",
+      "wed": "05:30",
+      "thu": "05:30",
+      "fri": "05:30",
+      "sat": "06:00",
+      "sun": "06:00"
+    },
+    "leave_before": {
+      "mon": "23:00",
+      "tue": "23:00",
+      "wed": "23:00",
+      "thu": "23:00",
+      "fri": "23:00",
+      "sat": "23:00",
+      "sun": "23:00"
+    },
+    "optimal_duration": 240,
+    "minimum_duration": 35,
+    "event_start_times": null,
+    "food": {
+      "breakfast": null,
+      "lunch": null,
+      "dinner": null,
+      "snacks": {
+        "mon": {"start": "06:00", "end": "22:00"},
+        "tue": {"start": "06:00", "end": "22:00"},
+        "wed": {"start": "06:00", "end": "22:00"},
+        "thu": {"start": "06:00", "end": "22:00"},
+        "fri": {"start": "06:00", "end": "22:00"},
+        "sat": {"start": "06:00", "end": "22:00"},
+        "sun": {"start": "06:00", "end": "22:00"}
+      }
+    },
+    "estimated_cost_usd": 10,
+    "exclusions": [],
+    "description": "A 35-minute ferry ride across Puget Sound to Bainbridge Island, offering stunning views of the Seattle skyline and Olympic Mountains. Bainbridge Island itself is known for charming shops, excellent restaurants, wineries, and scenic waterfront walks. The ferry ride alone is a highlight — one of the most scenic commutes in the world.",
+    "considerations": [
+      "Walk-on passengers pay only one way (westbound); return is free",
+      "Ferries run frequently — check the WSF schedule for exact times",
+      "Arrive 15–20 minutes early in summer as ferries fill up",
+      "The ferry terminal is a short walk from Pike Place Market"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Argosy Harbor Cruise",
+    "type": "boat_tour",
+    "must_visit": false,
+    "rating": 4.4,
+    "start_location": "Pier 55, 1101 Alaskan Way, Seattle, WA 98101",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "10:00",
+      "tue": "10:00",
+      "wed": "10:00",
+      "thu": "10:00",
+      "fri": "10:00",
+      "sat": "10:00",
+      "sun": "10:00"
+    },
+    "leave_before": {
+      "mon": "18:00",
+      "tue": "18:00",
+      "wed": "18:00",
+      "thu": "18:00",
+      "fri": "18:00",
+      "sat": "18:00",
+      "sun": "18:00"
+    },
+    "optimal_duration": 60,
+    "minimum_duration": 60,
+    "event_start_times": {
+      "mon": ["11:00", "13:00", "15:00"],
+      "tue": ["11:00", "13:00", "15:00"],
+      "wed": ["11:00", "13:00", "15:00"],
+      "thu": ["11:00", "13:00", "15:00"],
+      "fri": ["11:00", "13:00", "15:00"],
+      "sat": ["10:00", "11:00", "12:00", "13:00", "14:00", "15:00"],
+      "sun": ["10:00", "11:00", "12:00", "13:00", "14:00", "15:00"]
+    },
+    "food": {
+      "breakfast": null,
+      "lunch": null,
+      "dinner": null,
+      "snacks": {
+        "mon": {"start": "11:00", "end": "16:00"},
+        "tue": {"start": "11:00", "end": "16:00"},
+        "wed": {"start": "11:00", "end": "16:00"},
+        "thu": {"start": "11:00", "end": "16:00"},
+        "fri": {"start": "11:00", "end": "16:00"},
+        "sat": {"start": "10:00", "end": "16:00"},
+        "sun": {"start": "10:00", "end": "16:00"}
+      }
+    },
+    "estimated_cost_usd": 35,
+    "exclusions": [],
+    "description": "A one-hour narrated cruise of Elliott Bay led by a local guide, offering views of the Seattle waterfront, working port, and surrounding mountains. Argosy Cruises has been running tours since 1949 and is one of the most popular ways to see the city from the water.",
+    "considerations": [
+      "Book in advance during summer — popular with tourists",
+      "Dress in layers; it can be cool on the water even in August",
+      "Departs from Pier 55 on the downtown waterfront"
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Fremont Neighborhood & Troll",
+    "type": "neighborhood",
+    "must_visit": false,
+    "rating": 4.4,
+    "start_location": "3405 Fremont Ave N, Seattle, WA 98103",
+    "end_location": null,
+    "arrive_after": null,
+    "leave_before": null,
+    "optimal_duration": 90,
+    "minimum_duration": 20,
+    "event_start_times": null,
+    "food": null,
+    "estimated_cost_usd": 0,
+    "exclusions": [],
+    "description": "Seattle's self-proclaimed 'Center of the Universe,' Fremont is a quirky, artsy neighborhood packed with indie shops, breweries, and public art. The famous Fremont Troll — a giant concrete sculpture lurking under the Aurora Bridge — is a beloved photo stop. Also home to a Lenin statue, the Fremont Sunday Market, and great coffee shops.",
+    "considerations": [
+      "The Fremont Troll is free to visit and open at all hours",
+      "Fremont Sunday Market runs year-round on Sundays",
+      "Lots of great breweries and cafes to explore",
+      "About a 15-minute bus ride or rideshare from downtown"
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Ballard Locks (Hiram M. Chittenden Locks)",
+    "type": "landmark",
+    "must_visit": false,
+    "rating": 4.6,
+    "start_location": "3015 NW 54th St, Seattle, WA 98107",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "07:00",
+      "tue": "07:00",
+      "wed": "07:00",
+      "thu": "07:00",
+      "fri": "07:00",
+      "sat": "07:00",
+      "sun": "07:00"
+    },
+    "leave_before": {
+      "mon": "21:00",
+      "tue": "21:00",
+      "wed": "21:00",
+      "thu": "21:00",
+      "fri": "21:00",
+      "sat": "21:00",
+      "sun": "21:00"
+    },
+    "optimal_duration": 75,
+    "minimum_duration": 30,
+    "event_start_times": null,
+    "food": null,
+    "estimated_cost_usd": 0,
+    "exclusions": [],
+    "description": "A fascinating engineering landmark where boats pass between Puget Sound and Lake Union/Lake Washington. Watch vessels of all sizes navigate the locks, and in summer, observe salmon migrating through the fish ladder viewing windows. The adjacent botanical garden is beautiful in August.",
+    "considerations": [
+      "Free to visit",
+      "August is a great time to see salmon in the fish ladder",
+      "Combine with a visit to the Ballard neighborhood and The Walrus and the Carpenter",
+      "The visitor center has exhibits on the locks' history"
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Discovery Park",
+    "type": "park",
+    "must_visit": false,
+    "rating": 4.8,
+    "start_location": "3801 Discovery Park Blvd, Seattle, WA 98199",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "06:00",
+      "tue": "06:00",
+      "wed": "06:00",
+      "thu": "06:00",
+      "fri": "06:00",
+      "sat": "06:00",
+      "sun": "06:00"
+    },
+    "leave_before": {
+      "mon": "21:00",
+      "tue": "21:00",
+      "wed": "21:00",
+      "thu": "21:00",
+      "fri": "21:00",
+      "sat": "21:00",
+      "sun": "21:00"
+    },
+    "optimal_duration": 150,
+    "minimum_duration": 60,
+    "event_start_times": null,
+    "food": null,
+    "estimated_cost_usd": 0,
+    "exclusions": [],
+    "description": "Seattle's largest park at 534 acres, featuring dramatic bluffs, forest trails, meadows, and two miles of wild beach on Puget Sound. The West Point Lighthouse is a highlight. August weather makes this an ideal outdoor escape with stunning views of the Olympic Mountains and Puget Sound.",
+    "considerations": [
+      "Free to enter; parking is available but fills on weekends",
+      "Wear comfortable shoes — trails can be steep near the bluffs",
+      "The Loop Trail (2.8 miles) is the most popular route",
+      "A rideshare is the easiest way to get here from downtown"
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Alki Beach",
+    "type": "beach",
+    "must_visit": false,
+    "rating": 4.5,
+    "start_location": "1702 Alki Ave SW, Seattle, WA 98116",
+    "end_location": null,
+    "arrive_after": null,
+    "leave_before": null,
+    "optimal_duration": 120,
+    "minimum_duration": 30,
+    "event_start_times": null,
+    "food": null,
+    "estimated_cost_usd": 0,
+    "exclusions": [17],
+    "description": "Seattle's most popular urban beach, stretching along West Seattle with views of downtown, Elliott Bay, and the Olympic Mountains. In August, the beach buzzes with volleyball, cyclists, and beachgoers. The 2.5-mile beachfront path is perfect for a stroll or bike ride, and the strip is lined with casual restaurants and ice cream shops.",
+    "considerations": [
+      "Free to visit; parking can be very difficult on sunny summer days",
+      "Take the Water Taxi from downtown for a scenic and easy commute",
+      "Bring sunscreen — August days can be warm and sunny",
+      "The beachfront strip has plenty of food options"
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Golden Gardens Park",
+    "type": "beach",
+    "must_visit": false,
+    "rating": 4.6,
+    "start_location": "8498 Seaview Pl NW, Seattle, WA 98117",
+    "end_location": null,
+    "arrive_after": null,
+    "leave_before": null,
+    "optimal_duration": 120,
+    "minimum_duration": 30,
+    "event_start_times": null,
+    "food": null,
+    "estimated_cost_usd": 0,
+    "exclusions": [16],
+    "description": "A beautiful sandy beach park in Ballard with fire pits, picnic areas, and stunning sunset views over Puget Sound and the Olympic Mountains. Less crowded than Alki, Golden Gardens is a local favorite for summer evenings. Combine with a visit to the Ballard neighborhood.",
+    "considerations": [
+      "Fire pits are first-come, first-served — arrive early on summer evenings",
+      "Parking fills quickly on sunny days; consider biking or rideshare",
+      "Sunsets here are spectacular in August",
+      "Easily combined with a visit to Ballard Locks or The Walrus and the Carpenter"
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Seattle Art Museum (SAM)",
+    "type": "museum",
+    "must_visit": false,
+    "rating": 4.4,
+    "start_location": "1300 1st Ave, Seattle, WA 98101",
+    "end_location": null,
+    "arrive_after": {
+      "mon": null,
+      "tue": "10:00",
+      "wed": "10:00",
+      "thu": "10:00",
+      "fri": "10:00",
+      "sat": "10:00",
+      "sun": "10:00"
+    },
+    "leave_before": {
+      "mon": null,
+      "tue": "17:00",
+      "wed": "17:00",
+      "thu": "20:00",
+      "fri": "17:00",
+      "sat": "17:00",
+      "sun": "17:00"
+    },
+    "optimal_duration": 150,
+    "minimum_duration": 60,
+    "event_start_times": null,
+    "food": {
+      "breakfast": null,
+      "lunch": {
+        "tue": {"start": "11:00", "end": "15:00"},
+        "wed": {"start": "11:00", "end": "15:00"},
+        "thu": {"start": "11:00", "end": "15:00"},
+        "fri": {"start": "11:00", "end": "15:00"},
+        "sat": {"start": "11:00", "end": "15:00"},
+        "sun": {"start": "11:00", "end": "15:00"},
+        "mon": null
+      },
+      "dinner": null,
+      "snacks": null
+    },
+    "estimated_cost_usd": 30,
+    "exclusions": [],
+    "description": "Seattle's premier fine art museum, located in downtown near Pike Place Market. The collection spans ancient Egyptian art to contemporary works, with a strong focus on Northwest Coast Native art. The 'American Art: The Stories We Carry' exhibition is currently transforming the American galleries.",
+    "considerations": [
+      "Closed Mondays",
+      "Free on the first Thursday of each month",
+      "The Olympic Sculpture Park (free, outdoor) is affiliated with SAM and about 1 mile north",
+      "Allow 2+ hours for a thorough visit"
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Pacific Science Center",
+    "type": "museum",
+    "must_visit": false,
+    "rating": 4.3,
+    "start_location": "200 2nd Ave N, Seattle, WA 98109",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "10:00",
+      "tue": "10:00",
+      "wed": "10:00",
+      "thu": "10:00",
+      "fri": "10:00",
+      "sat": "10:00",
+      "sun": "10:00"
+    },
+    "leave_before": {
+      "mon": "17:00",
+      "tue": "17:00",
+      "wed": "17:00",
+      "thu": "17:00",
+      "fri": "17:00",
+      "sat": "18:00",
+      "sun": "18:00"
+    },
+    "optimal_duration": 150,
+    "minimum_duration": 90,
+    "event_start_times": null,
+    "food": {
+      "breakfast": null,
+      "lunch": {
+        "mon": {"start": "11:00", "end": "15:00"},
+        "tue": {"start": "11:00", "end": "15:00"},
+        "wed": {"start": "11:00", "end": "15:00"},
+        "thu": {"start": "11:00", "end": "15:00"},
+        "fri": {"start": "11:00", "end": "15:00"},
+        "sat": {"start": "11:00", "end": "15:00"},
+        "sun": {"start": "11:00", "end": "15:00"}
+      },
+      "dinner": null,
+      "snacks": null
+    },
+    "estimated_cost_usd": 26,
+    "exclusions": [],
+    "description": "Located at Seattle Center, the Pacific Science Center features interactive exhibits on science, technology, and nature. Highlights include a butterfly house, IMAX theater, laser dome shows, and hands-on exhibits for all ages. A great option for families or rainy-day visits.",
+    "considerations": [
+      "IMAX and laser dome shows cost extra",
+      "The butterfly house is a highlight — arrive early as it gets crowded",
+      "Located steps from the Space Needle — easy to combine",
+      "Great for families with children"
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Museum of Flight",
+    "type": "museum",
+    "must_visit": false,
+    "rating": 4.7,
+    "start_location": "9404 E Marginal Way S, Seattle, WA 98108",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "10:00",
+      "tue": "10:00",
+      "wed": "10:00",
+      "thu": "10:00",
+      "fri": "10:00",
+      "sat": "10:00",
+      "sun": "10:00"
+    },
+    "leave_before": {
+      "mon": "17:00",
+      "tue": "17:00",
+      "wed": "17:00",
+      "thu": "17:00",
+      "fri": "17:00",
+      "sat": "17:00",
+      "sun": "17:00"
+    },
+    "optimal_duration": 210,
+    "minimum_duration": 120,
+    "event_start_times": null,
+    "food": {
+      "breakfast": null,
+      "lunch": {
+        "mon": {"start": "11:00", "end": "15:00"},
+        "tue": {"start": "11:00", "end": "15:00"},
+        "wed": {"start": "11:00", "end": "15:00"},
+        "thu": {"start": "11:00", "end": "15:00"},
+        "fri": {"start": "11:00", "end": "15:00"},
+        "sat": {"start": "11:00", "end": "15:00"},
+        "sun": {"start": "11:00", "end": "15:00"}
+      },
+      "dinner": null,
+      "snacks": null
+    },
+    "estimated_cost_usd": 28,
+    "exclusions": [],
+    "description": "One of the largest air and space museums in the world, located about 20 minutes south of downtown near Boeing Field. Features over 175 aircraft and spacecraft, including a Concorde, Air Force One, and Space Shuttle trainer. An immersive experience in aviation history and technology.",
+    "considerations": [
+      "Allow at least 3–4 hours — it's enormous",
+      "Take the Link Light Rail to the Boeing Access Road station, then a short rideshare",
+      "Parking is free and ample",
+      "Highly recommended for aviation enthusiasts and families"
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Seattle Center Monorail",
+    "type": "landmark",
+    "must_visit": false,
+    "rating": 4.2,
+    "start_location": "400 Pine St, Seattle, WA 98101",
+    "end_location": "370 Thomas St, Seattle, WA 98109",
+    "arrive_after": {
+      "mon": "07:30",
+      "tue": "07:30",
+      "wed": "07:30",
+      "thu": "07:30",
+      "fri": "07:30",
+      "sat": "08:30",
+      "sun": "08:30"
+    },
+    "leave_before": {
+      "mon": "21:00",
+      "tue": "21:00",
+      "wed": "21:00",
+      "thu": "21:00",
+      "fri": "21:00",
+      "sat": "21:00",
+      "sun": "21:00"
+    },
+    "optimal_duration": 10,
+    "minimum_duration": 10,
+    "event_start_times": null,
+    "food": null,
+    "estimated_cost_usd": 3,
+    "exclusions": [],
+    "description": "The retro-cool Seattle Center Monorail, built for the 1962 World's Fair, connects Westlake Center in downtown to Seattle Center in just 2 minutes. A fun, quick, and practical way to travel between downtown and the Space Needle/MoPOP cluster of attractions.",
+    "considerations": [
+      "Runs every 10 minutes",
+      "A fun novelty ride — worth doing at least once",
+      "Departs from the 3rd floor of Westlake Center mall"
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Seafair Weekend Festival (Day 3 — Final Day)",
+    "type": "event",
+    "must_visit": false,
+    "rating": 4.6,
+    "start_location": "Genesee Park, 4316 S Genesee St, Seattle, WA 98118",
+    "end_location": null,
+    "arrive_after": {
+      "mon": null,
+      "tue": null,
+      "wed": null,
+      "thu": null,
+      "fri": null,
+      "sat": null,
+      "sun": "08:30"
+    },
+    "leave_before": {
+      "mon": null,
+      "tue": null,
+      "wed": null,
+      "thu": null,
+      "fri": null,
+      "sat": null,
+      "sun": "18:00"
+    },
+    "optimal_duration": 360,
+    "minimum_duration": 180,
+    "event_start_times": {
+      "mon": null,
+      "tue": null,
+      "wed": null,
+      "thu": null,
+      "fri": null,
+      "sat": null,
+      "sun": ["08:30"]
+    },
+    "food": {
+      "breakfast": null,
+      "lunch": {
+        "mon": null,
+        "tue": null,
+        "wed": null,
+        "thu": null,
+        "fri": null,
+        "sat": null,
+        "sun": {"start": "11:00", "end": "16:00"}
+      },
+      "dinner": null,
+      "snacks": {
+        "mon": null,
+        "tue": null,
+        "wed": null,
+        "thu": null,
+        "fri": null,
+        "sat": null,
+        "sun": {"start": "09:00", "end": "17:00"}
+      }
+    },
+    "estimated_cost_usd": 45,
+    "exclusions": [],
+    "description": "August 4 is the final day (Sunday) of the 2026 Seafair Weekend Festival at Genesee Park on Lake Washington. The event features the US Navy Blue Angels air show, Apollo Mechanical Cup hydroplane races reaching speeds up to 220 mph, live music, food vendors, and family activities. One of Seattle's most beloved summer traditions, drawing over 60,000 fans.",
+    "considerations": [
+      "Seafair Weekend runs July 31–August 2, 2026 — August 4 is just after the main event; verify final day schedule at seafair.org",
+      "Take Link Light Rail to Columbia City station and use the free shuttle to the park",
+      "Arrive early — parking fills extremely fast",
+      "Blue Angels performance is weather-dependent",
+      "Military discounts available at the gate with valid ID",
+      "Tickets for Saturday and Sunday are paid — check seafair.org for 2026 pricing"
+    ]
+  },
+  {
+    "id": 23,
+    "name": "GreenStage Free Shakespeare in the Parks",
+    "type": "event",
+    "must_visit": false,
+    "rating": 4.5,
+    "start_location": "Volunteer Park, 1247 15th Ave E, Seattle, WA 98112",
+    "end_location": null,
+    "arrive_after": {
+      "mon": null,
+      "tue": null,
+      "wed": null,
+      "thu": "18:30",
+      "fri": "18:30",
+      "sat": "18:30",
+      "sun": "18:30"
+    },
+    "leave_before": {
+      "mon": null,
+      "tue": null,
+      "wed": null,
+      "thu": "22:00",
+      "fri": "22:00",
+      "sat": "22:00",
+      "sun": "22:00"
+    },
+    "optimal_duration": 120,
+    "minimum_duration": 120,
+    "event_start_times": {
+      "mon": null,
+      "tue": null,
+      "wed": null,
+      "thu": ["19:00"],
+      "fri": ["19:00"],
+      "sat": ["19:00"],
+      "sun": ["19:00"]
+    },
+    "food": null,
+    "estimated_cost_usd": 0,
+    "exclusions": [],
+    "description": "GreenStage brings free professional Shakespeare performances to parks across Seattle throughout August. Productions rotate between multiple parks including Volunteer Park, Seward Park, and others. Bring a blanket, a picnic, and enjoy theater under the summer sky — a quintessential Seattle August experience.",
+    "considerations": [
+      "Completely free — donations welcome",
+      "Bring a blanket or low chair and a picnic",
+      "Check the GreenStage website for the exact August schedule and park locations",
+      "Performances may be canceled in case of rain"
+    ]
+  },
+  {
+    "id": 24,
+    "name": "Center City Cinema — Outdoor Movies in the Park",
+    "type": "event",
+    "must_visit": false,
+    "rating": 4.3,
+    "start_location": "Various Seattle Parks — check schedule",
+    "end_location": null,
+    "arrive_after": {
+      "mon": null,
+      "tue": null,
+      "wed": null,
+      "thu": null,
+      "fri": "20:00",
+      "sat": "20:00",
+      "sun": null
+    },
+    "leave_before": {
+      "mon": null,
+      "tue": null,
+      "wed": null,
+      "thu": null,
+      "fri": "23:00",
+      "sat": "23:00",
+      "sun": null
+    },
+    "optimal_duration": 150,
+    "minimum_duration": 120,
+    "event_start_times": {
+      "mon": null,
+      "tue": null,
+      "wed": null,
+      "thu": null,
+      "fri": ["21:00"],
+      "sat": ["21:00"],
+      "sun": null
+    },
+    "food": null,
+    "estimated_cost_usd": 0,
+    "exclusions": [],
+    "description": "Center City Cinema turns Seattle city parks into open-air theaters on summer evenings. Screenings are free and family-friendly. Bring blankets, chairs, and snacks for a classic summer night under the stars.",
+    "considerations": [
+      "Free to attend",
+      "Check the City of Seattle Parks website for the August schedule and locations",
+      "May be canceled if it rains",
+      "Bring blankets and snacks — arrive early for a good spot"
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Dancing 'til Dusk — Free Outdoor Dancing",
+    "type": "event",
+    "must_visit": false,
+    "rating": 4.2,
+    "start_location": "Various downtown Seattle parks — check schedule",
+    "end_location": null,
+    "arrive_after": {
+      "mon": null,
+      "tue": "17:30",
+      "wed": null,
+      "thu": "17:30",
+      "fri": null,
+      "sat": null,
+      "sun": null
+    },
+    "leave_before": {
+      "mon": null,
+      "tue": "20:00",
+      "wed": null,
+      "thu": "20:00",
+      "fri": null,
+      "sat": null,
+      "sun": null
+    },
+    "optimal_duration": 90,
+    "minimum_duration": 60,
+    "event_start_times": {
+      "mon": null,
+      "tue": ["18:00"],
+      "wed": null,
+      "thu": ["18:00"],
+      "fri": null,
+      "sat": null,
+      "sun": null
+    },
+    "food": null,
+    "estimated_cost_usd": 0,
+    "exclusions": [],
+    "description": "A free summer program offering a one-hour dance lesson followed by live music and open dancing in downtown Seattle parks on Tuesdays and Thursdays throughout the summer. A fun, social, and uniquely Seattle way to spend a summer evening.",
+    "considerations": [
+      "Free to participate",
+      "No experience necessary — the lesson is beginner-friendly",
+      "Check the Seattle Parks website for exact locations and dates",
+      "Runs through August — confirm the August 4 (Tuesday) location"
+    ]
+  },
+  {
+    "id": 26,
+    "name": "Seattle Tattoo Expo",
+    "type": "event",
+    "must_visit": false,
+    "rating": 4.1,
+    "start_location": "Seattle Center Exhibition Hall, 301 Mercer St, Seattle, WA 98109",
+    "end_location": null,
+    "arrive_after": {
+      "mon": null,
+      "tue": null,
+      "wed": null,
+      "thu": null,
+      "fri": "12:00",
+      "sat": "11:00",
+      "sun": "11:00"
+    },
+    "leave_before": {
+      "mon": null,
+      "tue": null,
+      "wed": null,
+      "thu": null,
+      "fri": "22:00",
+      "sat": "22:00",
+      "sun": "19:00"
+    },
+    "optimal_duration": 180,
+    "minimum_duration": 60,
+    "event_start_times": null,
+    "food": null,
+    "estimated_cost_usd": 25,
+    "exclusions": [],
+    "description": "The Seattle Tattoo Expo showcases incredible ink artistry from over 250 tattoo artists worldwide. Whether getting tattooed or admiring the craft, the expo features live competitions, exhibitions, vendor booths, live music, karaoke nights, and burlesque performances. Typically held in mid-August at Seattle Center.",
+    "considerations": [
+      "Check exact 2026 dates — typically held mid-August",
+      "Getting tattooed requires booking an artist in advance",
+      "Single-day tickets start around $25",
+      "Located at Seattle Center — easy to combine with other Seattle Center attractions"
+    ]
+  },
+  {
+    "id": 27,
+    "name": "Volunteer Park & Conservatory",
+    "type": "park",
+    "must_visit": false,
+    "rating": 4.6,
+    "start_location": "1247 15th Ave E, Seattle, WA 98112",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "06:00",
+      "tue": "06:00",
+      "wed": "06:00",
+      "thu": "06:00",
+      "fri": "06:00",
+      "sat": "06:00",
+      "sun": "06:00"
+    },
+    "leave_before": {
+      "mon": "22:00",
+      "tue": "22:00",
+      "wed": "22:00",
+      "thu": "22:00",
+      "fri": "22:00",
+      "sat": "22:00",
+      "sun": "22:00"
+    },
+    "optimal_duration": 75,
+    "minimum_duration": 20,
+    "event_start_times": null,
+    "food": null,
+    "estimated_cost_usd": 0,
+    "exclusions": [],
+    "description": "A beautiful Capitol Hill park featuring a Victorian-era glass conservatory with tropical plants, a water tower with city views, and the Seattle Asian Art Museum. The park is a popular spot for picnics, frisbee, and relaxing on summer afternoons. Also the venue for GreenStage Shakespeare performances.",
+    "considerations": [
+      "The conservatory is free to enter",
+      "Climb the water tower for a 360-degree view of the city",
+      "The Seattle Asian Art Museum is located within the park",
+      "A short rideshare from Capitol Hill restaurants and bars"
+    ]
+  },
+  {
+    "id": 28,
+    "name": "Canlis",
+    "type": "restaurant",
+    "must_visit": false,
+    "rating": 4.8,
+    "start_location": "2576 Aurora Ave N, Seattle, WA 98109",
+    "end_location": null,
+    "arrive_after": {
+      "mon": null,
+      "tue": "17:30",
+      "wed": "17:30",
+      "thu": "17:30",
+      "fri": "17:30",
+      "sat": "17:30",
+      "sun": null
+    },
+    "leave_before": {
+      "mon": null,
+      "tue": "22:00",
+      "wed": "22:00",
+      "thu": "22:00",
+      "fri": "22:30",
+      "sat": "22:30",
+      "sun": null
+    },
+    "optimal_duration": 150,
+    "minimum_duration": 120,
+    "event_start_times": null,
+    "food": {
+      "breakfast": null,
+      "lunch": null,
+      "dinner": {
+        "mon": null,
+        "tue": {"start": "17:30", "end": "22:00"},
+        "wed": {"start": "17:30", "end": "22:00"},
+        "thu": {"start": "17:30", "end": "22:00"},
+        "fri": {"start": "17:30", "end": "22:30"},
+        "sat": {"start": "17:30", "end": "22:30"},
+        "sun": null
+      },
+      "snacks": null
+    },
+    "estimated_cost_usd": 200,
+    "exclusions": [],
+    "description": "Seattle's legendary fine-dining landmark perched above Lake Union in a mid-century modern building with sweeping views of the city and Cascade Mountains. Over 75 years of history, the $180 tasting menu is tailored to all diets and features classics like the tableside Canlis salad. A special-occasion destination.",
+    "considerations": [
+      "Book well in advance — reservations are essential and fill weeks out",
+      "Smart dress required — this is a formal dining experience",
+      "Closed Sunday and Monday",
+      "Book on Tock"
+    ]
+  },
+  {
+    "id": 29,
+    "name": "The Walrus and the Carpenter",
+    "type": "restaurant",
+    "must_visit": false,
+    "rating": 4.5,
+    "start_location": "4743 Ballard Ave NW, Seattle, WA 98107",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "16:00",
+      "tue": "16:00",
+      "wed": "16:00",
+      "thu": "16:00",
+      "fri": "16:00",
+      "sat": "16:00",
+      "sun": "16:00"
+    },
+    "leave_before": {
+      "mon": "21:00",
+      "tue": "21:00",
+      "wed": "21:00",
+      "thu": "21:00",
+      "fri": "22:00",
+      "sat": "22:00",
+      "sun": "21:00"
+    },
+    "optimal_duration": 90,
+    "minimum_duration": 60,
+    "event_start_times": null,
+    "food": {
+      "breakfast": null,
+      "lunch": null,
+      "dinner": {
+        "mon": {"start": "16:00", "end": "21:00"},
+        "tue": {"start": "16:00", "end": "21:00"},
+        "wed": {"start": "16:00", "end": "21:00"},
+        "thu": {"start": "16:00", "end": "21:00"},
+        "fri": {"start": "16:00", "end": "22:00"},
+        "sat": {"start": "16:00", "end": "22:00"},
+        "sun": {"start": "16:00", "end": "21:00"}
+      },
+      "snacks": null
+    },
+    "estimated_cost_usd": 65,
+    "exclusions": [],
+    "description": "One of Seattle's most celebrated oyster bars, located in the heart of Old Ballard. Piles of fresh Pacific Northwest oysters, smart small plates, and a lively, approachable atmosphere. Happy hour runs Monday–Friday 4–5 PM with $3 select oysters. A quintessential Seattle dining experience.",
+    "considerations": [
+      "Does not take reservations — arrive right at 4 PM opening to avoid a long wait",
+      "Happy hour Mon–Fri 4–5 PM: $3 oysters and $10 cocktails",
+      "Waits of 45–60 minutes are common on weekends — wait next door at Barnacle Bar",
+      "Combine with a visit to Ballard Locks or Golden Gardens"
+    ]
+  },
+  {
+    "id": 30,
+    "name": "Ray's Boathouse",
+    "type": "restaurant",
+    "must_visit": false,
+    "rating": 4.4,
+    "start_location": "6049 Seaview Ave NW, Seattle, WA 98107",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "11:30",
+      "tue": "11:30",
+      "wed": "11:30",
+      "thu": "11:30",
+      "fri": "11:30",
+      "sat": "11:30",
+      "sun": "11:30"
+    },
+    "leave_before": {
+      "mon": "21:00",
+      "tue": "21:00",
+      "wed": "21:00",
+      "thu": "21:00",
+      "fri": "22:00",
+      "sat": "22:00",
+      "sun": "21:00"
+    },
+    "optimal_duration": 120,
+    "minimum_duration": 75,
+    "event_start_times": null,
+    "food": {
+      "breakfast": null,
+      "lunch": {
+        "mon": {"start": "11:30", "end": "14:30"},
+        "tue": {"start": "11:30", "end": "14:30"},
+        "wed": {"start": "11:30", "end": "14:30"},
+        "thu": {"start": "11:30", "end": "14:30"},
+        "fri": {"start": "11:30", "end": "14:30"},
+        "sat": {"start": "11:30", "end": "14:30"},
+        "sun": {"start": "11:30", "end": "14:30"}
+      },
+      "dinner": {
+        "mon": {"start": "17:00", "end": "21:00"},
+        "tue": {"start": "17:00", "end": "21:00"},
+        "wed": {"start": "17:00", "end": "21:00"},
+        "thu": {"start": "17:00", "end": "21:00"},
+        "fri": {"start": "17:00", "end": "22:00"},
+        "sat": {"start": "17:00", "end": "22:00"},
+        "sun": {"start": "17:00", "end": "21:00"}
+      },
+      "snacks": null
+    },
+    "estimated_cost_usd": 80,
+    "exclusions": [],
+    "description": "In its 50th year, Ray's Boathouse is an iconic Seattle seafood restaurant on the water's edge in Ballard with unbeatable views of Puget Sound and the Olympic Mountains. Known for Dungeness crab dip and grilled Pacific Northwest sablefish in sake kasu. The upstairs café is more casual and affordable.",
+    "considerations": [
+      "Reservations strongly recommended for the downstairs dining room",
+      "The upstairs café is walk-in and more casual with the same great views",
+      "Sunsets from the deck are spectacular in August",
+      "Combine with a visit to Golden Gardens or Ballard Locks"
+    ]
+  },
+  {
+    "id": 31,
+    "name": "Maximilien",
+    "type": "restaurant",
+    "must_visit": false,
+    "rating": 4.3,
+    "start_location": "81A Pike St, Seattle, WA 98101",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "09:00",
+      "tue": "09:00",
+      "wed": "09:00",
+      "thu": "09:00",
+      "fri": "09:00",
+      "sat": "09:00",
+      "sun": "09:00"
+    },
+    "leave_before": {
+      "mon": "22:00",
+      "tue": "22:00",
+      "wed": "22:00",
+      "thu": "22:00",
+      "fri": "22:30",
+      "sat": "22:30",
+      "sun": "22:00"
+    },
+    "optimal_duration": 90,
+    "minimum_duration": 60,
+    "event_start_times": null,
+    "food": {
+      "breakfast": {
+        "mon": {"start": "09:00", "end": "11:30"},
+        "tue": {"start": "09:00", "end": "11:30"},
+        "wed": {"start": "09:00", "end": "11:30"},
+        "thu": {"start": "09:00", "end": "11:30"},
+        "fri": {"start": "09:00", "end": "11:30"},
+        "sat": {"start": "09:00", "end": "11:30"},
+        "sun": {"start": "09:00", "end": "11:30"}
+      },
+      "lunch": {
+        "mon": {"start": "11:30", "end": "15:00"},
+        "tue": {"start": "11:30", "end": "15:00"},
+        "wed": {"start": "11:30", "end": "15:00"},
+        "thu": {"start": "11:30", "end": "15:00"},
+        "fri": {"start": "11:30", "end": "15:00"},
+        "sat": {"start": "11:30", "end": "15:00"},
+        "sun": {"start": "11:30", "end": "15:00"}
+      },
+      "dinner": {
+        "mon": {"start": "17:00", "end": "22:00"},
+        "tue": {"start": "17:00", "end": "22:00"},
+        "wed": {"start": "17:00", "end": "22:00"},
+        "thu": {"start": "17:00", "end": "22:00"},
+        "fri": {"start": "17:00", "end": "22:30"},
+        "sat": {"start": "17:00", "end": "22:30"},
+        "sun": {"start": "17:00", "end": "22:00"}
+      },
+      "snacks": null
+    },
+    "estimated_cost_usd": 55,
+    "exclusions": [],
+    "description": "A French bistro perched above Pike Place Market with postcard views of Elliott Bay ferries and the Olympic Mountains. The kitchen delivers classic French fare including a generous Plateau de Fruits de Mer with local oysters, shrimp, snow crab, and mussels. One of the most scenic dining rooms in Seattle.",
+    "considerations": [
+      "Request a window table when booking for the best views",
+      "Reservations recommended, especially for dinner",
+      "Located inside Pike Place Market — easy to combine with a market visit"
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Musang",
+    "type": "restaurant",
+    "must_visit": false,
+    "rating": 4.5,
+    "start_location": "2524 Beacon Ave S, Seattle, WA 98144",
+    "end_location": null,
+    "arrive_after": {
+      "mon": null,
+      "tue": null,
+      "wed": "17:00",
+      "thu": "17:00",
+      "fri": "17:00",
+      "sat": "10:00",
+      "sun": "10:00"
+    },
+    "leave_before": {
+      "mon": null,
+      "tue": null,
+      "wed": "22:00",
+      "thu": "22:00",
+      "fri": "22:00",
+      "sat": "22:00",
+      "sun": "21:00"
+    },
+    "optimal_duration": 90,
+    "minimum_duration": 60,
+    "event_start_times": null,
+    "food": {
+      "breakfast": null,
+      "lunch": {
+        "mon": null,
+        "tue": null,
+        "wed": null,
+        "thu": null,
+        "fri": null,
+        "sat": {"start": "10:00", "end": "14:00"},
+        "sun": {"start": "10:00", "end": "14:00"}
+      },
+      "dinner": {
+        "mon": null,
+        "tue": null,
+        "wed": {"start": "17:00", "end": "22:00"},
+        "thu": {"start": "17:00", "end": "22:00"},
+        "fri": {"start": "17:00", "end": "22:00"},
+        "sat": {"start": "17:00", "end": "22:00"},
+        "sun": {"start": "17:00", "end": "21:00"}
+      },
+      "snacks": null
+    },
+    "estimated_cost_usd": 55,
+    "exclusions": [],
+    "description": "A beloved Filipino restaurant on Beacon Hill from chef Melissa Miranda, offering inventive, soulful Filipino cuisine in a warm, homey setting. Highlights include the short rib kare kare with garlic rice and chicken adobo tacos. Weekend brunch is also popular.",
+    "considerations": [
+      "Reservations recommended — it fills up quickly",
+      "Closed Monday and Tuesday",
+      "Weekend brunch is a great option",
+      "Located on Beacon Hill — a short rideshare from downtown"
+    ]
+  },
+  {
+    "id": 33,
+    "name": "Pho Bac Sup Shop",
+    "type": "restaurant",
+    "must_visit": false,
+    "rating": 4.4,
+    "start_location": "1240 S Jackson St, Seattle, WA 98144",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "10:00",
+      "tue": "10:00",
+      "wed": "10:00",
+      "thu": "10:00",
+      "fri": "10:00",
+      "sat": "10:00",
+      "sun": "10:00"
+    },
+    "leave_before": {
+      "mon": "21:00",
+      "tue": "21:00",
+      "wed": "21:00",
+      "thu": "21:00",
+      "fri": "21:00",
+      "sat": "21:00",
+      "sun": "21:00"
+    },
+    "optimal_duration": 60,
+    "minimum_duration": 30,
+    "event_start_times": null,
+    "food": {
+      "breakfast": null,
+      "lunch": {
+        "mon": {"start": "10:00", "end": "15:00"},
+        "tue": {"start": "10:00", "end": "15:00"},
+        "wed": {"start": "10:00", "end": "15:00"},
+        "thu": {"start": "10:00", "end": "15:00"},
+        "fri": {"start": "10:00", "end": "15:00"},
+        "sat": {"start": "10:00", "end": "15:00"},
+        "sun": {"start": "10:00", "end": "15:00"}
+      },
+      "dinner": {
+        "mon": {"start": "15:00", "end": "21:00"},
+        "tue": {"start": "15:00", "end": "21:00"},
+        "wed": {"start": "15:00", "end": "21:00"},
+        "thu": {"start": "15:00", "end": "21:00"},
+        "fri": {"start": "15:00", "end": "21:00"},
+        "sat": {"start": "15:00", "end": "21:00"},
+        "sun": {"start": "15:00", "end": "21:00"}
+      },
+      "snacks": null
+    },
+    "estimated_cost_usd": 18,
+    "exclusions": [],
+    "description": "A staple of Seattle's Vietnamese food scene in the International District, run by sisters Yenvy and Quynh-Vy carrying on a family legacy. Offers Vietnamese meals with a modern twist. The pho Tron with tender beef brisket is a standout. Affordable, delicious, and beloved by locals.",
+    "considerations": [
+      "Very affordable — great value for a quick, satisfying meal",
+      "Located in the International District — easy to combine with a neighborhood walk",
+      "Can get busy at peak lunch hours"
+    ]
+  },
+  {
+    "id": 34,
+    "name": "Kappo Tamura",
+    "type": "restaurant",
+    "must_visit": false,
+    "rating": 4.5,
+    "start_location": "2968 Eastlake Ave E, Seattle, WA 98102",
+    "end_location": null,
+    "arrive_after": {
+      "mon": null,
+      "tue": "17:30",
+      "wed": "17:30",
+      "thu": "17:30",
+      "fri": "17:30",
+      "sat": "17:30",
+      "sun": "17:30"
+    },
+    "leave_before": {
+      "mon": null,
+      "tue": "22:00",
+      "wed": "22:00",
+      "thu": "22:00",
+      "fri": "22:00",
+      "sat": "22:00",
+      "sun": "21:30"
+    },
+    "optimal_duration": 120,
+    "minimum_duration": 75,
+    "event_start_times": null,
+    "food": {
+      "breakfast": null,
+      "lunch": null,
+      "dinner": {
+        "mon": null,
+        "tue": {"start": "17:30", "end": "22:00"},
+        "wed": {"start": "17:30", "end": "22:00"},
+        "thu": {"start": "17:30", "end": "22:00"},
+        "fri": {"start": "17:30", "end": "22:00"},
+        "sat": {"start": "17:30", "end": "22:00"},
+        "sun": {"start": "17:30", "end": "21:30"}
+      },
+      "snacks": null
+    },
+    "estimated_cost_usd": 90,
+    "exclusions": [],
+    "description": "One of Seattle's top sushi restaurants, Kappo Tamura sources the highest quality seafood locally and serves it in an authentic Japanese setting with a sushi bar. Known for beautifully presented sashimi combos and creative rolls. A refined, intimate dining experience on Eastlake.",
+    "considerations": [
+      "Reservations strongly recommended",
+      "Closed Mondays",
+      "Sit at the sushi bar for the best experience",
+      "Omakase options available — ask your server"
+    ]
+  }
+]

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Travel Planner Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; }
+        input, button, select { padding: 8px; margin: 4px 0; }
+        label { display: block; margin-top: 12px; }
+        button { cursor: pointer; border: none; border-radius: 4px; margin-top: 16px; padding: 10px 20px; }
+        .btn-plan { background: #2563eb; color: white; }
+        .btn-reload { background: #6b7280; color: white; font-size: 0.85em; padding: 6px 14px; }
+        .btn-row { display: flex; gap: 12px; align-items: center; margin-top: 16px; }
+        #result { margin-top: 20px; }
+        .travel { color: #888; font-size: 0.85em; padding: 4px 0 4px 20px; }
+        .stop { padding: 10px 0; border-bottom: 1px solid #ddd; }
+        .stop:last-child { border-bottom: none; }
+        .time { color: #2563eb; font-weight: bold; }
+        .meta { color: #666; font-size: 0.9em; }
+        .error { color: red; font-weight: bold; }
+        .loading { color: #888; font-style: italic; }
+        .success { color: #16a34a; font-style: italic; }
+        fieldset { border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-top: 16px; }
+        legend { font-weight: bold; }
+        input[type="text"] { width: 100%; box-sizing: border-box; }
+        input[type="checkbox"] { width: auto; margin-right: 8px; }
+        .checkbox-row { display: flex; align-items: center; margin-top: 12px; }
+        #status { margin-left: 12px; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <h1>Travel Planner</h1>
+
+    <fieldset>
+        <legend>Start</legend>
+        <label>Address
+            <input type="text" id="start_address" value="18607 Bothell Way NE, Bothell, WA 98011">
+        </label>
+        <label>Departure Time
+            <input type="datetime-local" id="start_time" value="2026-05-01T09:00">
+        </label>
+    </fieldset>
+
+    <fieldset>
+        <legend>End</legend>
+        <label>Address
+            <input type="text" id="end_address" value="18607 Bothell Way NE, Bothell, WA 98011">
+        </label>
+        <label>Return By
+            <input type="datetime-local" id="end_time" value="2026-05-01T21:00">
+        </label>
+    </fieldset>
+
+    <fieldset>
+        <legend>Options</legend>
+        <div class="checkbox-row">
+            <input type="checkbox" id="ate_breakfast" checked>
+            <label for="ate_breakfast" style="margin:0">Ate breakfast before departure</label>
+        </div>
+        <label>Budget ($)
+            <input type="number" id="budget" value="200" min="0" step="10">
+        </label>
+    </fieldset>
+
+    <div class="btn-row">
+        <button class="btn-plan" onclick="plan()">Generate Itinerary</button>
+        <button class="btn-reload" onclick="reload()">Reload Data</button>
+        <span id="status"></span>
+    </div>
+
+    <div id="result"></div>
+
+    <script>
+        const API = "http://localhost:5000";
+
+        async function plan() {
+            const result = document.getElementById("result");
+            const status = document.getElementById("status");
+            result.innerHTML = '<p class="loading">Planning your day...</p>';
+            status.innerHTML = "";
+
+            try {
+                const resp = await fetch(API + "/plan", {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({
+                        start_time: document.getElementById("start_time").value + ":00",
+                        start_address: document.getElementById("start_address").value,
+                        end_time: document.getElementById("end_time").value + ":00",
+                        end_address: document.getElementById("end_address").value,
+                        ate_breakfast: document.getElementById("ate_breakfast").checked,
+                        budget: parseFloat(document.getElementById("budget").value),
+                    })
+                });
+
+                const data = await resp.json();
+
+                if (data.error) {
+                    result.innerHTML = `<p class="error">${data.error}</p>`;
+                    return;
+                }
+
+                console.log(data);
+                let html = "<h2>Itinerary</h2>";
+                for (let i = 0; i < data.itinerary.length; i++) {
+                    const stop = data.itinerary[i];
+                    const arr = new Date(stop.arrival).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                    const dep = new Date(stop.departure).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                    const dur = Math.round((new Date(stop.departure) - new Date(stop.arrival)) / 60000);
+
+                    // Travel time from previous stop
+                    let travelStr = "";
+                    if (i > 0) {
+                        const prevDep = new Date(data.itinerary[i-1].departure);
+                        const thisArr = new Date(stop.arrival);
+                        const travel = Math.round((thisArr - prevDep) / 60000);
+                        if (travel > 0) {
+                            travelStr = `<div class="travel">🚶 ${travel} min travel</div>`;
+                        }
+                    }
+
+                    const mealStr = stop.food ? ` 🍽️ ${stop.food}` : "";
+                    const mustStr = stop.must_visit ? " ⭐ must visit" : "";
+                    const ratingStr = stop.rating ? ` (${stop.rating}★)` : "";
+                    const costStr = stop.cost > 0 ? `$${stop.cost}` : "Free";
+
+                    html += travelStr;
+                    html += `<div class="stop">
+                        <span class="time">${arr} → ${dep}</span> (${dur} min)<br>
+                        <strong>${stop.name}</strong>${ratingStr}${mustStr}<br>
+                        <span class="meta">${costStr}${mealStr}</span>
+                    </div>`;
+                }
+                result.innerHTML = html;
+                result.innerHTML = html;
+
+            } catch (e) {
+                result.innerHTML = `<p class="error">Failed to connect: ${e.message}</p>`;
+            }
+        }
+
+        async function reload() {
+            const status = document.getElementById("status");
+            status.innerHTML = '<span class="loading">Reloading...</span>';
+
+            try {
+                const resp = await fetch(API + "/reload", { method: "POST" });
+                const data = await resp.json();
+                status.innerHTML = `<span class="success">✓ Data reloaded</span>`;
+                setTimeout(() => status.innerHTML = "", 3000);
+            } catch (e) {
+                status.innerHTML = `<span class="error">Reload failed: ${e.message}</span>`;
+            }
+        }
+    </script>
+</body>
+</html>

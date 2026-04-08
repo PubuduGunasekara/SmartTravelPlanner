@@ -15,6 +15,7 @@ Usage:
 import json
 import time
 import requests
+from typing import Optional
 
 
 
@@ -44,7 +45,7 @@ def load_locations(json_path: str, start_address: str = None, end_address: str =
     return sorted(addresses)
 
 
-def geocode(address: str, retries: int = 3) -> tuple[float, float] | None:
+def geocode(address: str, retries: int = 3) -> Optional[tuple[float, float]]:
     """Geocode an address to (lat, lng) using Nominatim. Returns None on failure."""
     for attempt in range(retries):
         try:
@@ -82,7 +83,7 @@ def geocode_all(addresses: list[str]) -> dict[str, tuple[float, float]]:
     return coords
 
 
-def fetch_osrm_table(coords: list[tuple[float, float]], profile: str = "foot", retries: int = 3) -> list[list[float]] | None:
+def fetch_osrm_table(coords: list[tuple[float, float]], profile: str = "foot", retries: int = 3) -> Optional[list[list[float]]]:
     """
     Call OSRM /table endpoint. Returns matrix of travel times in seconds.
     Profile can be 'foot', 'car', or 'bicycle'.
@@ -169,7 +170,7 @@ def get_travel_time(
     locations: list[str],
     from_addr: str,
     to_addr: str,
-) -> float | None:
+) -> Optional[float]:
     """Look up travel time in minutes between two addresses."""
     try:
         i = locations.index(from_addr)

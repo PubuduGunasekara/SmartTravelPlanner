@@ -1,5 +1,6 @@
 from dataclasses import dataclass, field
 from datetime import datetime
+from typing import Optional
 from config import *
 
 @dataclass
@@ -11,8 +12,8 @@ class Node:
     money_spent: float = 0.0
     cost: float = 0.0
     heuristic: float = 0.0
-    parent: "Node | None" = None
-    activity_id: int | None = None  # activity just completed to reach this node
+    parent: Optional["Node"] = None
+    activity_id: Optional[int] = None  # activity just completed to reach this node
     arrival_time: datetime = None
 
     @property

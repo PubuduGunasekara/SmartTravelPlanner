@@ -86,7 +86,9 @@ def fetch_osrm_table(coords: list[tuple[float, float]], profile: str = "foot", r
     """
     Call OSRM /table endpoint. Returns matrix of travel times in seconds.
     Profile can be 'foot', 'car', or 'bicycle'.
+
     """
+    print(profile)
     url = f"https://router.project-osrm.org/table/v1/{profile}/"
 
     # OSRM wants lng,lat (not lat,lng)

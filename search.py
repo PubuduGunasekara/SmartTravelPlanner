@@ -13,8 +13,8 @@ def search(start_node, activities, matrix, locations, weekday):
     while open_set:
         current = heapq.heappop(open_set)
         path = reconstruct_path(current)
-        trail = " → ".join(str(n) for n in path)
-        print(f"[cost={current.cost:.1f} f={current.f:.1f}] {trail}")
+        # trail = " → ".join(str(n) for n in path)
+        # print(f"[cost={current.cost:.1f} f={current.f:.1f}] {trail}")
 
         # Goal check — home node with no activity
         if current.activity_id is None and current.location == END_ADDRESS and current.parent is not None:

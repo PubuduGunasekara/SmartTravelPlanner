@@ -25,7 +25,7 @@
       "sat": "18:00",
       "sun": "18:00"
     },
-    "optimal_duration": 120,
+    "optimal_duration": 85,
     "minimum_duration": 30,
     "event_start_times": null,
     "food": {
@@ -270,7 +270,7 @@
     "id": 6,
     "name": "Bill Speidel's Underground Tour",
     "type": "tour",
-    "must_visit": true,
+    "must_visit": false,
     "rating": 4.5,
     "start_location": "614 1st Ave, Seattle, WA 98104",
     "end_location": null,
@@ -862,20 +862,7 @@
     "optimal_duration": 210,
     "minimum_duration": 120,
     "event_start_times": null,
-    "food": {
-      "breakfast": null,
-      "lunch": {
-        "mon": {"start": "11:00", "end": "15:00"},
-        "tue": {"start": "11:00", "end": "15:00"},
-        "wed": {"start": "11:00", "end": "15:00"},
-        "thu": {"start": "11:00", "end": "15:00"},
-        "fri": {"start": "11:00", "end": "15:00"},
-        "sat": {"start": "11:00", "end": "15:00"},
-        "sun": {"start": "11:00", "end": "15:00"}
-      },
-      "dinner": null,
-      "snacks": null
-    },
+    "food": null,
     "estimated_cost_usd": 28,
     "exclusions": [],
     "description": "One of the largest air and space museums in the world, located about 20 minutes south of downtown near Boeing Field. Features over 175 aircraft and spacecraft, including a Concorde, Air Force One, and Space Shuttle trainer. An immersive experience in aviation history and technology.",
@@ -1627,6 +1614,59 @@
       "Closed Mondays",
       "Sit at the sushi bar for the best experience",
       "Omakase options available — ask your server"
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Museum of Flight",
+    "type": "restaurant",
+    "must_visit": false,
+    "rating": 3.2,
+    "start_location": "9404 E Marginal Way S, Seattle, WA 98108",
+    "end_location": null,
+    "arrive_after": {
+      "mon": "10:00",
+      "tue": "10:00",
+      "wed": "10:00",
+      "thu": "10:00",
+      "fri": "10:00",
+      "sat": "10:00",
+      "sun": "10:00"
+    },
+    "leave_before": {
+      "mon": "17:00",
+      "tue": "17:00",
+      "wed": "17:00",
+      "thu": "17:00",
+      "fri": "17:00",
+      "sat": "17:00",
+      "sun": "17:00"
+    },
+    "optimal_duration": 30,
+    "minimum_duration": 15,
+    "event_start_times": null,
+    "food": {
+      "breakfast": null,
+      "lunch": {
+        "mon": {"start": "11:00", "end": "15:00"},
+        "tue": {"start": "11:00", "end": "15:00"},
+        "wed": {"start": "11:00", "end": "15:00"},
+        "thu": {"start": "11:00", "end": "15:00"},
+        "fri": {"start": "11:00", "end": "15:00"},
+        "sat": {"start": "11:00", "end": "15:00"},
+        "sun": {"start": "11:00", "end": "15:00"}
+      },
+      "dinner": null,
+      "snacks": null
+    },
+    "estimated_cost_usd": 20,
+    "exclusions": [],
+    "description": "ed about 20 minutes south of downtown near Boeing Field. Features over 175 aircraft and spacecraft, including a Concorde, Air Force One, and Space Shuttle trainer. An immersive experience in aviation history and technology.",
+    "considerations": [
+      "Allow at least 3–4 hours — it's enormous",
+      "Take the Link Light Rail to the Boeing Access Road station, then a short rideshare",
+      "Parking is free and ample",
+      "Highly recommended for aviation enthusiasts and families"
     ]
   }
 ]

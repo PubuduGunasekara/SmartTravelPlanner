@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Travel Planner Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; }
+        input, button { padding: 8px; margin: 4px 0; }
+        label { display: block; margin-top: 12px; }
+        button { cursor: pointer; background: #2563eb; color: white; border: none; border-radius: 4px; }
+        #result { margin-top: 20px; white-space: pre-wrap; font-family: monospace; background: #f3f4f6; padding: 16px; border-radius: 8px; }
+        .stop { padding: 8px 0; border-bottom: 1px solid #ddd; }
+        .stop:last-child { border-bottom: none; }
+        .time { color: #2563eb; font-weight: bold; }
+        .meta { color: #666; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <h1>Travel Planner</h1>
+
+    <label>Start Time
+        <input type="datetime-local" id="start_time" value="2026-05-01T09:00">
+    </label>
+
+    <label>Start Address
+        <input type="text" id="start_address" value="18607 Bothell Way NE, Bothell, WA 98011" size="50">
+    </label>
+
+    <label>Starting Fullness (0-5)
+        <input type="number" id="fullness" value="3" min="0" max="5">
+    </label>
+
+    <br>
+    <button onclick="plan()">Generate Itinerary</button>
+
+    <div id="result"></div>
+
+    <script>
+        async function plan() {
+            const result = document.getElementById("result");
+            result.innerHTML = "Planning...";
+
+            try {
+                const resp = await fetch("http://localhost:5000/plan", {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({
+                        start_time: document.getElementById("start_time").value + ":00",
+                        start_address: document.getElementById("start_address").value,
+                        start_fullness: parseInt(document.getElementById("fullness").value),
+                    })
+                });
+
+                const data = await resp.json();
+
+                if (data.error) {
+                    result.innerHTML = "Error: " + data.error;
+                    return;
+                }
+
+                let html = "<h2>Itinerary</h2>";
+                for (const stop of data.itinerary) {
+                    const arr = new Date(stop.arrival).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                    const dep = new Date(stop.departure).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                    const dur = Math.round((new Date(stop.departure) - new Date(stop.arrival)) / 60000);
+
+                    html += `<div class="stop">
+                        <span class="time">${arr} → ${dep}</span> (${dur} min)<br>
+                        <strong>${stop.name}</strong><br>
+                        <span class="meta">Fullness: ${stop.fullness} | Spent: $${stop.money_spent.toFixed(0)}</span>
+                    </div>`;
+                }
+                html += `<br><strong>Total cost score: ${data.total_cost.toFixed(1)}</strong>`;
+                result.innerHTML = html;
+
+            } catch (e) {
+                result.innerHTML = "Failed to connect: " + e.message;
+            }
+        }
+    </script>
+</body>
+</html>

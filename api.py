@@ -43,13 +43,7 @@ def plan():
 
     start_time = datetime.fromisoformat(body["start_time"])
     ate_breakfast = body.get("ate_breakfast", False)
-    budget = body.get("budget", config.BUDGET)
-
-    config.START_ADDRESS = body["start_address"]
-    config.END_ADDRESS = body["end_address"]
-    config.RETURN_BY = datetime.fromisoformat(body["end_time"])
-    config.BUDGET = budget
-
+    
     start_node = Node(
         time=start_time,
         location=body["start_address"],
@@ -57,8 +51,15 @@ def plan():
     )
 
     weekday = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"][start_node.time.weekday()]
+    
+    ctx = {
+        "budget": body.get("budget", 200),
+        "end_address": body["end_address"],
+        "return_by": datetime.fromisoformat(body["end_time"]),
+        "start_time": start_time,
+    }
 
-    path = search(start_node, activities, matrix, locations, weekday)
+    path = search(start_node, activities, matrix, locations, weekday, ctx)
 
     if path is None:
         return jsonify({"error": "No valid itinerary found"}), 404

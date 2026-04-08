@@ -4,17 +4,17 @@ from travel_matrix import get_travel_time
 from datetime import timedelta
 from datetime import datetime, timedelta
 
-def can_expand(node: Node) -> bool:
+def can_expand(node: Node, ctx) -> bool:
     """Check if this node is allowed to expand at all."""
     if node.fullness < FULLNESS_MIN:
         return False
     if node.fullness > FULLNESS_MAX:
         return False
-    if node.money_spent > BUDGET:
+    if node.money_spent > ctx["budget"]:
         return False
     return True
 
-def get_reachable(node, activities, matrix, locations, weekday):
+def get_reachable(node, activities, matrix, locations, weekday, ctx):
     reachable = []
 
     # Collect exclusions from all visited activities
@@ -57,7 +57,7 @@ def get_reachable(node, activities, matrix, locations, weekday):
 
         # Can we afford it?
         cost = activity.get("estimated_cost_usd") or 0
-        if node.money_spent + cost > BUDGET:
+        if node.money_spent + cost > ctx["budget"]:
             continue
 
         # Survived all filters — it's reachable
@@ -65,10 +65,10 @@ def get_reachable(node, activities, matrix, locations, weekday):
 
     return reachable
     
-def make_child(node, activity, aid, arrival, departure, travel_minutes, weekday, matrix, locations):
+def make_child(node, activity, aid, arrival, departure, travel_minutes, weekday, matrix, locations, ctx):
     # Decay based on total hours since start of day
-    hours_since_start = (departure - START_TIME).total_seconds() / 3600
-    parent_hours = (node.time - START_TIME).total_seconds() / 3600
+    hours_since_start = (departure - ctx["start_time"]).total_seconds() / 3600
+    parent_hours = (node.time - ctx["start_time"]).total_seconds() / 3600
     decay = int(hours_since_start // FULLNESS_DECAY_HOURS) - int(parent_hours // FULLNESS_DECAY_HOURS)
 
     food_gained = 0
@@ -98,11 +98,11 @@ def make_child(node, activity, aid, arrival, departure, travel_minutes, weekday,
         activity_id=aid,
         arrival_time=arrival,
     )
-    child.cost = node.cost + compute_cost(node, child, activity, travel_minutes)
-    child.heuristic = compute_heuristic(child, matrix, locations)
+    child.cost = node.cost + compute_cost(node, child, activity, travel_minutes, ctx)
+    child.heuristic = compute_heuristic(child, matrix, locations, ctx)
     return child
 
-def generate_children(node, reachable, activities, matrix, locations, weekday):
+def generate_children(node, reachable, activities, matrix, locations, weekday, ctx):
     children = []
 
     for aid in reachable:
@@ -119,7 +119,7 @@ def generate_children(node, reachable, activities, matrix, locations, weekday):
                 if start < earliest_arrival:
                     continue
                 departure = start + timedelta(minutes=min_dur)
-                children.append(make_child(node, activity, aid, start, departure, travel, weekday, matrix, locations))
+                children.append(make_child(node, activity, aid, start, departure, travel, weekday, matrix, locations, ctx))
             
         else:
             # Flexible — vary stay duration from minimum to optimal in 10min increments
@@ -143,23 +143,23 @@ def generate_children(node, reachable, activities, matrix, locations, weekday):
                 departure = arrival + timedelta(minutes=stay)
                 if closes and departure > closes:
                     break
-                children.append(make_child(node, activity, aid, arrival, departure, travel, weekday, matrix, locations))
+                children.append(make_child(node, activity, aid, arrival, departure, travel, weekday, matrix, locations, ctx))
 
             # Always include optimal if it didn't land on an increment
             if opt_dur % 10 != min_dur % 10:
                 departure = arrival + timedelta(minutes=opt_dur)
                 if not (closes and departure > closes):
-                    children.append(make_child(node, activity, aid, arrival, departure, travel, weekday, matrix, locations))
+                    children.append(make_child(node, activity, aid, arrival, departure, travel, weekday, matrix, locations, ctx))
             
     #can we go to our destination?
     
-    travel_home = get_travel_time(matrix, locations, node.location, END_ADDRESS)
+    travel_home = get_travel_time(matrix, locations, node.location, ctx["end_address"])
     if travel_home is not None:
         arrival_home = node.time + timedelta(minutes=travel_home)
 
         # Fullness after travel
-        hours_since_start = (arrival_home - START_TIME).total_seconds() / 3600
-        parent_hours = (node.time - START_TIME).total_seconds() / 3600
+        hours_since_start = (arrival_home - ctx["start_time"]).total_seconds() / 3600
+        parent_hours = (node.time - ctx["start_time"]).total_seconds() / 3600
         decay = int(hours_since_start // FULLNESS_DECAY_HOURS) - int(parent_hours // FULLNESS_DECAY_HOURS)
         final_fullness = node.fullness - decay
         # All must_visits completed?
@@ -169,7 +169,7 @@ def generate_children(node, reachable, activities, matrix, locations, weekday):
         if final_fullness >= RETURN_MIN_FULLNESS and all_must_visited:
             home_node = Node(
                 time=arrival_home,
-                location=END_ADDRESS,
+                location=ctx["end_address"],
                 visited=node.visited,
                 fullness=final_fullness,
                 money_spent=node.money_spent,
@@ -179,14 +179,14 @@ def generate_children(node, reachable, activities, matrix, locations, weekday):
                 activity_id=None,
                 arrival_time=arrival_home,
             )
-            home_node.cost = node.cost + compute_cost(node, home_node, None, travel_home)
+            home_node.cost = node.cost + compute_cost(node, home_node, None, travel_home, ctx)
             children.append(home_node)
 
     return children
 
-def compute_heuristic(node, matrix, locations):
-    travel_home = get_travel_time(matrix, locations, node.location, END_ADDRESS) or 0
-    remaining = (RETURN_BY - node.time).total_seconds() / 60 - travel_home
+def compute_heuristic(node, matrix, locations, ctx):
+    travel_home = get_travel_time(matrix, locations, node.location, ctx["end_address"]) or 0
+    remaining = (ctx["return_by"] - node.time).total_seconds() / 60 - travel_home
 
     if remaining <= 0:
         return travel_home
@@ -195,10 +195,10 @@ def compute_heuristic(node, matrix, locations):
 
     return travel_home + estimated_dead
 
-def compute_cost(parent, child, activity, travel_minutes):
+def compute_cost(parent, child, activity, travel_minutes, ctx):
     if activity is None:
         # Going home — remaining day is wasted
-        remaining = (RETURN_BY - child.time).total_seconds() / 60
+        remaining = (ctx["return_by"] - child.time).total_seconds() / 60
         return travel_minutes + max(0, remaining)
 
 
@@ -226,9 +226,9 @@ def compute_cost(parent, child, activity, travel_minutes):
     return dead
 
 
-def expand(node, activities, matrix, locations, weekday):
-    if not can_expand(node):
+def expand(node, activities, matrix, locations, weekday, ctx):
+    if not can_expand(node, ctx):
         return []
  
-    reachable = get_reachable(node, activities, matrix, locations, weekday)
-    return generate_children(node, reachable, activities, matrix, locations, weekday)
+    reachable = get_reachable(node, activities, matrix, locations, weekday, ctx)
+    return generate_children(node, reachable, activities, matrix, locations, weekday, ctx)

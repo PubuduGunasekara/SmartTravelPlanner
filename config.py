@@ -8,12 +8,12 @@ from travel_matrix import load_matrix
 START_ADDRESS = "18607 Bothell Way NE, Bothell, WA 98011"
 # END_ADDRESS = "18607 Bothell Way NE, Bothell, WA 98011"
 END_ADDRESS = "17801 International Blvd, SeaTac, WA 98158"
-START_TIME = datetime(2026, 5, 1, 9, 0)
-RETURN_BY = datetime(2026, 5, 1, 23, 0)
+START_TIME = 1#datetime(2026, 5, 1, 9, 0)
+RETURN_BY = 1# datetime(2026, 5, 1, 2, 0)
 WEEKDAY = "fri"
-BUDGET = 120
+BUDGET = 1#120
 AP = "activities/seattle.json"
-BEST_RATING = 4.6
+BEST_RATING = 4.3
 
 
 
@@ -33,9 +33,9 @@ MEAL_POINTS = {
 }
 
 # Cost tuning
-OVERTIME_PENALTY_WEIGHT = 30.0
+OVERTIME_PENALTY_WEIGHT = 5.0
 TIME_INCREMENT_MINUTES = 15
-HEURISTIC_WEIGHT = 5
+HEURISTIC_WEIGHT = 2.5
 
 # activities
 

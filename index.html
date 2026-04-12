@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Travel Planner</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f0f2f5; color: #1a1a1a; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+        /* Screen visibility */
+        .screen { display: none; }
+        .screen.active { display: block; }
+
+        /* ── Landing ── */
+        .landing { text-align: center; padding: 120px 20px; }
+        .landing h1 { font-size: 3em; margin-bottom: 16px; }
+        .landing p { font-size: 1.2em; color: #666; margin-bottom: 40px; }
+        .btn-start {
+            padding: 16px 48px; font-size: 1.2em; background: #2563eb; color: white;
+            border: none; border-radius: 12px; cursor: pointer; transition: background 0.2s;
+        }
+        .btn-start:hover { background: #1d4ed8; }
+
+        /* ── Setup ── */
+        .setup-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 800px; margin: 0 auto; }
+        .card {
+            background: white; border-radius: 12px; padding: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+        .card-title {
+            font-size: 0.85em; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 0.05em; color: #888; margin-bottom: 12px;
+        }
+        label { display: block; margin-top: 10px; font-size: 0.9em; color: #555; }
+        input[type="text"], input[type="datetime-local"], input[type="number"] {
+            width: 100%; padding: 8px 10px; border: 1px solid #ddd; border-radius: 6px;
+            font-size: 0.95em; margin-top: 4px;
+        }
+        input:focus { outline: none; border-color: #2563eb; box-shadow: 0 0 0 2px rgba(37,99,235,0.15); }
+        .checkbox-row { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
+        .checkbox-row input { width: auto; }
+        .checkbox-row label { margin: 0; }
+
+        h1.page-title { font-size: 1.8em; margin-bottom: 20px; text-align: center; }
+        h2 { font-size: 1.3em; margin-bottom: 12px; color: #333; }
+
+        button {
+            padding: 10px 20px; border: none; border-radius: 8px; font-size: 0.95em;
+            cursor: pointer; font-weight: 500; transition: background 0.2s;
+        }
+        .btn-primary { background: #2563eb; color: white; }
+        .btn-primary:hover { background: #1d4ed8; }
+        .btn-secondary { background: #e5e7eb; color: #374151; }
+        .btn-secondary:hover { background: #d1d5db; }
+        .btn-row { display: flex; gap: 12px; justify-content: center; margin-top: 24px; }
+
+        /* ── Preferences ── */
+        .pref-header { text-align: center; margin-bottom: 20px; }
+        .pref-header p { color: #666; margin-top: 8px; }
+        .pref-counter { font-weight: 600; color: #2563eb; }
+        .pref-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; max-width: 1000px; margin: 0 auto; }
+        .pref-card {
+            background: white; border-radius: 10px; padding: 14px 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06); cursor: pointer;
+            border: 2px solid transparent; transition: border-color 0.2s, box-shadow 0.2s;
+            display: flex; gap: 12px; align-items: flex-start;
+        }
+        .pref-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .pref-card.selected { border-color: #2563eb; background: #eff6ff; }
+        .pref-card.disabled { opacity: 0.4; cursor: not-allowed; }
+        .pref-check {
+            min-width: 24px; height: 24px; border-radius: 6px; border: 2px solid #ddd;
+            display: flex; align-items: center; justify-content: center; margin-top: 2px;
+            transition: background 0.2s, border-color 0.2s; font-size: 14px;
+        }
+        .pref-card.selected .pref-check { background: #2563eb; border-color: #2563eb; color: white; }
+        .pref-info { flex: 1; }
+        .pref-name { font-weight: 600; font-size: 0.95em; }
+        .pref-type { font-size: 0.8em; color: #888; text-transform: uppercase; letter-spacing: 0.03em; }
+        .pref-desc { font-size: 0.85em; color: #666; margin-top: 4px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .pref-meta { font-size: 0.8em; color: #999; margin-top: 4px; }
+
+        /* ── Results ── */
+        .results-layout { display: grid; grid-template-columns: 400px 1fr; gap: 20px; }
+        #map { height: 450px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); z-index: 1; }
+        .itinerary-list { display: flex; flex-direction: column; gap: 0; }
+        .stop-card {
+            background: white; border-radius: 10px; padding: 14px 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06); display: flex; gap: 14px; align-items: flex-start;
+        }
+        .stop-number {
+            min-width: 32px; height: 32px; border-radius: 50%; background: #2563eb; color: white;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 0.85em; margin-top: 2px;
+        }
+        .stop-number.home { background: #16a34a; }
+        .stop-details { flex: 1; }
+        .stop-name { font-weight: 600; font-size: 1em; }
+        .stop-rating { color: #f59e0b; font-size: 0.9em; margin-left: 6px; }
+        .stop-must { color: #2563eb; font-size: 0.8em; font-weight: 600; margin-left: 6px; }
+        .stop-time { color: #555; font-size: 0.9em; margin-top: 4px; }
+        .stop-meta { color: #888; font-size: 0.85em; margin-top: 4px; display: flex; gap: 12px; flex-wrap: wrap; }
+        .stop-address { color: #999; font-size: 0.8em; margin-top: 4px; }
+        .travel-connector { display: flex; align-items: center; gap: 8px; padding: 6px 0 6px 46px; color: #aaa; font-size: 0.82em; }
+        .empty-state { text-align: center; padding: 60px 20px; color: #999; }
+        .empty-state .icon { font-size: 3em; margin-bottom: 12px; }
+        .status-msg { text-align: center; margin-top: 12px; font-size: 0.9em; }
+        .status-loading { color: #888; }
+        .status-error { color: #dc2626; }
+
+        @media (max-width: 800px) {
+            .setup-grid, .results-layout { grid-template-columns: 1fr; }
+            .pref-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- ════ Screen 1: Landing ════ -->
+    <div id="screen-landing" class="screen active">
+        <div class="landing">
+            <h1>🗺️ Travel Planner</h1>
+            <p>Plan your perfect day with AI-powered scheduling</p>
+            <button class="btn-start" onclick="showScreen('setup')">Get Started</button>
+        </div>
+    </div>
+
+    <!-- ════ Screen 2: Setup ════ -->
+    <div id="screen-setup" class="screen">
+        <h1 class="page-title">Plan Your Trip</h1>
+        <div class="setup-grid">
+            <div class="card">
+                <div class="card-title">Departure</div>
+                <label>Address</label>
+                <input type="text" id="start_address" value="18607 Bothell Way NE, Bothell, WA 98011">
+                <label>Time</label>
+                <input type="datetime-local" id="start_time" value="2026-05-01T09:00">
+            </div>
+            <div class="card">
+                <div class="card-title">Return</div>
+                <label>Address</label>
+                <input type="text" id="end_address" value="18607 Bothell Way NE, Bothell, WA 98011">
+                <label>By</label>
+                <input type="datetime-local" id="end_time" value="2026-05-01T21:00">
+            </div>
+            <div class="card">
+                <div class="card-title">Options</div>
+                <div class="checkbox-row">
+                    <input type="checkbox" id="ate_breakfast" checked>
+                    <label for="ate_breakfast">Ate breakfast</label>
+                </div>
+                <label>Budget ($)</label>
+                <input type="number" id="budget" value="200" min="0" step="10">
+            </div>
+        </div>
+        <div class="btn-row">
+            <button class="btn-secondary" onclick="showScreen('landing')">← Back</button>
+            <button class="btn-primary" onclick="loadPreferences()">Choose Must-Visit →</button>
+        </div>
+    </div>
+
+    <!-- ════ Screen 3: Preferences ════ -->
+    <div id="screen-preferences" class="screen">
+        <div class="pref-header">
+            <h1 class="page-title">Must-Visit Picks</h1>
+            <p>Select up to <strong>2</strong> activities you don't want to miss. <span class="pref-counter" id="pref-count">0 / 2 selected</span></p>
+        </div>
+        <div class="pref-grid" id="pref-grid"></div>
+        <div class="btn-row">
+            <button class="btn-secondary" onclick="showScreen('setup')">← Back</button>
+            <button class="btn-primary" onclick="runSearch()">Plan My Day →</button>
+        </div>
+    </div>
+
+    <!-- ════ Screen 4: Results ════ -->
+    <div id="screen-results" class="screen">
+        <h1 class="page-title">Your Itinerary</h1>
+        <div class="results-layout">
+            <div>
+                <div class="itinerary-list" id="itinerary"></div>
+                <div class="btn-row" style="justify-content: flex-start;">
+                    <button class="btn-secondary" onclick="showScreen('preferences')">← Change Picks</button>
+                    <button class="btn-secondary" onclick="showScreen('setup')">← Change Trip</button>
+                </div>
+            </div>
+            <div>
+                <div id="map"></div>
+            </div>
+        </div>
+        <div id="result-status" class="status-msg"></div>
+    </div>
+
+</div>
+
+<script>
+    const API = "http://localhost:5000";
+    let selectedMustVisit = new Set();
+    const MAX_MUST_VISIT = 2;
+    let mapInstance = null;
+    let markers = [];
+    let routeLine = null;
+
+    function showScreen(name) {
+        document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+        document.getElementById('screen-' + name).classList.add('active');
+        if (name === 'results' && !mapInstance) {
+            setTimeout(() => {
+                mapInstance = L.map('map').setView([47.6, -122.33], 11);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© OpenStreetMap'
+                }).addTo(mapInstance);
+            }, 100);
+        }
+        if (name === 'results' && mapInstance) {
+            setTimeout(() => mapInstance.invalidateSize(), 100);
+        }
+    }
+
+    async function loadPreferences() {
+        try {
+            const resp = await fetch(API + "/activities");
+            const data = await resp.json();
+            renderPreferences(data.activities);
+            showScreen('preferences');
+        } catch (e) {
+            alert("Failed to load activities: " + e.message);
+        }
+    }
+
+    function renderPreferences(activities) {
+        const grid = document.getElementById('pref-grid');
+        grid.innerHTML = '';
+        activities.forEach(a => {
+            if (a.type === 'home') return;
+            const card = document.createElement('div');
+            card.className = 'pref-card' + (selectedMustVisit.has(a.id) ? ' selected' : '');
+            card.dataset.id = a.id;
+
+            const ratingStars = a.rating ? '★'.repeat(Math.round(a.rating)) + '☆'.repeat(5 - Math.round(a.rating)) : '';
+            const costStr = a.cost > 0 ? `$${a.cost}` : 'Free';
+
+            card.innerHTML = `
+                <div class="pref-check">${selectedMustVisit.has(a.id) ? '✓' : ''}</div>
+                <div class="pref-info">
+                    <div class="pref-name">${a.name}</div>
+                    <div class="pref-type">${a.type || ''}</div>
+                    <div class="pref-desc">${a.description || ''}</div>
+                    <div class="pref-meta">${ratingStars} ${a.rating || ''} · ${costStr}</div>
+                </div>
+            `;
+            card.onclick = () => toggleMustVisit(a.id, card);
+            grid.appendChild(card);
+        });
+        updatePrefCount();
+    }
+
+    function toggleMustVisit(id, card) {
+        if (selectedMustVisit.has(id)) {
+            selectedMustVisit.delete(id);
+            card.classList.remove('selected');
+            card.querySelector('.pref-check').textContent = '';
+        } else {
+            if (selectedMustVisit.size >= MAX_MUST_VISIT) return;
+            selectedMustVisit.add(id);
+            card.classList.add('selected');
+            card.querySelector('.pref-check').textContent = '✓';
+        }
+        updatePrefCount();
+        // Update disabled state on all cards
+        document.querySelectorAll('.pref-card').forEach(c => {
+            const cid = parseInt(c.dataset.id);
+            if (!selectedMustVisit.has(cid) && selectedMustVisit.size >= MAX_MUST_VISIT) {
+                c.classList.add('disabled');
+            } else {
+                c.classList.remove('disabled');
+            }
+        });
+    }
+
+    function updatePrefCount() {
+        document.getElementById('pref-count').textContent = `${selectedMustVisit.size} / ${MAX_MUST_VISIT} selected`;
+    }
+
+    function clearMap() {
+        if (!mapInstance) return;
+        markers.forEach(m => mapInstance.removeLayer(m));
+        markers = [];
+        if (routeLine) { mapInstance.removeLayer(routeLine); routeLine = null; }
+    }
+
+    function drawItinerary(stops) {
+        clearMap();
+        const coords = [];
+        stops.forEach((stop, i) => {
+            if (stop.lat == null || stop.lng == null) return;
+            const isHome = stop.type === 'home';
+            const color = isHome ? '#16a34a' : '#2563eb';
+            const num = isHome ? '🏠' : i;
+            const icon = L.divIcon({
+                className: '',
+                html: `<div style="background:${color};color:white;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:${isHome?'14px':'12px'};box-shadow:0 2px 4px rgba(0,0,0,0.3);border:2px solid white;">${num}</div>`,
+                iconSize: [28, 28], iconAnchor: [14, 14],
+            });
+            const marker = L.marker([stop.lat, stop.lng], { icon })
+                .bindPopup(`<strong>${stop.name}</strong><br>${stop.address || ''}`)
+                .addTo(mapInstance);
+            markers.push(marker);
+            coords.push([stop.lat, stop.lng]);
+        });
+        if (coords.length > 1) {
+            routeLine = L.polyline(coords, { color: '#2563eb', weight: 3, opacity: 0.5, dashArray: '8,8' }).addTo(mapInstance);
+            mapInstance.fitBounds(routeLine.getBounds().pad(0.1));
+        }
+    }
+
+    async function runSearch() {
+        showScreen('results');
+        const itinDiv = document.getElementById('itinerary');
+        const statusDiv = document.getElementById('result-status');
+        itinDiv.innerHTML = '<div class="empty-state"><div class="icon">⏳</div><p>Planning your perfect day...</p></div>';
+        statusDiv.innerHTML = '';
+
+        try {
+            const resp = await fetch(API + "/plan", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({
+                    start_time: document.getElementById("start_time").value + ":00",
+                    start_address: document.getElementById("start_address").value,
+                    end_time: document.getElementById("end_time").value + ":00",
+                    end_address: document.getElementById("end_address").value,
+                    ate_breakfast: document.getElementById("ate_breakfast").checked,
+                    budget: parseFloat(document.getElementById("budget").value),
+                    must_visit: Array.from(selectedMustVisit),
+                })
+            });
+            const data = await resp.json();
+            console.log(data);
+
+            if (data.error) {
+                itinDiv.innerHTML = `<div class="empty-state"><div class="icon">😕</div><p>${data.error}</p></div>`;
+                return;
+            }
+
+            const stops = data.itinerary;
+            drawItinerary(stops);
+
+            let html = '';
+            let stopNum = 0;
+            for (let i = 0; i < stops.length; i++) {
+                const stop = stops[i];
+                const arr = new Date(stop.arrival).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
+                const dep = new Date(stop.departure).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
+                const dur = Math.max(0, Math.round((new Date(stop.departure) - new Date(stop.arrival)) / 60000));
+                const isHome = stop.type === 'home';
+
+                if (i > 0) {
+                    const prevDep = new Date(stops[i-1].departure);
+                    const thisArr = new Date(stop.arrival);
+                    const travel = Math.max(0, Math.round((thisArr - prevDep) / 60000));
+                    if (travel > 0) {
+                        html += `<div class="travel-connector"><span>🚶</span> ${travel} min</div>`;
+                    }
+                }
+
+                const numClass = isHome ? 'stop-number home' : 'stop-number';
+                const numLabel = isHome ? '🏠' : stopNum;
+                stopNum++;
+                const ratingStr = stop.rating ? `<span class="stop-rating">${'★'.repeat(Math.round(stop.rating))}${'☆'.repeat(5-Math.round(stop.rating))} ${stop.rating}</span>` : '';
+                const mustStr = stop.must_visit ? '<span class="stop-must">MUST VISIT</span>' : '';
+                const costStr = (stop.cost ?? 0) > 0 ? `$${stop.cost}` : 'Free';
+                const mealStr = stop.food ? `🍽️ ${stop.food.charAt(0).toUpperCase() + stop.food.slice(1)}` : '';
+
+                html += `<div class="stop-card">
+                    <div class="${numClass}">${numLabel}</div>
+                    <div class="stop-details">
+                        <div><span class="stop-name">${stop.name}</span>${ratingStr}${mustStr}</div>
+                        <div class="stop-time">${arr} → ${dep} · ${dur} min</div>
+                        <div class="stop-meta"><span>${costStr}</span>${mealStr ? `<span>${mealStr}</span>` : ''}</div>
+                        <div class="stop-address">${stop.address || ''}</div>
+                    </div>
+                </div>`;
+            }
+            itinDiv.innerHTML = html;
+
+        } catch (e) {
+            itinDiv.innerHTML = `<div class="empty-state"><div class="icon">❌</div><p>Failed to connect: ${e.message}</p></div>`;
+        }
+    }
+</script>
+</body>
+</html>

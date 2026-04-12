@@ -17,7 +17,7 @@ class Node:
 
     @property
     def f(self) -> float:
-        return self.cost + self.heuristic * HEURISTIC_WEIGHT
+        return self.cost + self.heuristic
 
     def __lt__(self, other: "Node") -> bool:
         return self.f < other.f

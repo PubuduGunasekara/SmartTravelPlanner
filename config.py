@@ -1,6 +1,5 @@
 from datetime import datetime
 import json
-from travel_matrix import load_matrix
 
 
 
@@ -13,8 +12,10 @@ RETURN_BY = 1# datetime(2026, 5, 1, 2, 0)
 WEEKDAY = "fri"
 BUDGET = 1#120
 AP = "activities/seattle.json"
-BEST_RATING = 4.3
+BEST_RATING = 4.6
 
+
+TRAVEL_BUFFER = 5
 
 
 # Fullness system
@@ -35,7 +36,9 @@ MEAL_POINTS = {
 # Cost tuning
 OVERTIME_PENALTY_WEIGHT = 5.0
 TIME_INCREMENT_MINUTES = 15
-HEURISTIC_WEIGHT = 2.5
+
+
+MAX_HEAP = 100000000
 
 # activities
 
@@ -46,6 +49,6 @@ def load_activities(path: str) -> dict[int, dict]:
     return {a["id"]: a for a in activities}
 
 
-ACTIVITIES = load_activities(AP)
-MATRIX, LOCATIONS = load_matrix("activities/seattle_matrix2.json")
+# ACTIVITIES = load_activities(AP)
+# MATRIX, LOCATIONS = load_matrix("activities/seattle_matrix2.json")
 

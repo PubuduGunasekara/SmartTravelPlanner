@@ -36,6 +36,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Must-Visit state
     const MAX_MUST_VISIT = 2;
     let selectedMustVisit = new Set();
+    let transportMode = 'foot';
+
+    // Transport toggle
+    document.querySelectorAll('.transport-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.transport-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            transportMode = btn.dataset.mode;
+        });
+    });
 
     // Load activities for must-visit picker
     (async function loadMustVisitOptions() {
@@ -103,7 +113,8 @@ document.addEventListener('DOMContentLoaded', () => {
             end_time: document.getElementById('end_time').value + ':00',
             budget: Number(document.getElementById('budget').value),
             ate_breakfast: document.getElementById('ate_breakfast').checked,
-            must_visit: Array.from(selectedMustVisit)
+            must_visit: Array.from(selectedMustVisit),
+            transport_mode: transportMode
         };
 
         try {
@@ -343,7 +354,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Try OSRM for actual walking route
         const coordStr = waypoints.map(w => `${w[1]},${w[0]}`).join(';');
         try {
-            const resp = await fetch(`https://router.project-osrm.org/route/v1/foot/${coordStr}?overview=full&geometries=geojson`);
+            const osrmProfile = transportMode === 'car' ? 'car' : 'foot';
+        const resp = await fetch(`https://router.project-osrm.org/route/v1/${osrmProfile}/${coordStr}?overview=full&geometries=geojson`);
             const data = await resp.json();
             if (data.code === 'Ok' && data.routes && data.routes[0]) {
                 const coords = data.routes[0].geometry.coordinates.map(c => [c[1], c[0]]);

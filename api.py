@@ -72,9 +72,9 @@ def plan():
     for aid in activities:
         activities[aid]["must_visit"] = aid in must_visit_ids
 
-        
     start_time = datetime.fromisoformat(body["start_time"])
     ate_breakfast = body.get("ate_breakfast", False)
+    transport_mode = body.get("transport_mode", "foot")
 
     start_node = Node(
         time=start_time,
@@ -89,17 +89,20 @@ def plan():
         "end_address": body["end_address"],
         "return_by": datetime.fromisoformat(body["end_time"]),
         "start_time": start_time,
-        "weight": 1.3
+        "weight": 1.3,
+        "must_visit_ids": must_visit_ids,
     }
 
+    # Cache separate matrix files per transport mode
+    matrix_path = f"activities/seattle_matrix_{transport_mode}.json"
     matrix, locations = ensure_matrix(
         "activities/seattle.json",
-        "activities/seattle_matrix.json",
+        matrix_path,
         extra_addresses=[body["start_address"], body["end_address"]],
-        profile="foot"
+        profile=transport_mode,
     )
 
-    with open("activities/seattle_matrix.json") as f:
+    with open(matrix_path) as f:
         coord_lookup = json.load(f).get("coordinates", {})
 
     path = search(start_node, activities, matrix, locations, weekday, ctx)

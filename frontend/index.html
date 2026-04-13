@@ -31,15 +31,13 @@
                     <input type="text" id="end_address" placeholder="Where do you need to be?" value="77 Yesler Wy, Seattle, WA 98104" required>
                 </div>
                 
-                <div class="form-row">
-                    <div class="form-group half">
-                        <label><i class="fa-regular fa-clock"></i> Start</label>
-                        <input type="datetime-local" id="start_time" value="2026-05-01T09:00" required>
-                    </div>
-                    <div class="form-group half">
-                        <label><i class="fa-solid fa-hourglass-end"></i> Return By</label>
-                        <input type="datetime-local" id="end_time" value="2026-05-01T21:00" required>
-                    </div>
+                <div class="form-group">
+                    <label><i class="fa-regular fa-clock"></i> Start Time</label>
+                    <input type="datetime-local" id="start_time" value="2026-05-01T09:00" required>
+                </div>
+                <div class="form-group">
+                    <label><i class="fa-solid fa-hourglass-end"></i> Return By</label>
+                    <input type="datetime-local" id="end_time" value="2026-05-01T21:00" required>
                 </div>
                 
                 <div class="form-row">
@@ -53,6 +51,18 @@
                             <span class="slider round"></span>
                         </label>
                         <span class="toggle-label">Ate Breakfast</span>
+                    </div>
+                </div>
+
+                <div class="form-group transport-toggle">
+                    <label><i class="fa-solid fa-road"></i> Getting Around</label>
+                    <div class="transport-options">
+                        <button type="button" class="transport-btn active" data-mode="foot" id="btn-foot">
+                            <i class="fa-solid fa-person-walking"></i> Walking
+                        </button>
+                        <button type="button" class="transport-btn" data-mode="car" id="btn-car">
+                            <i class="fa-solid fa-car"></i> Driving
+                        </button>
                     </div>
                 </div>
 

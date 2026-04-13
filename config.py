@@ -19,10 +19,10 @@ TRAVEL_BUFFER = 7
 
 
 # Fullness system
-FULLNESS_MAX = 5
+FULLNESS_MAX = 53
 FULLNESS_MIN = 0
 FULLNESS_DECAY_HOURS = 2
-FULLNESS_START = 3  # ate at hotel
+FULLNESS_START = 30  # ate at hotel
 RETURN_MIN_FULLNESS = 3
 
 # Meal points

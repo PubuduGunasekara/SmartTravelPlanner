@@ -65,7 +65,7 @@ def get_reachable(node, activities, matrix, locations, weekday, ctx):
 
     return reachable
     
-def make_child(node, activity, aid, arrival, departure, travel_minutes, weekday, matrix, locations, ctx):
+def make_child(node, activity, aid, arrival, departure, travel_minutes, weekday, matrix, locations, ctx, activities):
     # Decay based on total hours since start of day
     hours_since_start = (departure - ctx["start_time"]).total_seconds() / 3600
     parent_hours = (node.time - ctx["start_time"]).total_seconds() / 3600
@@ -99,7 +99,7 @@ def make_child(node, activity, aid, arrival, departure, travel_minutes, weekday,
         arrival_time=arrival,
     )
     child.cost = node.cost + compute_cost(node, child, activity, travel_minutes, ctx)
-    child.heuristic = compute_heuristic(child, matrix, locations, ctx)
+    child.heuristic = compute_heuristic(child,activities, matrix, locations, ctx)
     return child
 
 def generate_children(node, reachable, activities, matrix, locations, weekday, ctx):
@@ -119,7 +119,7 @@ def generate_children(node, reachable, activities, matrix, locations, weekday, c
                 if start < earliest_arrival:
                     continue
                 departure = start + timedelta(minutes=min_dur)
-                children.append(make_child(node, activity, aid, start, departure, travel, weekday, matrix, locations, ctx))
+                children.append(make_child(node, activity, aid, start, departure, travel, weekday, matrix, locations, ctx, activities))
             
         else:
             # Flexible — vary stay duration from minimum to optimal in 10min increments
@@ -143,13 +143,13 @@ def generate_children(node, reachable, activities, matrix, locations, weekday, c
                 departure = arrival + timedelta(minutes=stay)
                 if closes and departure > closes:
                     break
-                children.append(make_child(node, activity, aid, arrival, departure, travel, weekday, matrix, locations, ctx))
+                children.append(make_child(node, activity, aid, arrival, departure, travel, weekday, matrix, locations, ctx, activities))
 
             # Always include optimal if it didn't land on an increment
             if opt_dur % 10 != min_dur % 10:
                 departure = arrival + timedelta(minutes=opt_dur)
                 if not (closes and departure > closes):
-                    children.append(make_child(node, activity, aid, arrival, departure, travel, weekday, matrix, locations, ctx))
+                    children.append(make_child(node, activity, aid, arrival, departure, travel, weekday, matrix, locations, ctx, activities))
             
     #can we go to our destination?
     
@@ -184,7 +184,19 @@ def generate_children(node, reachable, activities, matrix, locations, weekday, c
 
     return children
 
-def compute_heuristic(node, matrix, locations, ctx):
+# def compute_heuristic(node, matrix, locations, ctx):
+#     travel_home = get_travel_time(matrix, locations, node.location, ctx["end_address"]) or 0
+#     remaining = (ctx["return_by"] - node.time).total_seconds() / 60 - travel_home
+
+#     if remaining <= 0:
+#         return travel_home
+
+#     estimated_dead = remaining * (5 - BEST_RATING) / 5
+
+#     return (travel_home + estimated_dead) * ctx["weight"]
+
+
+def compute_heuristic(node, activities, matrix, locations, ctx):
     travel_home = get_travel_time(matrix, locations, node.location, ctx["end_address"]) or 0
     remaining = (ctx["return_by"] - node.time).total_seconds() / 60 - travel_home
 
@@ -193,7 +205,20 @@ def compute_heuristic(node, matrix, locations, ctx):
 
     estimated_dead = remaining * (5 - BEST_RATING) / 5
 
+    # Pressure to complete must-visits earlier
+    must_ids = ctx.get("must_visit_ids", set())
+    unvisited_musts = must_ids - node.visited
+    for mid in unvisited_musts:
+        a = activities[mid]
+        # At minimum, we'll spend travel + partially-dead activity time
+        travel_to = get_travel_time(matrix, locations, node.location, a["start_location"]) or 20
+        opt = a.get("optimal_duration") or 60
+        rating = a.get("rating") or 3
+        estimated_dead += travel_to + opt * (5 - rating) / 5
+
     return (travel_home + estimated_dead) * ctx["weight"]
+
+
 
 def compute_cost(parent, child, activity, travel_minutes, ctx):
     if activity is None:

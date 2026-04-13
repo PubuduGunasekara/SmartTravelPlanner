@@ -38,7 +38,7 @@ h1, h2, h3 { font-family: 'Outfit', sans-serif; font-weight: 600; }
 
 /* ── Sidebar ── */
 .sidebar {
-    width: 320px;
+    width: 360px;
     background: var(--bg-panel);
     display: flex;
     flex-direction: column;
@@ -64,7 +64,7 @@ label {
 
 input[type="text"], input[type="number"], input[type="datetime-local"] {
     width: 100%; background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 6px; padding: 10px; color: white; font-family: inherit; font-size: 13px;
+    border-radius: 6px; padding: 10px 8px; color: white; font-family: inherit; font-size: 12px;
     outline: none; transition: var(--transition);
 }
 input:focus { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-glow); }
@@ -302,3 +302,15 @@ body.dark {
     --text-main: #d1d5db;
     --text-muted: #6b7280;
 }
+
+/* ── Transport Toggle ── */
+.transport-options { display: flex; gap: 8px; }
+.transport-btn {
+    flex: 1; padding: 8px; border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px; background: rgba(0,0,0,0.25); color: var(--text-muted);
+    font-size: 12px; font-weight: 500; cursor: pointer; transition: var(--transition);
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    font-family: inherit;
+}
+.transport-btn:hover { border-color: rgba(255,255,255,0.2); color: var(--text-main); }
+.transport-btn.active { border-color: var(--accent); color: var(--accent); background: rgba(230,126,34,0.1); }

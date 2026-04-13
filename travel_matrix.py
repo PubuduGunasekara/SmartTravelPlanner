@@ -5,48 +5,45 @@ Builds a travel time matrix between all activity locations using:
 - Nominatim for geocoding (addresses -> coordinates)
 - OSRM public server for routing (coordinates -> travel times)
 
-Usage:
-    from travel_matrix import build_matrix, get_travel_time
+Caches coordinates so only new addresses need geocoding.
 
-    matrix, locations = build_matrix("activities.json", hotel_address="123 Main St, NYC")
-    minutes = get_travel_time(matrix, locations, "123 Main St, NYC", "1000 5th Ave, NYC")
+Usage:
+    from travel_matrix import ensure_matrix, get_travel_time, load_matrix
+
+    # Build/update matrix — only geocodes new addresses
+    ensure_matrix("activities.json", "travel_matrix.json", extra_addresses=["123 Hotel St"])
+
+    # Load and use
+    matrix, locations = load_matrix("travel_matrix.json")
+    minutes = get_travel_time(matrix, locations, "123 Hotel St", "1000 5th Ave")
 """
 
 import json
 import time
+import os
 import requests
-from typing import Optional
-
-
+from config import *
 
 NOMINATIM_URL = "https://nominatim.openstreetmap.org/search"
-OSRM_TABLE_URL = "https://router.project-osrm.org/table/v1/car"  # car is most reliable on public server
 
 
-def load_locations(json_path: str, start_address: str = None, end_address: str = None) -> list[str]:
-    """Extract all unique addresses from the activities JSON."""
+def load_locations(json_path: str, extra_addresses: list[str] = None) -> list[str]:
     with open(json_path) as f:
         data = json.load(f)
-
     activities = data if isinstance(data, list) else data.get("activities", [])
-
     addresses = set()
     for a in activities:
         if a.get("start_location"):
             addresses.add(a["start_location"])
         if a.get("end_location"):
             addresses.add(a["end_location"])
-
-    if start_address:
-        addresses.add(start_address)
-    if end_address: 
-        addresses.add(end_address)
-
+    if extra_addresses:
+        for addr in extra_addresses:
+            addresses.add(addr)
     return sorted(addresses)
 
 
-def geocode(address: str, retries: int = 3) -> Optional[tuple[float, float]]:
-    """Geocode an address to (lat, lng) using Nominatim. Returns None on failure."""
+def geocode(address: str, retries: int = 3) -> tuple[float, float] | None:
     for attempt in range(retries):
         try:
             resp = requests.get(NOMINATIM_URL, params={
@@ -56,7 +53,6 @@ def geocode(address: str, retries: int = 3) -> Optional[tuple[float, float]]:
             }, headers={
                 "User-Agent": "TravelPlannerDev/1.0"
             }, timeout=10)
-
             results = resp.json()
             if results:
                 return (float(results[0]["lat"]), float(results[0]["lon"]))
@@ -69,42 +65,17 @@ def geocode(address: str, retries: int = 3) -> Optional[tuple[float, float]]:
                 return None
 
 
-def geocode_all(addresses: list[str]) -> dict[str, tuple[float, float]]:
-    """Geocode a list of addresses. Nominatim requires 1 req/sec."""
-    coords = {}
-    for i, addr in enumerate(addresses):
-        print(f"  Geocoding [{i+1}/{len(addresses)}]: {addr[:60]}...")
-        result = geocode(addr)
-        if result:
-            coords[addr] = result
-        else:
-            print(f"  WARNING: Could not geocode '{addr}', skipping.")
-        time.sleep(1.1)  # Nominatim rate limit
-    return coords
-
-
-def fetch_osrm_table(coords: list[tuple[float, float]], profile: str = "foot", retries: int = 3) -> Optional[list[list[float]]]:
-    """
-    Call OSRM /table endpoint. Returns matrix of travel times in seconds.
-    Profile can be 'foot', 'car', or 'bicycle'.
-
-    """
-    print(profile)
+def fetch_osrm_table(coords: list[tuple[float, float]], profile: str = "car", retries: int = 3) -> list[list[float]] | None:
     url = f"https://router.project-osrm.org/table/v1/{profile}/"
-
-    # OSRM wants lng,lat (not lat,lng)
     coord_str = ";".join(f"{lng},{lat}" for lat, lng in coords)
     url += coord_str
-
     for attempt in range(retries):
         try:
             resp = requests.get(url, params={"annotations": "duration"}, timeout=60)
             data = resp.json()
-
             if data.get("code") != "Ok":
                 print(f"  OSRM error: {data.get('code')} - {data.get('message', '')}")
                 return None
-
             return data["durations"]
         except Exception as e:
             if attempt < retries - 1:
@@ -116,50 +87,88 @@ def fetch_osrm_table(coords: list[tuple[float, float]], profile: str = "foot", r
                 return None
 
 
-def build_matrix(
+def ensure_matrix(
     json_path: str,
-    start_address: str = None,
-    end_address: str = None,
+    save_path: str,
+    extra_addresses: list[str] = None,
     profile: str = "car",
 ) -> tuple[list[list[float]], list[str]]:
     """
-    Build a travel time matrix for all locations in the activities JSON.
+    Build or update a travel time matrix. Only geocodes new addresses.
+    Rebuilds the OSRM matrix if any new coordinates were added.
 
     Args:
-        json_path: Path to the activities JSON file.
-        hotel_address: Optional hotel/start address to include.
-        profile: OSRM routing profile ('foot', 'car', 'bicycle').
+        json_path:       Path to the activities JSON.
+        save_path:        Path to save/load the cached matrix JSON.
+        extra_addresses:  Additional addresses (hotels, start/end points).
+        profile:          OSRM routing profile.
 
     Returns:
-        (matrix, locations) where:
-        - matrix[i][j] is travel time in minutes from locations[i] to locations[j]
-        - locations is the ordered list of addresses
+        (matrix, locations)
     """
-    print("Loading locations...")
-    addresses = load_locations(json_path, start_address, end_address)
-    print(f"  Found {len(addresses)} unique locations.")
+    # Load existing cache if available
+    cached_coords = {}
+    if os.path.exists(save_path):
+        with open(save_path) as f:
+            cached = json.load(f)
+        cached_coords = cached.get("coordinates", {})
 
-    print("Geocoding addresses...")
-    coords = geocode_all(addresses)
+    # Get all addresses needed
+    all_addresses = load_locations(json_path, extra_addresses)
+    print(f"Total addresses needed: {len(all_addresses)}")
 
-    # Filter to only successfully geocoded addresses
-    valid_addresses = [a for a in addresses if a in coords]
-    valid_coords = [coords[a] for a in valid_addresses]
+    # Find which ones need geocoding
+    new_addresses = [a for a in all_addresses if a not in cached_coords]
+
+    if new_addresses:
+        print(f"Geocoding {len(new_addresses)} new addresses...")
+        for i, addr in enumerate(new_addresses):
+            print(f"  [{i+1}/{len(new_addresses)}]: {addr[:60]}...")
+            result = geocode(addr)
+            if result:
+                cached_coords[addr] = result
+            else:
+                print(f"  WARNING: Could not geocode '{addr}', skipping.")
+            time.sleep(1.1)
+        needs_rebuild = True
+    else:
+        print("All addresses already geocoded.")
+        if os.path.exists(save_path):
+            with open(save_path) as f:
+                cached = json.load(f)
+            cached_locations = set(cached.get("locations", []))
+            needed = set(a for a in all_addresses if a in cached_coords)
+            needs_rebuild = needed != cached_locations
+        else:
+            needs_rebuild = True
+
+    # Filter to successfully geocoded addresses
+    valid_addresses = [a for a in all_addresses if a in cached_coords]
+    valid_coords = [cached_coords[a] for a in valid_addresses]
 
     if len(valid_addresses) < 2:
-        raise ValueError(f"Only {len(valid_addresses)} addresses geocoded successfully. Need at least 2.")
+        raise ValueError(f"Only {len(valid_addresses)} addresses geocoded. Need at least 2.")
 
-    print(f"Fetching OSRM travel time matrix ({len(valid_addresses)}x{len(valid_addresses)})...")
-    raw_matrix = fetch_osrm_table(valid_coords, profile)
+    if needs_rebuild:
+        print(f"Fetching OSRM matrix ({len(valid_addresses)}x{len(valid_addresses)})...")
+        raw_matrix = fetch_osrm_table(valid_coords, profile)
+        if raw_matrix is None:
+            raise RuntimeError("Failed to fetch OSRM matrix.")
+        matrix = [
+            [round(cell / 60, 1) if cell is not None else None for cell in row]
+            for row in raw_matrix
+        ]
+    else:
+        print("Matrix is up to date.")
+        matrix = cached["matrix"]
 
-    if raw_matrix is None:
-        raise RuntimeError("Failed to fetch OSRM matrix.")
-
-    # Convert seconds to minutes
-    matrix = [
-        [round(cell / 60, 1) if cell is not None else None for cell in row]
-        for row in raw_matrix
-    ]
+    # Save everything
+    with open(save_path, "w") as f:
+        json.dump({
+            "locations": valid_addresses,
+            "coordinates": cached_coords,
+            "matrix": matrix,
+        }, f, indent=2)
 
     print("Done.")
     return matrix, valid_addresses
@@ -170,39 +179,22 @@ def get_travel_time(
     locations: list[str],
     from_addr: str,
     to_addr: str,
-) -> Optional[float]:
-    """Look up travel time in minutes between two addresses."""
+) -> float | None:
+    if from_addr == to_addr:
+        return 0
     try:
         i = locations.index(from_addr)
         j = locations.index(to_addr)
-        return matrix[i][j]
+        if matrix[i][j] is None:
+            return None
+        return matrix[i][j] + TRAVEL_BUFFER
     except ValueError:
         return None
 
 
-def save_matrix(matrix: list[list[float]], locations: list[str], path: str) -> None:
-    """Save the matrix and location list to a JSON file for caching."""
-    with open(path, "w") as f:
-        json.dump({"locations": locations, "matrix": matrix}, f, indent=2)
-
-
 def load_matrix(path: str) -> tuple[list[list[float]], list[str]]:
-    """Load a cached matrix from a JSON file."""
     with open(path) as f:
         data = json.load(f)
     return data["matrix"], data["locations"]
 
 
-if __name__ == "__main__":
-    import argparse
-
-    parser = argparse.ArgumentParser(description="Build travel time matrix from activities JSON")
-    parser.add_argument("json_path", help="Path to activities JSON")
-    parser.add_argument("--hotel", default=None, help="Hotel/start address")
-    parser.add_argument("--profile", default="car", choices=["foot", "car", "bicycle"])
-    parser.add_argument("--out", default="travel_matrix.json", help="Output file")
-    args = parser.parse_args()
-
-    matrix, locations = build_matrix(args.json_path, args.hotel, args.profile)
-    save_matrix(matrix, locations, args.out)
-    print(f"Saved {len(locations)}x{len(locations)} matrix to {args.out}")

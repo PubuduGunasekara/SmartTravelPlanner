@@ -1,62 +1,113 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Initialize Default Times (Tomorrow 9am to 9pm)
-    const now = new Date();
-    const tomorrow = new Date(now);
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    
-    // Format helper YYYY-MM-DDTHH:MM
-    const formatDateTime = (date, hours) => {
-        const d = new Date(date);
-        d.setHours(hours, 0, 0, 0);
-        const pad = n => n.toString().padStart(2, '0');
-        return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
-    };
+    const API = 'http://127.0.0.1:5000';
 
-    document.getElementById('start_time').value = formatDateTime(tomorrow, 9);
-    document.getElementById('end_time').value = formatDateTime(tomorrow, 21);
-
-    // 2. Initialize Map (Centered on Seattle default)
+    // Initialize Map
     const map = L.map('map').setView([47.6062, -122.3321], 13);
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    // Map tiles
+    const lightTiles = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png';
+    const darkTiles = 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
+
+    let currentTileLayer = L.tileLayer(lightTiles, {
+        attribution: '&copy; OSM &copy; CARTO',
         subdomains: 'abcd',
         maxZoom: 20
     }).addTo(map);
 
-    let mapMarkers = [];
-    let mapPath = null;
-    let waypoints = []; // Stores the lat/lng coordinates in order
+    // Dark mode toggle
+    const themeBtn = document.getElementById('theme-toggle');
+    let isDark = false;
 
-    // 3. Form Submit Handler
+    themeBtn.addEventListener('click', () => {
+        isDark = !isDark;
+        document.body.classList.toggle('dark', isDark);
+        themeBtn.innerHTML = isDark ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+        map.removeLayer(currentTileLayer);
+        currentTileLayer = L.tileLayer(isDark ? darkTiles : lightTiles, {
+            attribution: '&copy; OSM &copy; CARTO',
+            subdomains: 'abcd',
+            maxZoom: 20
+        }).addTo(map);
+    });
+
+    let mapMarkers = [];
+    let markerByIndex = {}; // itinerary index -> marker
+    let mapPath = null;
+
+    // Must-Visit state
+    const MAX_MUST_VISIT = 2;
+    let selectedMustVisit = new Set();
+
+    // Load activities for must-visit picker
+    (async function loadMustVisitOptions() {
+        const mvList = document.getElementById('mv-list');
+        try {
+            const resp = await fetch(API + '/activities');
+            const data = await resp.json();
+            mvList.innerHTML = '';
+            data.activities.forEach(a => {
+                const item = document.createElement('div');
+                item.className = 'mv-item';
+                item.dataset.id = a.id;
+                item.innerHTML = `
+                    <div class="mv-check"></div>
+                    <span class="mv-name">${a.name}</span>
+                    <span class="mv-type">${a.type || ''}</span>
+                `;
+                item.addEventListener('click', () => toggleMustVisit(a.id, item));
+                mvList.appendChild(item);
+            });
+        } catch (e) {
+            mvList.innerHTML = '<p class="mv-loading">Could not load activities</p>';
+        }
+    })();
+
+    function toggleMustVisit(id, el) {
+        if (selectedMustVisit.has(id)) {
+            selectedMustVisit.delete(id);
+            el.classList.remove('selected');
+            el.querySelector('.mv-check').textContent = '';
+        } else {
+            if (selectedMustVisit.size >= MAX_MUST_VISIT) return;
+            selectedMustVisit.add(id);
+            el.classList.add('selected');
+            el.querySelector('.mv-check').textContent = '✓';
+        }
+        document.getElementById('mv-count').textContent = `(${selectedMustVisit.size}/${MAX_MUST_VISIT})`;
+        document.querySelectorAll('.mv-item').forEach(item => {
+            const iid = parseInt(item.dataset.id);
+            if (!selectedMustVisit.has(iid) && selectedMustVisit.size >= MAX_MUST_VISIT) {
+                item.classList.add('disabled');
+            } else {
+                item.classList.remove('disabled');
+            }
+        });
+    }
+
+    // Form handler
     const form = document.getElementById('planner-form');
     const loading = document.getElementById('loading');
     const timeline = document.getElementById('timeline');
-    const tripStats = document.getElementById('trip-stats');
     const submitBtn = document.getElementById('submit-btn');
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
-        // UI Loading State
         submitBtn.disabled = true;
         loading.style.display = 'block';
         timeline.innerHTML = '';
-        tripStats.innerHTML = '';
-        
         clearMap();
 
         const payload = {
             start_address: document.getElementById('start_address').value,
             end_address: document.getElementById('end_address').value,
-            start_time: document.getElementById('start_time').value + ":00",
-            end_time: document.getElementById('end_time').value + ":00",
+            start_time: document.getElementById('start_time').value + ':00',
+            end_time: document.getElementById('end_time').value + ':00',
             budget: Number(document.getElementById('budget').value),
-            ate_breakfast: document.getElementById('ate_breakfast').checked
+            ate_breakfast: document.getElementById('ate_breakfast').checked,
+            must_visit: Array.from(selectedMustVisit)
         };
 
         try {
-            // NOTE: assuming backend is running on localhost:5000
-            const response = await fetch('http://127.0.0.1:5000/plan', {
+            const response = await fetch(API + '/plan', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
@@ -68,7 +119,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const data = await response.json();
-            
             loading.style.display = 'none';
             submitBtn.disabled = false;
 
@@ -80,192 +130,244 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.disabled = false;
             timeline.innerHTML = `<div class="empty-state">
                 <i class="fa-solid fa-triangle-exclamation" style="color: #ef4444;"></i>
-                <p>Error: ${error.message}</p>
+                <p>${error.message}</p>
             </div>`;
         }
     });
 
-    // 4. Render Timeline HTML
+    // ── Render Timeline ──
+
     function renderTimeline(itinerary) {
+        timeline.innerHTML = '';
         let totalCost = 0;
-        let stopsCount = 0;
+        let totalTravel = 0;
+        let stopNum = 0;
 
-        timeline.innerHTML = ''; // Clear
+        for (let i = 0; i < itinerary.length; i++) {
+            const item = itinerary[i];
+            const isHome = item.type === 'home';
+            const isFirst = i === 0;
+            const isLast = i === itinerary.length - 1;
 
-        itinerary.forEach((item, index) => {
-            stopsCount++;
             totalCost += (item.cost || 0);
 
-            // Determine Node content (numbers) and category classes
+            // Check if this is a same-location sub-item (e.g. café at same address as previous)
+            const prevItem = i > 0 ? itinerary[i - 1] : null;
+            const isSameLocation = prevItem && !isHome && !isFirst &&
+                prevItem.address === item.address && prevItem.type !== 'home';
+
+            // Travel time
+            let travelMin = 0;
+            if (i > 0) {
+                const prevDep = new Date(itinerary[i - 1].departure);
+                const thisArr = new Date(item.arrival);
+                travelMin = Math.max(0, Math.round((thisArr - prevDep) / 60000));
+                totalTravel += travelMin;
+            }
+
+            // Time formatting
+            const fmt = iso => new Date(iso).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            const tStart = fmt(item.arrival);
+            const tEnd = fmt(item.departure);
+            const stayMin = Math.max(0, Math.round((new Date(item.departure) - new Date(item.arrival)) / 60000));
+
+            // Travel indicator (skip for same-location sub-items)
+            let travelHtml = '';
+            if (travelMin > 0 && !isSameLocation) {
+                travelHtml = `<div class="travel-time-indicator"><i class="fa-solid fa-person-walking"></i> ${travelMin} min</div>`;
+            }
+
+            // Number label
+            if (!isSameLocation) stopNum++;
+            const numLabel = isHome ? '🏠' : stopNum;
+
+            // Type class
             let safeType = item.type ? item.type.toLowerCase().replace(/[^a-z0-9]/g, '-') : 'default';
             if (item.food) safeType = 'food';
-            if (index === 0) safeType = 'start';
-            if (index === itinerary.length - 1) safeType = 'end';
-            
-            let itemClass = `type-${safeType}`;
 
-            let nodeContent = `<span>${index + 1}</span>`;
-            if (index === 0) nodeContent = '<i class="fa-solid fa-plane-departure"></i>';
-            if (index === itinerary.length - 1) nodeContent = '<i class="fa-solid fa-flag-checkered"></i>';
-
-            // Formatting time
-            const formatTime = (isoStr) => {
-                const d = new Date(isoStr);
-                return d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            };
-
-            const tStart = formatTime(item.arrival);
-            const tEnd = formatTime(item.departure);
-            const stayMinutes = Math.round((new Date(item.departure) - new Date(item.arrival)) / 60000);
-
-            // Creating Badges
+            // Badges
             let badgesHtml = '';
-            if (item.type && item.type !== 'start/end') {
-                badgesHtml += `<span class="badge badge-type">${item.type.replace('_', ' ').toUpperCase()}</span>`;
+            if (item.type && item.type !== 'home') {
+                badgesHtml += `<span class="badge badge-type">${item.type.replace('_', ' ')}</span>`;
             }
-            if (item.food) badgesHtml += `<span class="badge badge-food">${item.food.toUpperCase()}</span>`;
-            if (item.cost > 0) badgesHtml += `<span class="badge badge-cost">$${item.cost.toFixed(2)}</span>`;
-            if (item.must_visit) badgesHtml += `<span class="badge badge-must">Must Visit</span>`;
-            if (item.rating) badgesHtml += `<span class="badge badge-rating"><i class="fa-solid fa-star" style="color:#fbbf24; margin-right:4px;"></i>${item.rating}</span>`;
+            if (item.cost > 0) badgesHtml += `<span class="badge badge-cost">$${item.cost}</span>`;
+            if (item.must_visit) badgesHtml += `<span class="badge badge-must">★ Must Visit</span>`;
+            if (item.rating) badgesHtml += `<span class="badge badge-rating"><i class="fa-solid fa-star"></i> ${item.rating}</span>`;
 
-            // Calculate Travel Time
-            let travelHtml = '';
-            if (index > 0) {
-                const prevDeparture = new Date(itinerary[index - 1].departure);
-                const currArrival = new Date(item.arrival);
-                const travelMinutes = Math.round((currArrival - prevDeparture) / 60000);
-                if (travelMinutes > 0) {
-                    travelHtml = `<div class="travel-time-indicator"><i class="fa-solid fa-person-walking"></i> ${travelMinutes} min travel</div>`;
-                }
+            // Meal badge (prominent)
+            let mealHtml = '';
+            if (item.food) {
+                const mealName = item.food.charAt(0).toUpperCase() + item.food.slice(1);
+                mealHtml = `<div class="meal-indicator"><i class="fa-solid fa-utensils"></i> ${mealName}</div>`;
             }
 
-            let timeRangeHtml = `<div class="time-range">${tStart} - ${tEnd} <span class="stay-duration">(${stayMinutes} min)</span></div>`;
-            if (index === 0) {
-                timeRangeHtml = `<div class="time-range">Departure: ${tEnd}</div>`;
-            } else if (index === itinerary.length - 1) {
-                timeRangeHtml = `<div class="time-range">Arrival: ${tStart}</div>`;
+            // End location notice
+            let endLocHtml = '';
+            if (item.end_address && item.end_address !== item.address) {
+                endLocHtml = `<p class="end-address"><i class="fa-solid fa-arrow-right"></i> Ends at: ${item.end_address}</p>`;
             }
 
-            // Card HTML
+            // Time display
+            let timeHtml = '';
+            if (isHome && isFirst) {
+                timeHtml = `<div class="time-range">Departing ${tEnd}</div>`;
+            } else if (isHome && isLast) {
+                timeHtml = `<div class="time-range">Arriving ${tStart}</div>`;
+            } else {
+                timeHtml = `<div class="time-range">${tStart} – ${tEnd} <span class="stay-duration">(${stayMin} min)</span></div>`;
+            }
+
+            // Build element
             const el = document.createElement('div');
-            el.className = `timeline-item ${itemClass}`;
-            el.style.animationDelay = `${index * 0.1}s`;
-            
+            el.className = `timeline-item type-${safeType}${isSameLocation ? ' sub-item' : ''}`;
+            el.style.animationDelay = `${i * 0.08}s`;
+            el.style.cursor = 'pointer';
+            el.dataset.index = i;
+
             el.innerHTML = `
                 ${travelHtml}
-                <div class="timeline-node">
-                    ${nodeContent}
-                </div>
+                ${!isSameLocation ? `<div class="timeline-node"><span>${numLabel}</span></div>` : '<div class="timeline-node sub-node">+</div>'}
                 <div class="timeline-card">
-                    ${timeRangeHtml}
+                    ${timeHtml}
                     <h3>${item.name}</h3>
-                    <p class="address"><i class="fa-solid fa-map-pin" style="margin-right:4px;"></i> ${item.address}</p>
+                    <p class="address"><i class="fa-solid fa-map-pin"></i> ${item.address}</p>
+                    ${endLocHtml}
+                    ${mealHtml}
                     ${badgesHtml ? `<div class="badges">${badgesHtml}</div>` : ''}
                 </div>
             `;
-            timeline.appendChild(el);
-        });
 
-        // Update Stats
-        tripStats.innerHTML = `
-            <span class="stat-item"><i class="fa-solid fa-map-location-dot"></i> ${stopsCount} Stops</span>
-            <span class="stat-item"><i class="fa-solid fa-wallet"></i> $${totalCost.toFixed(2)}</span>
+            // Click to zoom
+            el.addEventListener('click', () => {
+                const marker = markerByIndex[i];
+                if (marker) {
+                    const pos = marker.getLatLng();
+                    map.flyTo(pos, 16, { duration: 0.6 });
+                    marker.openPopup();
+                }
+            });
+
+            timeline.appendChild(el);
+        }
+
+        // Summary footer
+        const summary = document.createElement('div');
+        summary.className = 'trip-summary';
+        summary.innerHTML = `
+            <div class="summary-item"><i class="fa-solid fa-wallet"></i> Total: $${totalCost.toFixed(0)}</div>
+            <div class="summary-item"><i class="fa-solid fa-person-walking"></i> Travel: ${totalTravel} min</div>
+            <div class="summary-item"><i class="fa-solid fa-map-location-dot"></i> ${stopNum} stops</div>
         `;
+        timeline.appendChild(summary);
     }
 
-    // 5. Geocoding and Map Plotting
+    // ── Map ──
+
     function clearMap() {
         mapMarkers.forEach(m => map.removeLayer(m));
         if (mapPath) map.removeLayer(mapPath);
         mapMarkers = [];
-        waypoints = [];
+        markerByIndex = {};
         mapPath = null;
     }
 
-    async function plotOnMap(itinerary) {
-        const geoStatus = document.getElementById('geo-status');
-        geoStatus.style.display = 'block';
+    function plotOnMap(itinerary) {
+        const waypoints = [];
+        let stopNum = 0;
+        let lastMarkerIndex = null;
 
-        const delay = (ms) => new Promise(res => setTimeout(res, ms));
-
-        // Deduplicate addresses slightly but we need them in order to draw the path
         for (let i = 0; i < itinerary.length; i++) {
             const item = itinerary[i];
-            
+            if (item.lat == null || item.lng == null) continue;
+
+            const isHome = item.type === 'home';
+            const prevItem = i > 0 ? itinerary[i - 1] : null;
+            const isSameLocation = prevItem && !isHome && i > 0 &&
+                prevItem.address === item.address && prevItem.type !== 'home';
+
+            if (!isSameLocation) stopNum++;
+
             let safeType = item.type ? item.type.toLowerCase().replace(/[^a-z0-9]/g, '-') : 'default';
             if (item.food) safeType = 'food';
-            if (i === 0) safeType = 'start';
-            if (i === itinerary.length - 1) safeType = 'end';
-            
-            let catClass = `type-${safeType}`;
-            
-            let iconStr = `<span>${i + 1}</span>`;
-            if (i === 0) iconStr = '<i class="fa-solid fa-plane-departure"></i>';
-            if (i === itinerary.length - 1) iconStr = '<i class="fa-solid fa-flag-checkered"></i>';
 
-            // Create custom Leaflet icon
-            const customIcon = L.divIcon({
-                className: 'custom-icon-container',
-                html: `<div class="custom-map-marker ${catClass}">${iconStr}</div>`,
-                iconSize: [30, 30],
-                iconAnchor: [15, 15],
-                popupAnchor: [0, -15]
-            });
+            // Determine label
+            let label = isHome ? '🏠' : String(stopNum);
+            const hasEndLoc = item.end_address && item.end_address !== item.address;
+            if (hasEndLoc) label = stopNum + 'a';
 
-            // Nominatim geocoding (with rate limiting respect ~ 1 req / sec)
-            try {
-                // Using a generic user-agent to bypass basic blocks, but Nominatim requires email/app name ideally.
-                // We'll append Seattle if it doesn't have it, but the DB already has Seattle, WA.
-                const addressQuery = encodeURIComponent(item.address);
-                const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${addressQuery}`);
-                const data = await res.json();
-
-                if (data && data.length > 0) {
-                    let lat = parseFloat(data[0].lat);
-                    let lon = parseFloat(data[0].lon);
-                    
-                    // Jitter overlapping pins to ensure they're all visible
-                    const overlapCount = waypoints.filter(p => Math.abs(p[0] - lat) < 0.0001 && Math.abs(p[1] - lon) < 0.0001).length;
-                    if (overlapCount > 0) {
-                        lat += overlapCount * 0.0008; // Small shift
-                        lon += overlapCount * 0.0008;
-                    }
-                    
-                    waypoints.push([lat, lon]);
-
-                    const marker = L.marker([lat, lon], { icon: customIcon })
-                        .addTo(map)
-                        .bindPopup(`<strong>${item.name}</strong><br>${item.address}`);
-                    
-                    mapMarkers.push(marker);
-
-                    // Update map path drawing progressively
-                    if (mapPath) map.removeLayer(mapPath);
-                    mapPath = L.polyline(waypoints, {
-                        color: '#3b82f6', 
-                        weight: 4, 
-                        opacity: 0.7, 
-                        dashArray: '10, 10',
-                        lineCap: 'round'
-                    }).addTo(map);
-
-                    // Center map dynamically to bounding box
-                    if (waypoints.length > 1) {
-                        map.fitBounds(L.latLngBounds(waypoints), { padding: [50, 50] });
-                    } else if (waypoints.length === 1) {
-                        map.setView([lat, lon], 14);
-                    }
-                }
-            } catch(e) {
-                console.warn("Geocoding failed for:", item.address, e);
+            // Sub-items share the parent's marker
+            if (isSameLocation) {
+                if (lastMarkerIndex != null) markerByIndex[i] = markerByIndex[lastMarkerIndex];
+                continue;
             }
 
-            // Delay 1s to satisfy Nominatim ToS
-            if (i < itinerary.length - 1) {
-                await delay(1000);
+            const lat = item.lat;
+            const lng = item.lng;
+
+            const marker = addMarker(lat, lng, label, safeType, item.name, item.address);
+            markerByIndex[i] = marker;
+            lastMarkerIndex = i;
+            waypoints.push([lat, lng]);
+
+            // If end_location differs, add a second marker
+            if (hasEndLoc && item.end_lat && item.end_lng) {
+                addMarker(item.end_lat, item.end_lng, stopNum + 'b', safeType, item.name + ' (end)', item.end_address);
+                waypoints.push([item.end_lat, item.end_lng]);
             }
         }
 
-        geoStatus.style.display = 'none';
+        // Draw route line
+        if (waypoints.length > 1) {
+            fetchRoute(waypoints);
+        }
+    }
+
+    function addMarker(lat, lng, label, typeClass, name, address) {
+        const icon = L.divIcon({
+            className: 'custom-icon-container',
+            html: `<div class="custom-map-marker type-${typeClass}">${label}</div>`,
+            iconSize: [24, 24],
+            iconAnchor: [12, 12],
+            popupAnchor: [0, -12]
+        });
+
+        const marker = L.marker([lat, lng], { icon })
+            .addTo(map)
+            .bindPopup(`<strong>${name}</strong><br>${address}`);
+
+        mapMarkers.push(marker);
+        return marker;
+    }
+
+    async function fetchRoute(waypoints) {
+        // Try OSRM for actual walking route
+        const coordStr = waypoints.map(w => `${w[1]},${w[0]}`).join(';');
+        try {
+            const resp = await fetch(`https://router.project-osrm.org/route/v1/foot/${coordStr}?overview=full&geometries=geojson`);
+            const data = await resp.json();
+            if (data.code === 'Ok' && data.routes && data.routes[0]) {
+                const coords = data.routes[0].geometry.coordinates.map(c => [c[1], c[0]]);
+                mapPath = L.polyline(coords, {
+                    color: '#e67e22',
+                    weight: 2.5,
+                    opacity: 0.7,
+                    lineCap: 'round'
+                }).addTo(map);
+                map.fitBounds(mapPath.getBounds().pad(0.1));
+                return;
+            }
+        } catch (e) {
+            console.warn('OSRM route failed, falling back to straight lines');
+        }
+
+        // Fallback: straight lines
+        mapPath = L.polyline(waypoints, {
+            color: '#e67e22',
+            weight: 2,
+            opacity: 0.5,
+            dashArray: '6, 8',
+            lineCap: 'round'
+        }).addTo(map);
+        map.fitBounds(L.latLngBounds(waypoints).pad(0.1));
     }
 });

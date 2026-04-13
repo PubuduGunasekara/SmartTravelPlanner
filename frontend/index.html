@@ -4,50 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Travel Planner</title>
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Leaflet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="app-container">
-        <!-- Sidebar Configuration -->
-        <aside class="sidebar glass-panel">
+        <aside class="sidebar">
             <div class="logo">
-                <i class="fa-solid fa-plane-departure brand-icon"></i>
-                <h1>Smart Planner</h1>
+                <span class="brand-icon">🧭</span>
+                <h1>Travel Planner</h1>
+                <button type="button" class="btn-theme" id="theme-toggle" title="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
             </div>
             
             <form id="planner-form">
                 <div class="form-group">
-                    <label for="start_address"><i class="fa-solid fa-location-dot"></i> Start Address</label>
-                    <input type="text" id="start_address" placeholder="e.g. 400 Broad St, Seattle, WA 98109" value="400 Broad St, Seattle, WA 98109" required>
+                    <label><i class="fa-solid fa-location-dot"></i> Start Address</label>
+                    <input type="text" id="start_address" placeholder="Where are you starting?" value="77 Yesler Wy, Seattle, WA 98104" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="end_address"><i class="fa-solid fa-flag-checkered"></i> End Address</label>
-                    <input type="text" id="end_address" placeholder="e.g. 85 Pike St, Seattle, WA 98101" value="85 Pike St, Seattle, WA 98101" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="start_time"><i class="fa-regular fa-clock"></i> Start Time</label>
-                    <input type="datetime-local" id="start_time" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="end_time"><i class="fa-solid fa-hourglass-end"></i> End Time</label>
-                    <input type="datetime-local" id="end_time" required>
+                    <label><i class="fa-solid fa-flag-checkered"></i> End Address</label>
+                    <input type="text" id="end_address" placeholder="Where do you need to be?" value="77 Yesler Wy, Seattle, WA 98104" required>
                 </div>
                 
                 <div class="form-row">
                     <div class="form-group half">
-                        <label for="budget"><i class="fa-solid fa-sack-dollar"></i> Budget ($)</label>
-                        <input type="number" id="budget" placeholder="e.g. 100" value="100">
+                        <label><i class="fa-regular fa-clock"></i> Start</label>
+                        <input type="datetime-local" id="start_time" value="2026-05-01T09:00" required>
+                    </div>
+                    <div class="form-group half">
+                        <label><i class="fa-solid fa-hourglass-end"></i> Return By</label>
+                        <input type="datetime-local" id="end_time" value="2026-05-01T21:00" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label><i class="fa-solid fa-sack-dollar"></i> Budget ($)</label>
+                        <input type="number" id="budget" placeholder="e.g. 100" value="200">
                     </div>
                     <div class="form-group half checkbox-group">
                         <label class="toggle-switch">
@@ -57,9 +55,17 @@
                         <span class="toggle-label">Ate Breakfast</span>
                     </div>
                 </div>
+
+                <div class="form-group must-visit-section">
+                    <label><i class="fa-solid fa-star"></i> Must-Visit Picks <span class="mv-count" id="mv-count">(0/2)</span></label>
+                    <p class="mv-hint">Select up to 2 activities you don't want to miss</p>
+                    <div class="mv-list" id="mv-list">
+                        <p class="mv-loading">Loading activities...</p>
+                    </div>
+                </div>
                 
                 <button type="submit" class="btn-primary" id="submit-btn">
-                    <span>Generate Itinerary</span>
+                    <span>Plan My Day</span>
                     <i class="fa-solid fa-wand-magic-sparkles"></i>
                 </button>
             </form>
@@ -70,36 +76,24 @@
             </div>
         </aside>
 
-        <!-- Timeline View -->
-        <section class="timeline-section glass-panel">
+        <section class="timeline-section">
             <header class="timeline-header">
                 <h2><i class="fa-solid fa-route"></i> Your Itinerary</h2>
-                <div class="trip-stats" id="trip-stats">
-                    <!-- Dynamic stats populated by JS -->
-                </div>
             </header>
             
             <div class="timeline-container" id="timeline">
                 <div class="empty-state">
                     <i class="fa-solid fa-map-location-dot"></i>
-                    <p>Enter your preferences and generate a trip to see your smart itinerary.</p>
+                    <p>Enter your preferences and hit <strong>Plan My Day</strong> to see your itinerary.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Map View -->
         <main class="map-section">
             <div id="map"></div>
-            <div class="map-overlay">
-                <span class="badge live-badge">Live Map Preview</span>
-                <div class="geocoding-status" id="geo-status" style="display: none;">
-                    <i class="fa-solid fa-satellite-dish fa-beat"></i> Locating destinations...
-                </div>
-            </div>
         </main>
     </div>
 
-    <!-- Scripts -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="app.js"></script>
 </body>

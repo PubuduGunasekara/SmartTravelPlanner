@@ -1,6 +1,5 @@
 from dataclasses import dataclass, field
 from datetime import datetime
-from typing import Optional
 from config import *
 
 @dataclass
@@ -12,13 +11,13 @@ class Node:
     money_spent: float = 0.0
     cost: float = 0.0
     heuristic: float = 0.0
-    parent: Optional["Node"] = None
-    activity_id: Optional[int] = None  # activity just completed to reach this node
+    parent: "Node | None" = None
+    activity_id: int | None = None  # activity just completed to reach this node
     arrival_time: datetime = None
 
     @property
     def f(self) -> float:
-        return self.cost + self.heuristic * HEURISTIC_WEIGHT
+        return self.cost + self.heuristic
 
     def __lt__(self, other: "Node") -> bool:
         return self.f < other.f

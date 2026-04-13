@@ -193,7 +193,7 @@ def compute_heuristic(node, matrix, locations, ctx):
 
     estimated_dead = remaining * (5 - BEST_RATING) / 5
 
-    return travel_home + estimated_dead
+    return (travel_home + estimated_dead) * ctx["weight"]
 
 def compute_cost(parent, child, activity, travel_minutes, ctx):
     if activity is None:
